@@ -212,7 +212,7 @@ namespace RenderStack.LightWave
             currentSurface = model.FindOrCreateSurface(name);
 
             if(
-                (source_name != null) && 
+                (source_name != null) && 
                 (source_name.Length > 0)
             )
             {
@@ -231,7 +231,7 @@ namespace RenderStack.LightWave
             var subchunkId     = f.ReadID4();
             var subchunkLength = f.ReadU2 ();
 
-            Debug.WriteLine(f.Type.ToString() + "::" + subchunkId.ToString() + " " + subchunkLength + " bytes");
+            Debug.WriteLine(f.Type.ToString() + "::" + subchunkId.ToString() + " " + subchunkLength + " bytes");
 
             f.Push(subchunkLength);
             switch(f.Type.value)
@@ -281,7 +281,7 @@ namespace RenderStack.LightWave
                 case ID.TTEX: readTransparencyTexture_S0          (); break;
                 case ID.LTEX: readLuminosityTexture_S0            (); break;
                 case ID.BTEX: readBumpTexture_S0                  (); break;
-                //  Texture parameters are handled by current texture
+                //  Texture parameters are handled by current tesxture
 
                 default:
                 {

@@ -367,7 +367,7 @@ namespace RenderStack.LightWave
             //  Get the first key
             LWChannelKey skey = keys.First();
             LWChannelKey ekey = keys.Last();
-            LWChannelKey next = (keys.Count > 1) ? keys[1] : null;
+            LWChannelKey next = (keys.Count > 1) ? keys[1] : null;
             LWChannelKey prev = (keys.Count > 1) ? keys[keys.Count -2] : null;
 
             //  Use pre-behavior if time is before first key time
