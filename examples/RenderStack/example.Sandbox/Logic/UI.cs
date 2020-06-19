@@ -887,7 +887,7 @@ namespace example.Sandbox
             list.Add(new Slider(renderer, "Angular Damp",   sceneManager.AngularDamping,    0,    0.0f,   1.0f,    0.0f,   1.0f));
             list.Add(new Slider(renderer, "Linear Damp",    sceneManager.LinearDamping,     0,    0.0f,   1.0f,    0.0f,   1.0f));
 
-            var expand = new Button(renderer, "Phyics", SetActive);
+            var expand = new Button(renderer, "Physics", SetActive);
             expand.Link = list;
             return expand;
         }
