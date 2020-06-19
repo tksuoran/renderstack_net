@@ -1,0 +1,124 @@
+<Type Name="TypeCoda" FullName="Cadenza.TypeCoda">
+  <TypeSignature Language="C#" Value="public static class TypeCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit TypeCoda extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Extension methods for <see cref="T:System.Type" />.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="IsAssignableTo">
+      <MemberSignature Language="C#" Value="public static bool IsAssignableTo (this Type self, Type type);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsAssignableTo(class System.Type self, class System.Type type) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.Type" RefType="this" />
+        <Parameter Name="type" Type="System.Type" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.Type" /> which is used to check that
+          instances of type <paramref name="self" /> can be stored
+          into references of type <paramref name="type" />.
+        </param>
+        <param name="type">
+          A <see cref="T:System.Type" /> which is the type of the
+          reference to store an instance of type <paramref name="self" />.
+        </param>
+        <summary>
+          Determines whether an instance of <paramref name="self" /> can be
+          stored in a reference of a type <paramref name="type" />.
+        </summary>
+        <returns>
+          <see langword="true" /> if an instance of type <paramref name="self" />
+          can be stored into a reference of type <paramref name="type" />;
+          otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            This is equivalent to
+            <c><paramref name="type" />.IsAssignableFrom(<paramref name="self" />)</c>.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/TypeCodaTest.cs#IsAssignableTo">// Can string be implicitly converted to object?  Yes.
+Assert.IsTrue (typeof(string).IsAssignableTo (typeof (object)));
+// Can object be implicitly converted to string?  No.
+Assert.IsFalse (typeof(object).IsAssignableTo (typeof (string)));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:System.Type.IsAssignableFrom(System.Type)" />
+      </Docs>
+    </Member>
+    <Member MemberName="IsNullable">
+      <MemberSignature Language="C#" Value="public static bool IsNullable (this Type self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsNullable(class System.Type self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.Type" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.Type" /> containing the type to check.
+        </param>
+        <summary>
+          Gets a value indicating whether the type is a nullable type.
+        </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="self" /> is a
+          <see cref="T:System.Nullable{T}" /> type; otherwise,
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            <paramref name="self" /> is considered to a nullable type if:
+          </para>
+          <list type="bullet">
+            <item>
+              <term>
+                <paramref name="self" /> is not <c>typeof(Nullable&lt;&gt;).</c></term>
+            </item>
+            <item>
+              <term>
+                <c>
+                  <paramref name="self" />.GetGenericTypeDefinition()</c> is
+              <c>typeof(Nullable&lt;&gt;)</c>.
+            </term>
+            </item>
+          </list>
+          <code lang="C#" src="../../Test/Cadenza/TypeCodaTest.cs#IsNullable">Assert.IsTrue (typeof (int?).IsNullable ());
+Assert.IsFalse (typeof (int).IsNullable ());
+Assert.IsFalse (typeof (string).IsNullable ());
+Assert.IsFalse (typeof (Nullable&lt;&gt;).IsNullable ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

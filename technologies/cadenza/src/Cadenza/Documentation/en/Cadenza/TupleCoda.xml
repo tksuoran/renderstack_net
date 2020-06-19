@@ -1,0 +1,950 @@
+<Type Name="TupleCoda" FullName="Cadenza.TupleCoda">
+  <TypeSignature Language="C#" Value="public static class TupleCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit TupleCoda extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Extension methods on <c>Tuple</c> types.
+            </summary>
+    <remarks />
+  </Docs>
+  <Members>
+    <Member MemberName="Aggregate&lt;T,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T, TResult&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, !!TResult&gt; func) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T&gt;" RefType="this" />
+        <Parameter Name="func" Type="System.Func&lt;T,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+            The first value type.
+            </typeparam>
+        <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T}" /> to aggregate the values of.
+            </param>
+        <param name="func">
+            A <see cref="T:System.Func{T,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`1.Item1" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        <returns>
+            The <typeparamref name="TResult" /> returned by <paramref name="func" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`1.Item1" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+            </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="func" /> is <see langword="null" />.
+            </para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Aggregate&lt;T1,T2,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, TResult&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self, class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; func) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2&gt;" RefType="this" />
+        <Parameter Name="func" Type="System.Func&lt;T1,T2,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second value type.
+            </typeparam>
+        <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2}" /> to aggregate the values of.
+            </param>
+        <param name="func">
+            A <see cref="T:System.Func{T1,T2,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`2.Item1" />, <see cref="P:Cadenza.Tuple`2.Item2" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        <returns>
+            The <typeparamref name="TResult" /> returned by <paramref name="func" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`2.Item1" />, <see cref="P:Cadenza.Tuple`2.Item2" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+            </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="func" /> is <see langword="null" />.
+            </para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Aggregate&lt;T1,T2,T3,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, T3, TResult&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; func) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" RefType="this" />
+        <Parameter Name="func" Type="System.Func&lt;T1,T2,T3,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second value type.
+            </typeparam>
+        <typeparam name="T3">
+            The third value type.
+            </typeparam>
+        <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> to aggregate the values of.
+            </param>
+        <param name="func">
+            A <see cref="T:System.Func{T1,T2,T3,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`3.Item1" />, <see cref="P:Cadenza.Tuple`3.Item2" />, <see cref="P:Cadenza.Tuple`3.Item3" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        <returns>
+            The <typeparamref name="TResult" /> returned by <paramref name="func" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`3.Item1" />, <see cref="P:Cadenza.Tuple`3.Item2" />, <see cref="P:Cadenza.Tuple`3.Item3" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+            </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="func" /> is <see langword="null" />.
+            </para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Aggregate&lt;T1,T2,T3,T4,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, T3, T4, TResult&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; func) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="T4" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" RefType="this" />
+        <Parameter Name="func" Type="System.Func&lt;T1,T2,T3,T4,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second value type.
+            </typeparam>
+        <typeparam name="T3">
+            The third value type.
+            </typeparam>
+        <typeparam name="T4">
+            The fourth value type.
+            </typeparam>
+        <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> to aggregate the values of.
+            </param>
+        <param name="func">
+            A <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        <returns>
+            The <typeparamref name="TResult" /> returned by <paramref name="func" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+            </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="func" /> is <see langword="null" />.
+            </para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Match&lt;T,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Match&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T, TResult&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T&gt;" RefType="this" />
+        <Parameter Name="matchers" Type="System.Func&lt;T,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The first value type.
+        </typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
+        </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+              <para>
+             The current <see cref="T:Cadenza.Tuple{T}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+              <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+              <para>
+             If no <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+            </block>
+            <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Match&lt;T1,T2,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, TResult&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self, class System.Func`3&lt;!!T1, !!T2, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2&gt;" RefType="this" />
+        <Parameter Name="matchers" Type="System.Func&lt;T1,T2,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+          The first value type.
+        </typeparam>
+        <typeparam name="T2">
+          The second value type.
+        </typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
+        </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+              <para>
+             The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+              <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+              <para>
+             If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+            </block>
+            <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Match&lt;T1,T2,T3,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, T3, TResult&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" RefType="this" />
+        <Parameter Name="matchers" Type="System.Func&lt;T1,T2,T3,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+          The first value type.
+        </typeparam>
+        <typeparam name="T2">
+          The second value type.
+        </typeparam>
+        <typeparam name="T3">To be added.</typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
+        </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+              <para>
+             The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+              <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+              <para>
+             If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+            </block>
+            <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Match&lt;T1,T2,T3,T4,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, T3, T4, TResult&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="T4" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" RefType="this" />
+        <Parameter Name="matchers" Type="System.Func&lt;T1,T2,T3,T4,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+          The first value type.
+        </typeparam>
+        <typeparam name="T2">
+          The second value type.
+        </typeparam>
+        <typeparam name="T3">To be added.</typeparam>
+        <typeparam name="T4">To be added.</typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
+        </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+              <para>
+             The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+              <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+              <para>
+             If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+            </block>
+            <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToEnumerable&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T&gt; (this Cadenza.Tuple&lt;T&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+            The first value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`1.Item1" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+            if <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToEnumerable&lt;T1,T2&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`2.Item1" />, <see cref="P:Cadenza.Tuple`2.Item2" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+            if <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToEnumerable&lt;T1,T2,T3&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2, T3&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second value type.
+            </typeparam>
+        <typeparam name="T3">
+            The third value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`3.Item1" />, <see cref="P:Cadenza.Tuple`3.Item2" />, <see cref="P:Cadenza.Tuple`3.Item3" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+            if <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToEnumerable&lt;T1,T2,T3,T4&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3,T4&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2, T3, T4&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="T4" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second value type.
+            </typeparam>
+        <typeparam name="T3">
+            The third value type.
+            </typeparam>
+        <typeparam name="T4">
+            The fourth value type.
+            </typeparam>
+        <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" /> to
+            <paramref name="func" />, returning the value produced by
+            <paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+            if <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToKeyValuePair&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; ToKeyValuePair&lt;TKey,TValue&gt; (this Cadenza.Tuple&lt;TKey,TValue&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TKey, !!TValue&gt; ToKeyValuePair&lt;TKey, TValue&gt;(class Cadenza.Tuple`2&lt;!!TKey, !!TValue&gt; self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.Tuple&lt;TKey,TValue&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">The type of the key.</typeparam>
+        <typeparam name="TValue">The type of the value.</typeparam>
+        <param name="self">
+          A 
+          <see cref="T:Cadenza.Tuple{TKey,TValue}" />
+          to convert into a
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
+        </param>
+        <summary>
+          Converts a 
+          <see cref="T:Cadenza.Tuple{TKey,TValue}" />
+          into a
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
+        </summary>
+        <returns>
+          A 
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />
+          structure.
+        </returns>
+        <remarks>
+          <para>
+            The value of the returned 
+            <see cref="P:System.Collections.Generic.KeyValuePair`2.Key" />
+            property is copied from 
+            <see cref="P:Cadenza.Tuple`2._1" />
+            and the value of the returned 
+            <see cref="P:System.Collections.Generic.KeyValuePair`2.Value" />
+            is copied from 
+            <see cref="P:Cadenza.Tuple`2._2" />.
+          </para>
+          <code lang="C#">
+var                       tuple = Tuple.Create ("s", 1);
+KeyValuePair&lt;string, int&gt; kvp   = tuple.ToKeyValuePair ();
+    // kvp.Key == "s", kvp.Value == 1</code>
+        </remarks>
+        <altmember cref="M:Cadenza.TupleCoda.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

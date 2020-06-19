@@ -1,0 +1,4 @@
+C:\git\renderstack_net\technologies\GPUPerfAPI.NET\bin\x86\Debug\GPUPerfAPI.NET.dll
+C:\git\renderstack_net\technologies\GPUPerfAPI.NET\bin\x86\Debug\GPUPerfAPI.NET.pdb
+C:\git\renderstack_net\technologies\GPUPerfAPI.NET\obj\x86\Debug\GPUPerfAPI.NET.dll
+C:\git\renderstack_net\technologies\GPUPerfAPI.NET\obj\x86\Debug\GPUPerfAPI.NET.pdb

@@ -1,0 +1,78 @@
+<Type Name="TextReaderCodaOptions" FullName="Cadenza.IO.TextReaderCodaOptions">
+  <TypeSignature Language="C#" Value="public enum TextReaderCodaOptions" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed TextReaderCodaOptions extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Flags</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      Options to control <see cref="T:Cadenza.IO.TextReaderCoda" /> 
+      method behavior.
+    </summary>
+    <remarks>
+      <para>
+        This enumeration is used to control the behavior of 
+        <see cref="M:Cadenza.IO.TextReaderCoda.Lines(System.IO.TextReader,Cadenza.IO.TextReaderCodaOptions)" />
+        and
+        <see cref="M:Cadenza.IO.TextReaderCoda.Words(System.IO.TextReader,Cadenza.IO.TextReaderCodaOptions)" />
+        behavior.
+      </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="CloseReader">
+      <MemberSignature Language="C#" Value="CloseReader" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.IO.TextReaderCodaOptions CloseReader = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.IO.TextReaderCodaOptions</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>
+            If specified, the <see cref="T:System.IO.TextReader" /> should be 
+            <see cref="M:System.IO.TextReader.Close" />ed once all lines or
+            words have been read from the TextReader.
+          </para>
+          <para>
+            This may simplify resource disposal.
+          </para>
+          <para>
+            If not specified, then the <see cref="T:System.IO.TextReader" />
+            will not be <see cref="M:System.IO.TextReader.Close" />ed.
+          </para>
+        </summary>
+      </Docs>
+    </Member>
+    <Member MemberName="None">
+      <MemberSignature Language="C#" Value="None" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.IO.TextReaderCodaOptions None = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.IO.TextReaderCodaOptions</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          <para>
+            No options specified.
+          </para>
+        </summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

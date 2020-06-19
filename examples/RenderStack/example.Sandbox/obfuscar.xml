@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<Obfuscator>
+    <Var name="InPath" value="." />
+    <Var name="OutPath" value="." />
+    <Var name="ReuseNames" value="true" />
+
+    <Module file="$(InPath)\example.Sandbox.exe">
+        <SkipType name="Sandbox.InertiaCache"></SkipType>
+        <SkipType name="Sandbox.InertiaData"></SkipType>
+    </Module>
+</Obfuscator>

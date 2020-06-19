@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C62E009F-C4EE-4EDD-AF80-8A8BC332242D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>example.Sandbox</RootNamespace>
+    <AssemblyName>example.Sandbox</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>RenderStack Sandbox</ProductName>
+    <PublisherName>Timo Suoranta</PublisherName>
+    <SuiteName>RenderStack</SuiteName>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.1.1.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LOADING;ASSET_MONITOR</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="Custom" name="install" command="install.bat ${ProjectName} ${TargetDir} ${TargetDir} ${ProjectDir}" workingdir="${ProjectDir}" externalConsole="true" pauseExternalConsole="true" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;CATCH</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7D73A0509989FE20E629B5E56C4E59E976B337BD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>editor_cs_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LOADING;ASSET_MONITOR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;CATCH</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LOADING;ASSET_MONITOR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CATCH</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Net35">
+      <HintPath>..\..\..\technologies\json\Net35\Newtonsoft.Json.Net35.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\Application.cs" />
+    <Compile Include="Application\Main.cs" />
+    <Compile Include="Application\OnLoad.cs" />
+    <Compile Include="Application\Resize.cs" />
+    <Compile Include="Application\Utils.cs" />
+    <None Include="OpenRL\OpenRLRendererGL.cs" />
+    <None Include="OpenRL\OpenRLRendererRL.cs" />
+    <Compile Include="Logic\Game\AI.cs" />
+    <Compile Include="Logic\Game\AboveCamera.cs" />
+    <Compile Include="Logic\Game\FollowCamera.cs" />
+    <Compile Include="Logic\Game\ICameraUpdate.cs" />
+    <Compile Include="Logic\Game\LookAtPhysicsFrameController.cs" />
+    <Compile Include="Logic\Game\CustomTetrahedron.cs" />
+    <Compile Include="Graphics\StereoscopicRenderer.cs" />
+    <Compile Include="Logic\Game\Game.cs" />
+    <Compile Include="Logic\Game\Unit.cs" />
+    <Compile Include="Logic\Game\UnitType.cs" />
+    <Compile Include="Logic\Scene\SceneManager_Lights.cs" />
+    <Compile Include="Logic\Scene\SceneManager_Update.cs" />
+    <Compile Include="Logic\Timers.cs" />
+    <Compile Include="Logic\Game\PhysicsFrameController.cs" />
+    <Compile Include="Logic\UI_Update.cs" />
+    <None Include="OpenRL\Primitive.cs" />
+    <Compile Include="Store\AmbientOcclusion.cs" />
+    <Compile Include="Application\Unload.cs" />
+    <Compile Include="Logic\UI\Palette.cs" />
+    <Compile Include="Logic\UI_Input.cs" />
+    <Compile Include="Logic\SelectionManager.cs" />
+    <Compile Include="Store\Demo\DemoPlayer.cs" />
+    <Compile Include="Extensions\MaterialManagerCoda.cs" />
+    <Compile Include="Operations\InsertOperation.cs" />
+    <Compile Include="Utils\Performance.cs" />
+    <Compile Include="Store\Radiosity.cs" />
+    <Compile Include="Logic\Services.cs" />
+    <Compile Include="Logic\Scene\SceneManager.cs" />
+    <Compile Include="Store\Sounds\Sound.cs" />
+    <Compile Include="Store\Sounds\Sounds.cs" />
+    <Compile Include="Logic\HighLevelRenderer.cs" />
+    <Compile Include="Logic\UI_Render.cs" />
+    <Compile Include="Operations\CatmullClarkOperation.cs" />
+    <Compile Include="Operations\DeleteOperation.cs" />
+    <Compile Include="Operations\FlatNormalsOperation.cs" />
+    <Compile Include="Operations\MergeOperation.cs" />
+    <Compile Include="Operations\OperationManager.cs" />
+    <Compile Include="Operations\PhysicsDeactivateOperation.cs" />
+    <Compile Include="Operations\PhysicsDropModelOperation.cs" />
+    <Compile Include="Operations\TriangulateOperation.cs" />
+    <Compile Include="Operations\Sqrt3Operation.cs" />
+    <Compile Include="Operations\SubdivideOperation.cs" />
+    <Compile Include="Operations\TruncateOperation.cs" />
+    <Compile Include="Physics\Physics.cs" />
+    <Compile Include="Store\HemicubeRenderer.cs" />
+    <Compile Include="Store\HemisphericalRenderer.cs" />
+    <Compile Include="Graphics\LineRenderer.cs" />
+    <Compile Include="Logic\ManipulatorManager.cs" />
+    <Compile Include="Logic\UpdateManager.cs" />
+    <Compile Include="Utils\RectanglePack.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Time.cs" />
+    <Compile Include="Logic\UI.cs" />
+    <Compile Include="Utils\AssemblyUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\technologies\cadenza\src\Cadenza\Cadenza.csproj">
+      <Project>{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}</Project>
+      <Name>Cadenza</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\fmod\fmod_cs\fmod_cs.csproj">
+      <Project>{5B8F07B3-3A58-4158-81D2-53F8AA41B201}</Project>
+      <Name>fmod_cs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\GPUPerfAPI.NET\GPUPerfAPI.NET.csproj">
+      <Project>{8153C679-507E-42BD-9F41-E4FF2D6DAC78}</Project>
+      <Name>GPUPerfAPI.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\nvtt\Nvidia.TextureTools\Nvidia.TextureTools.csproj">
+      <Project>{CAB55C39-8FA9-4912-98D9-E52669C8911D}</Project>
+      <Name>Nvidia.TextureTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\opentk\Source\OpenTK\OpenTK.csproj">
+      <Project>{A37A7E14-0000-0000-0000-000000000000}</Project>
+      <Name>OpenTK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Graphics\RenderStack.Graphics.csproj">
+      <Project>{34030B2F-D230-4CFC-8FC7-6045A7B17E29}</Project>
+      <Name>RenderStack.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.LightWave\RenderStack.LightWave.csproj">
+      <Project>{4132C149-2F98-4866-B5A9-FBA758255CB9}</Project>
+      <Name>RenderStack.LightWave</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Math\RenderStack.Math.csproj">
+      <Project>{2556D282-DC14-4938-A30A-66DA900C1C08}</Project>
+      <Name>RenderStack.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Mesh\RenderStack.Mesh.csproj">
+      <Project>{367E25F8-6259-4F2B-8295-89BA0E458239}</Project>
+      <Name>RenderStack.Mesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Physics\RenderStack.Physics.csproj">
+      <Project>{D17EDCEC-A775-48C9-B909-6FC2F91F888A}</Project>
+      <Name>RenderStack.Physics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Scene\RenderStack.Scene.csproj">
+      <Project>{313B7D0F-B612-4363-B080-6B95AD71B1A9}</Project>
+      <Name>RenderStack.Scene</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Services\RenderStack.Services.csproj">
+      <Project>{C9282192-3BAC-4172-94E7-45F338454E0B}</Project>
+      <Name>RenderStack.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\targaimage\TargaImage.csproj">
+      <Project>{56F4BD87-2404-4263-80D5-6FA2161EB0A4}</Project>
+      <Name>TargaImage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\WildMagic\WildMagic.csproj">
+      <Project>{E4BE7E19-865A-4ED1-9501-13B8A4B65AC6}</Project>
+      <Name>WildMagic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\example.BrushManager\example.Brushes.csproj">
+      <Project>{713B4B62-40E5-4403-A6C7-2DF73385A4AE}</Project>
+      <Name>example.Brushes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\example.CurveTool\example.CurveTool.csproj">
+      <Project>{B7FE22BD-FDBD-4534-8C8B-2A6E62246A31}</Project>
+      <Name>example.CurveTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\example.Loading\example.Loading.csproj">
+      <Project>{89E8BE77-6C07-4481-9B57-B117984B7B5E}</Project>
+      <Name>example.Loading</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\example.Renderer\example.Renderer.csproj">
+      <Project>{FA170ADA-9116-470B-8FFD-80C65694AE18}</Project>
+      <Name>example.Renderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\example.UIComponents\example.UIComponents.csproj">
+      <Project>{0BFEFFE4-810B-4D6E-9894-E45BF25E8EF1}</Project>
+      <Name>example.UIComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\example.VoxelRenderer\example.VoxelRenderer.csproj">
+      <Project>{90782C0A-749E-4725-8B76-F278D98C71EF}</Project>
+      <Name>example.VoxelRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
+      <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
+      <Name>RenderStack.Geometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\renderstack.ui\RenderStack.UI.csproj">
+      <Project>{04685B14-A959-47F4-A1F8-4B2A9A94AF4D}</Project>
+      <Name>RenderStack.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt">
+    </Content>
+    <None Include="res\OpenGL3\VisualizeStencil.fs" />
+    <None Include="res\OpenGL3\VisualizeStencil.vs" />
+    <None Include="res\OpenGL3\VisualizeDepth.fs" />
+    <None Include="res\OpenGL3\VisualizeDepth.vs" />
+    <None Include="res\OpenGL3\VisualizeOpenRL.fs" />
+    <None Include="res\OpenGL3\VisualizeOpenRL.vs" />
+    <None Include="res\OpenRL\simpleFrame.fs" />
+    <None Include="res\OpenRL\simplePrimitive.rs" />
+    <None Include="res\audio\down.wav">
+    </None>
+    <None Include="res\audio\down2.wav">
+    </None>
+    <None Include="res\audio\insert.wav">
+    </None>
+    <None Include="res\audio\lo.wav">
+    </None>
+    <None Include="res\audio\lo2.wav">
+    </None>
+    <None Include="res\audio\tsiuh_short.wav">
+    </None>
+    <None Include="res\audio\ui_blui.wav">
+    </None>
+    <None Include="res\audio\up.wav">
+    </None>
+    <None Include="res\audio\up2.wav">
+    </None>
+    <None Include="res\images\checkerboard16onebw.png">
+    </None>
+    <None Include="res\images\default.png">
+    </None>
+    <None Include="res\images\font_0.tga">
+    </None>
+    <None Include="res\images\negx.jpg">
+    </None>
+    <None Include="res\images\negy.jpg">
+    </None>
+    <None Include="res\images\negz.jpg">
+    </None>
+    <None Include="res\images\ninepatch3.png">
+    </None>
+    <None Include="res\images\posx.jpg">
+    </None>
+    <None Include="res\images\posy.jpg">
+    </None>
+    <None Include="res\images\posz.jpg">
+    </None>
+    <Compile Include="Application\Configuration.cs" />
+    <Compile Include="Application\OnRenderFrame.cs" />
+    <Compile Include="Utils\Statistics.cs" />
+    <Compile Include="Graphics\MainSceneRenderer.cs" />
+    <Compile Include="Store\RenderReflections.cs" />
+    <Compile Include="Graphics\ShadowRenderer.cs" />
+    <Compile Include="Store\BRDF\BRDF.cs" />
+    <Compile Include="Store\Bonus.cs" />
+    <Compile Include="Store\Game.cs" />
+    <Compile Include="Store\Unit.cs" />
+    <Compile Include="Graphics\IDRenderer.cs" />
+    <Compile Include="Physics\PhysicsFpsFrameController.cs" />
+    <Compile Include="Logic\UI\StyleManager.cs" />
+    <Compile Include="Logic\Scene\Bender.cs" />
+    <Compile Include="Logic\Scene\IRenderUpdate.cs" />
+    <Compile Include="Logic\Scene\HeadingElevationFrameController.cs" />
+    <Compile Include="Logic\Scene\IFrameController.cs" />
+    <Compile Include="Physics\PhysicsCamera.cs" />
+    <Compile Include="Logic\Scene\ISimulationUpdate.cs" />
+    <Compile Include="Logic\Scene\SceneManager_Scenes.cs" />
+    <Compile Include="Utils\PoissonDisc.cs" />
+    <Compile Include="Logic\Scene\Controller.cs" />
+    <Compile Include="Logic\Scene\FrameController.cs" />
+    <Compile Include="Physics\PhysicsDrag.cs" />
+    <Compile Include="Operations\IOperation.cs" />
+    <Compile Include="Operations\OperationStack.cs" />
+    <Compile Include="Operations\SelectOperation.cs" />
+    <Compile Include="Logic\Scene\ReferenceFrame.cs" />
+    <Compile Include="Graphics\FramebufferManager.cs" />
+    <Compile Include="Utils\ReadOnlyHashSet.cs" />
+    <Compile Include="Utils\ThreadManager.cs" />
+    <Compile Include="Utils\ThreadManager2.cs" />
+    <None Include="app.config" />
+    <None Include="editor_cs_TemporaryKey.pfx" />
+    <None Include="res\OpenGL3\SchlickNoise.fs" />
+    <None Include="res\OpenGL3\SchlickNoise.vs" />
+    <None Include="res\OpenGL3\Rim.fs" />
+    <None Include="res\OpenGL3\Rim.vs" />
+    <None Include="res\OpenGL3\line.gs">
+    </None>
+    <None Include="res\OpenGL3\manipulator.fs">
+    </None>
+    <None Include="res\OpenGL3\manipulator.vs">
+    </None>
+    <None Include="res\OpenGL3\ShadowCaster.fs" />
+    <None Include="res\OpenGL3\ShadowCaster.vs" />
+    <None Include="res\OpenRL\simplePrimitive.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="install.bat" />
+    <None Include="quick_publish.bat" />
+    <Content Include="instancing.txt" />
+    <None Include="res\boxi3.lws" />
+    <None Include="res\OpenGL1\Anachrome.json" />
+    <None Include="res\OpenGL1\Blend.json" />
+    <None Include="res\OpenGL1\ColorCode.json" />
+    <None Include="res\OpenGL1\ColorFill.json" />
+    <None Include="res\OpenGL1\FatTriangle.json" />
+    <None Include="res\OpenGL1\Font.json" />
+    <None Include="res\OpenGL1\Grid.json" />
+    <None Include="res\OpenGL1\HSVColorFill.json" />
+    <None Include="res\OpenGL1\HSVColorFill2.json" />
+    <None Include="res\OpenGL1\IdVec3.json" />
+    <None Include="res\OpenGL1\Manipulator.json" />
+    <None Include="res\OpenGL1\Ninepatch.json" />
+    <None Include="res\OpenGL1\Point.json" />
+    <None Include="res\OpenGL1\Rim.json" />
+    <None Include="res\OpenGL1\Schlick.json" />
+    <None Include="res\OpenGL1\shaders000.xsd" />
+    <None Include="res\OpenGL1\Triochrome.json" />
+    <None Include="res\OpenGL1\WideLineUniformColor.json" />
+    <None Include="res\OpenGL1\WideLineUniformColor.sjon" />
+    <None Include="res\OpenGL3\Anachrome.fs" />
+    <None Include="res\OpenGL3\Anachrome.vs" />
+    <None Include="res\OpenGL3\Blend.fs" />
+    <None Include="res\OpenGL3\Blend.vs" />
+    <None Include="res\OpenGL3\ColorCode.fs" />
+    <None Include="res\OpenGL3\ColorCode.vs" />
+    <None Include="res\OpenGL3\Basic.fs" />
+    <None Include="res\OpenGL3\Basic.vs" />
+    <None Include="res\OpenGL3\Ninepatch.fs" />
+    <None Include="res\OpenGL3\Ninepatch.vs" />
+    <None Include="res\OpenGL3\WideLineUniformColor.fs" />
+    <None Include="res\OpenGL3\WideLineUniformColor.gs" />
+    <None Include="res\OpenGL3\WideLineUniformColor.vs" />
+    <None Include="res\OpenGL3\HSVColorFill2.fs" />
+    <None Include="res\OpenGL3\HSVColorFill2.vs" />
+    <None Include="res\OpenGL3\HSVColorFill.fs" />
+    <None Include="res\OpenGL3\HSVColorFill.vs" />
+    <None Include="res\OpenGL3\ShadowCaster2.fs" />
+    <None Include="res\OpenGL3\ShadowCaster2.vs">
+    </None>
+    <None Include="res\OpenGL3\IdVec3.fs" />
+    <None Include="res\OpenGL3\IdVec3.vs" />
+    <None Include="res\OpenGL3\Schlick.fs" />
+    <None Include="res\OpenGL3\Schlick.vs" />
+    <None Include="res\OpenGL3\TFloat.fs" />
+    <None Include="res\OpenGL3\TFloat.vs" />
+    <None Include="res\OpenGL3\minimal.fs" />
+    <None Include="res\OpenGL3\minimal.vs" />
+    <None Include="exclude.txt" />
+    <Content Include="fmodex.dll" />
+    <Content Include="Notes.txt" />
+    <Content Include="nvtt.dll" />
+    <Content Include="obfuscar.xml" />
+    <Content Include="ReadMe.Sandbox.txt" />
+    <Content Include="res\OpenGL3\_utils.txt" />
+    <Content Include="res\OpenGL3\_instancing.txt" />
+    <Content Include="res\OpenGL3\_fs_shadows.txt" />
+    <None Include="res\OpenGL3\Blit.fs" />
+    <None Include="res\OpenGL3\Blit.vs" />
+    <None Include="res\OpenGL3\ColorFill.fs" />
+    <None Include="res\OpenGL3\ColorFill.vs" />
+    <None Include="res\OpenGL3\ColorPoint.fs" />
+    <None Include="res\OpenGL3\ColorPoint.vs" />
+    <None Include="res\OpenGL3\Cubemap.fs" />
+    <None Include="res\OpenGL3\Cubemap.vs" />
+    <None Include="res\audio\collision.wav" />
+    <None Include="res\OpenGL3\FatTriangle.fs" />
+    <None Include="res\OpenGL3\FatTriangle.gs" />
+    <None Include="res\OpenGL3\FatTriangle.vs" />
+    <None Include="res\OpenGL3\Font.fs" />
+    <None Include="res\OpenGL3\Font.vs" />
+    <None Include="res\OpenGL3\Grid.fs" />
+    <None Include="res\OpenGL3\Grid.vs" />
+    <None Include="res\OpenGL3\IdUInt.fs" />
+    <None Include="res\OpenGL3\IdUInt.vs" />
+    <None Include="res\OpenGL3\Anisotropic.fs" />
+    <None Include="res\OpenGL3\Anisotropic.vs" />
+    <None Include="res\OpenGL3\BlinnPhong.fs" />
+    <None Include="res\OpenGL3\BlinnPhong.vs" />
+    <None Include="res\OpenGL3\line.fs" />
+    <None Include="res\OpenGL3\line.vs" />
+    <None Include="res\OpenGL3\monochrome.fs" />
+    <None Include="res\OpenGL3\monochrome.vs" />
+    <None Include="res\OpenGL3\particle.fs" />
+    <None Include="res\OpenGL3\particle.vs" />
+    <None Include="res\OpenGL3\point.fs" />
+    <None Include="res\OpenGL3\point.vs" />
+    <None Include="res\OpenGL3\Slider.fs" />
+    <None Include="res\OpenGL3\Slider.vs" />
+    <None Include="res\OpenGL3\triochrome.fs" />
+    <None Include="res\OpenGL3\triochrome.vs" />
+    <None Include="res\OpenGL3\visualizeCubemap.fs" />
+    <None Include="res\OpenGL3\visualizeCubemap.vs" />
+    <None Include="res\OpenGL3\visualizeNormal.vs" />
+    <None Include="res\OpenGL3\visualizeNormal.fs" />
+    <None Include="res\OpenGL3\VisualizeShadowMap.fs" />
+    <None Include="res\OpenGL3\VisualizeShadowMap.vs" />
+    <None Include="res\OpenGL3\visualizeTangent.fs" />
+    <None Include="res\OpenGL3\visualizeTangent.vs" />
+    <None Include="res\OpenGL3\WideLine.fs" />
+    <None Include="res\OpenGL3\WideLine.gs" />
+    <None Include="res\OpenGL3\WideLine.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>call "$(ProjectDir)install.bat" "$(ProjectName)" "$(TargetDir)" "$(TargetPath)" "$(ProjectDir)"
+echo call $(ProjectDir)quick_publish.bat $(ProjectName) $(TargetDir) $(TargetFileName) $(ProjectDir) $(SolutionDir)
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,1 @@
+C:\git\renderstack_net\technologies\RenderStack.Mesh\obj\x86\Debug\RenderStack.Mesh.csprojResolveAssemblyReference.cache

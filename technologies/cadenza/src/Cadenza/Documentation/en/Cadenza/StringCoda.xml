@@ -1,0 +1,1282 @@
+<Type Name="StringCoda" FullName="Cadenza.StringCoda">
+  <TypeSignature Language="C#" Value="public static class StringCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit StringCoda extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Extension methods for <see cref="T:System.String" />.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="CaptureNamedGroups">
+      <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.ILookup`2&lt;string, string&gt; CaptureNamedGroups(string self, string regex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Linq.ILookup&lt;System.String,System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+		"--foo=bar"
+		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
+		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
+			"; name=" + r ["name"].Implode () +
+			"; value=" + r ["value"].Implode ()));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CaptureNamedGroups">
+      <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.ILookup`2&lt;string, string&gt; CaptureNamedGroups(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Linq.ILookup&lt;System.String,System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+		"--foo=bar"
+		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
+		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
+			"; name=" + r ["name"].Implode () +
+			"; value=" + r ["value"].Implode ()));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Captures">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Captures(string self, string regex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Captures">Assert.IsTrue (
+		new[]{"a", "b", "c", "d"}.SequenceEqual (
+			"a - b - c - d".Captures (@"(\w+)")));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Captures">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Captures(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Captures">Assert.IsTrue (
+		new[]{"a", "b", "c", "d"}.SequenceEqual (
+			"a - b - c - d".Captures (@"(\w+)")));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="IsNullOrWhitespace">
+      <MemberSignature Language="C#" Value="public static bool IsNullOrWhitespace (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsNullOrWhitespace(string self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to check to see if it is
+          <see langword="null" /> or contains only whitespace characters.
+        </param>
+        <summary>
+          Indicates whether <paramref name="self" /> is a
+          <see langword="null" /> or contains only whitespace.
+        </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="self" />
+          is <see langword="null" /> or contains only
+          whitespace; otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#IsNullOrWhitespace">string s = null;
+Assert.IsTrue (s.IsNullOrWhitespace());
+Assert.IsTrue ("".IsNullOrWhitespace());
+Assert.IsTrue ("    ".IsNullOrWhitespace());
+Assert.IsFalse ("foo".IsNullOrWhitespace());
+</code>
+        </remarks>
+        <altmember cref="M:System.String.Trim" />
+      </Docs>
+    </Member>
+    <Member MemberName="Lines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Lines(string self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to read lines from.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <block subset="none" type="note">
+            A "line of text" is the same as that used by 
+            <see cref="M:Cadenza.TextReaderCoda.Lines(System.IO.TextReader)" />.
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Lines">Assert.IsTrue (new[]{"one", "two", "three"}
+		.SequenceEqual ("one\ntwo\nthree".Lines ()));
+</code>
+        </remarks>
+        <altmember cref="M:Cadenza.TextReaderCoda.Lines(System.IO.TextReader)" />
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Matches">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Text.RegularExpressions.Match&gt; Matches(string self, string regex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Matches">string match = @"a - b
+c - d
+e - f";
+
+Match[] matches = match.Matches (@"\w+ - \w+").ToArray();
+Assert.AreEqual (3, matches.Length);
+Assert.AreEqual ("a - b", matches [0].Value);
+Assert.AreEqual ("c - d", matches [1].Value);
+Assert.AreEqual ("e - f", matches [2].Value);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Matches">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Text.RegularExpressions.Match&gt; Matches(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Matches">string match = @"a - b
+c - d
+e - f";
+
+Match[] matches = match.Matches (@"\w+ - \w+").ToArray();
+Assert.AreEqual (3, matches.Length);
+Assert.AreEqual ("a - b", matches [0].Value);
+Assert.AreEqual ("c - d", matches [1].Value);
+Assert.AreEqual ("e - f", matches [2].Value);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MatchValues">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; MatchValues(string self, string regex) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <para>
+            This differs from
+            <see cref="M:Cadenza.StringCoda.Captures(System.String,System.String)" />
+            in that no captures (parenthesis) are required within 
+            <paramref name="regex" />.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#MatchValues">string match = @"a - b
+c - d
+e - f";
+
+string[] expected = {"a - b", "c - d", "e - f"};
+string[] actual = match.MatchValues(@"\w+ - \w+").ToArray();
+
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MatchValues">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; MatchValues(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <para>
+            This differs from
+            <see cref="M:Cadenza.StringCoda.Captures(System.String,System.String)" />
+            in that no captures (parenthesis) are required within 
+            <paramref name="regex" />.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#MatchValues">string match = @"a - b
+c - d
+e - f";
+
+string[] expected = {"a - b", "c - d", "e - f"};
+string[] actual = match.MatchValues(@"\w+ - \w+").ToArray();
+
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public static string Remove (this string self, string[] targets);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Remove(string self, string[] targets) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="targets" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to remove all occurrences of all
+          elements within <paramref name="targets" />.
+        </param>
+        <param name="targets">
+          A <see cref="T:System.String" /> array containing the strings to
+          remove from <paramref name="self " />.
+        </param>
+        <summary>
+          Deletes all strings within <paramref name="targets" /> from
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.String" /> instance in which all strings
+          within <paramref name="targets " /> have been removed.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Remove">Assert.AreEqual (" Bar ", "Foo Bar Monkeys".Remove ("Foo", "Monkeys"));
+Assert.AreEqual (" Bar ", "Foo Bar Foo".Remove ("Foo"));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="targets" /> is
+          <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Slice">
+      <MemberSignature Language="C#" Value="public static string Slice (this string self, int start, int end);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Slice(string self, int32 start, int32 end) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="start" Type="System.Int32" />
+        <Parameter Name="end" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> containing the string to 
+          substring.
+        </param>
+        <param name="start">
+          A <see cref="T:System.Int32" /> containing the start index of the
+          new <see cref="T:System.String" /> to create.
+        </param>
+        <param name="end">
+          A <see cref="T:System.Int32" /> containing the end index of the
+          new <see cref="T:System.String" /> to create.
+        </param>
+        <summary>
+          Creates a new <see cref="T:System.String" /> of 
+          <paramref name="self" /> using indexes of the start and end
+          position.
+        </summary>
+        <returns>
+          A new <see cref="T:System.String" /> of <paramref name="self" /> 
+          using indexes of the start and end position.
+        </returns>
+        <remarks>
+          <para>
+            This differs from 
+            <see cref="T:System.String.Substring(System.Int32,System.Int32)" />
+            in that <paramref name="start" /> and <paramref name="end" /> are
+            both string indexes, while the <paramref name="length" />
+            parameter in <c>Substring</c> is not an index.
+          </para>
+          <para>
+            If <paramref name="end" /> is negative, then it is taken as a 
+            value from the end of the string.
+          </para>
+          <para>
+            When <paramref name="end" /> is positive, this is equivalent to
+            <c>self.Substring (start, end - start)</c>.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Slice">var data = "0123456789";
+
+Assert.AreEqual ("0",       data.Slice (0, 1));
+Assert.AreEqual ("89",      data.Slice (8, 10));
+Assert.AreEqual ("456789",  data.Slice (4, -1));
+Assert.AreEqual ("8",       data.Slice (8, -2));
+Assert.AreEqual ("",        data.Slice (data.Length, data.Length));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <para>
+            <paramref name="start" /> is negative
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="start" /> is greater than or equal to 
+            <c><paramref name="self" />.Length</c>.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="end" /> is greater than or equal to 
+            <c><paramref name="self" />.Length</c>.
+          </para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToEnum&lt;TEnum&gt;">
+      <MemberSignature Language="C#" Value="public static TEnum ToEnum&lt;TEnum&gt; (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TEnum ToEnum&lt;TEnum&gt;(string self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TEnum</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TEnum" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TEnum">
+          An enumeration type containing the member stored in 
+          <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.String" /> containing an enumeration value to
+          convert into that enumeration value.
+        </param>
+        <summary>
+          Converts a <see cref="T:System.String" /> into an enumeration value
+          of type <typeparamref name="TEnum" />.
+        </summary>
+        <returns>
+          A <typeparamref name="TEnum" /> value containing the value named by
+          <paramref name="self" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="note">
+            This probabably doesn't properly support
+            <see cref="T:System.FlagsAttribute" /> enums...
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#ToEnum">Assert.AreEqual (Foo.Gazonk, "Gazonk".ToEnum&lt;Foo&gt; ());
+Assert.AreEqual (Foo.Bar,    "Bar".ToEnum&lt;Foo&gt; ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Tokens">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this string self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Tokens(string self, class System.Func`3&lt;valuetype System.Nullable`1&lt;char&gt;, char, bool&gt;[] categories) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to extract tokens from.
+        </param>
+        <param name="categories">
+          A
+					<see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
+					array containing the different categories of characters that 
+					determines what makes up a "token."  If the 
+					<see cref="T:System.Nullable{System.Char}" /> parameter is 
+					<see langword="null" />, then the <see cref="T:System.Char" /> is
+					the first character within the token; otherwise, the
+					<see cref="T:System.Nullable{System.Char}" /> parameter contains the
+					character preceding the <see cref="T:System.Char" />.
+					The delegate should return <see langword="true" /> if the
+					<see cref="T:System.Char" /> is a supported character; otherwise,
+					<see langword="false" /> should be returned.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all tokens from <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all tokens from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <block subset="none" type="note">
+            <para>
+              A "token" is determined by <paramref name="categories" />, and
+							is any contiguous sequence of characters for which the
+              same <paramref name="categories" /> index returns 
+              <see langword="true" />, starting from the first delegate.  This
+              allows a "some characters are more important than others"
+              philosphy, allowing e.g. parenthesis to be returned separately
+              from alphanumeric characters, even if no whitespace separates
+              them.
+            </para>
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Tokens">string[] expected = {"(", "hello", ",", "world", "!)"};
+string[] actual = "(hello, world!)"
+	.Tokens (
+			(p, c) =&gt; char.IsLetterOrDigit (c), // words
+			(p, c) =&gt; !char.IsWhiteSpace (c)    // non-space
+	).ToArray ();
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="categories" /> is empty.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />, or
+          <paramref name="categories" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Words">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Words(string self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to extract words from.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <block subset="none" type="note">
+            A "word" any contiguous series of characters for which
+            <see cref="M:System.Char.IsWhiteSpace(System.Char)" />
+            returns <see langword="false" />.
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Words">string[] expected = {"skip", "leading", "and", "trailing", "whitespace"};
+string[] actual = 
+	"   skip  leading\r\n\tand trailing\vwhitespace   "
+	.Words ().ToArray ();
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <altmember cref="M:Cadenza.TextReaderCoda.Words(System.IO.TextReader)" />
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="WrappedLines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, System.Collections.Generic.IEnumerable&lt;int&gt; widths);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; WrappedLines(string self, class System.Collections.Generic.IEnumerable`1&lt;int32&gt; widths) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="widths" Type="System.Collections.Generic.IEnumerable&lt;System.Int32&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to split into segments no longer
+          than lenghts in the <paramref name="widths" /> sequence.
+        </param>
+        <param name="widths">
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing the maximum lengths
+          to use for corresponding returned segments.  The last value in this
+          array is used for all remaining segments.
+        </param>
+        <summary>
+          Splits a string into line segments with a maximum length constrained
+          by <paramref name="widths" />.
+        </summary>
+        <returns>
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing segments from <paramref name="self" /> with a length
+          no longer than entries from <paramref name="widths" />.
+        </returns>
+        <remarks>
+          <para>
+            This is a "DWIM"-style interface for line wrapping.
+          </para>
+          <para>
+            <c>WrappedLines()</c> is oriented toward
+            <see cref="T:System.Console" />-style output in which line widths
+            are controlled by the number of characters (i.e. fixed-width fonts,
+            not proportional fonts).  <paramref name="widths" /> is used
+            to constrain the length of each corresponding segment within the
+            returned
+            <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />.
+            For example, the first string segment returned will have a length
+            no longer than the first element in <paramref name="widths" />,
+            the second string segment returned will have a length no longer
+            than the second element in <paramref name="widths" />, etc.
+            The last element in <paramref name="widths" /> is used to constrain
+            the lenghts of all remaining string segments; thus, if
+            <paramref name="widths" /> has only one element, that value is
+            used to constrain all returned string segments.
+          </para>
+          <para>
+            Note that <paramref name="widths" /> constrains the width of
+            segments; a segment may be shorter, and may be empty.
+          </para>
+          <para>
+            String splitting is done as follows:
+          </para>
+          <list type="number">
+            <item>
+              <term>
+                Determine the <c>width</c>to use for the current segment by
+                getting a value from <paramref name="widths" />.  If
+                <paramref name="widths" /> is empty, then the maximum
+                segment length is <see cref="F:System.Int32.MaxValue" />.
+                If there is no remaining value in <paramref name="widths" />,
+                use the last width value found.
+              </term>
+            </item>
+            <item>
+              <term>
+                Beginning at index <c>i</c> within <paramref name="self" />
+                (starting at index <c>0</c>), look for all "end-of-line
+                characters" -- characters for which
+                <see cref="M:System.Char.IsLetterOrDigit(System.Char)" />
+                returns <see langword="false" />, thus including punctuation,
+                whitespace, etc. --
+                from <c>self[i]</c> until <c>self[i+width]</c>.
+                If a newline is found, return the segment starting from index
+                <c>i</c> until the first newline position.  If no newline
+                is found but an end-of-line character is is found, return a
+                segment starting from index <c>i</c> until the last end-of-line
+                character. If no end-of-line character is found within
+                <c>self[i]</c> until <c>self[i+width]</c>, create a segment from
+                <c>self[i]</c> until <c>self[i+width-1]</c>, and append
+                <c>'-'</c> to the segment as a line-continuation character.
+              </term>
+            </item>
+            <item>
+              <term>
+                Repeat steps 1-2 until the end of the string is encountered.
+              </term>
+            </item>
+          </list>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
+// This is because the newline is encountered first.
+// The width of 48 is used to constrain all remaining lines, causing
+// the 4th line to require line-wrapping.
+//
+// Notice also that all embedded '\n's are removed.
+IEnumerable&lt;string&gt; wrappedLines =
+		("This has a really\n" +
+		 "long, multi-line description that also\n" +
+		 "tests\n" +
+		 "the-builtin-supercalifragilisticexpialidicious-break-on-hyphen.  " +
+		 "Also, a list:\n" +
+		 "  item 1\n" +
+		 "  item 2")
+		.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"This has a really",
+		"long, multi-line description that also",
+		"tests",
+		"the-builtin-supercalifragilisticexpialidicious-",
+		"break-on-hyphen.  Also, a list:",
+		"  item 1",
+		"  item 2",
+}.SequenceEqual (wrappedLines));
+
+// Another example where the text has no whitespace before the
+// constrained width.
+wrappedLines =
+	"IWantThisDescriptionToBreakInsideAWordGeneratingAutoWordHyphenation."
+	.WrappedLines (50, 4, 5, 12);
+Assert.IsTrue (new[]{
+		"IWantThisDescriptionToBreakInsideAWordGeneratingA-", // length=50
+		"uto-",                                               // length=4
+		"Word-",                                              // length=5
+		"Hyphenation.",                                       // length=12
+}.SequenceEqual (wrappedLines));
+
+// Notice that '.' is treated as an end-of-line character
+wrappedLines =
+	"OnlyOnePeriod.AndNoWhitespaceShouldBeSupportedEvenWithLongDescriptions"
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"OnlyOnePeriod.",
+		"AndNoWhitespaceShouldBeSupportedEvenWithLongDes-",
+		"criptions",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new []{
+		"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0",
+		"1 2 3 4 5 and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle - . - . - . - . - . - . - . - and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"Lots of spaces in the middle - . - . - . - . - . -",
+		" . - . - and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+// An ~infinite sequence of widths
+wrappedLines =
+	"1121231234123451234561234567123456781234567891234567890"
+	.WrappedLines (Sequence.Iterate(2, v =&gt; v + 1));
+Assert.IsTrue (new[]{
+		"1-",
+		"12-",
+		"123-",
+		"1234-",
+		"12345-",
+		"123456-",
+		"1234567-",
+		"12345678-",
+		"123456789-",
+		"1234567890",
+}.SequenceEqual (wrappedLines));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="widths" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="widths" /> contains a value that is less than 2.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="WrappedLines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, int[] widths);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; WrappedLines(string self, int32[] widths) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="widths" Type="System.Int32[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to split into segments no longer
+          than lenghts in the <paramref name="widths" /> sequence.
+        </param>
+        <param name="widths">
+          A <see cref="T:System.Int32" /> array containing the maximum lengths
+          to use for corresponding returned segments.  The last value in this
+          array is used for all remaining segments.
+        </param>
+        <summary>
+          Splits a string into line segments with a maximum length constrained
+          by <paramref name="widths" />.
+        </summary>
+        <returns>
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing segments from <paramref name="self" /> with a length
+          no longer than entries from <paramref name="widths" />.
+        </returns>
+        <remarks>
+          <para>
+            This is a "DWIM"-style interface for line wrapping.
+          </para>
+          <para>
+            <c>WrappedLines()</c> is oriented toward
+            <see cref="T:System.Console" />-style output in which line widths
+            are controlled by the number of characters (i.e. fixed-width fonts,
+            not proportional fonts).  <paramref name="widths" /> is used
+            to constrain the length of each corresponding segment within the
+            returned
+            <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />.
+            For example, the first string segment returned will have a length
+            no longer than the first element in <paramref name="widths" />,
+            the second string segment returned will have a length no longer
+            than the second element in <paramref name="widths" />, etc.
+            The last element in <paramref name="widths" /> is used to constrain
+            the lenghts of all remaining string segments; thus, if
+            <paramref name="widths" /> has only one element, that value is
+            used to constrain all returned string segments.
+          </para>
+          <para>
+            Note that <paramref name="widths" /> constrains the width of
+            segments; a segment may be shorter, and may be empty.
+          </para>
+          <para>
+            String splitting is done as follows:
+          </para>
+          <list type="number">
+            <item>
+              <term>
+                Determine the <c>width</c>to use for the current segment by
+                getting a value from <paramref name="widths" />.  If
+                <paramref name="widths" /> is empty, then the maximum
+                segment length is <see cref="F:System.Int32.MaxValue" />.
+                If there is no remaining value in <paramref name="widths" />,
+                use the last width value found.
+              </term>
+            </item>
+            <item>
+              <term>
+                Beginning at index <c>i</c> within <paramref name="self" />
+                (starting at index <c>0</c>), look for all "end-of-line
+                characters" -- characters for which
+                <see cref="M:System.Char.IsLetterOrDigit(System.Char)" />
+                returns <see langword="false" />, thus including punctuation,
+                whitespace, etc. --
+                from <c>self[i]</c> until <c>self[i+width]</c>.
+                If a newline is found, return the segment starting from index
+                <c>i</c> until the first newline position.  If no newline
+                is found but an end-of-line character is is found, return a
+                segment starting from index <c>i</c> until the last end-of-line
+                character. If no end-of-line character is found within
+                <c>self[i]</c> until <c>self[i+width]</c>, create a segment from
+                <c>self[i]</c> until <c>self[i+width-1]</c>, and append
+                <c>'-'</c> to the segment as a line-continuation character.
+              </term>
+            </item>
+            <item>
+              <term>
+                Repeat steps 1-2 until the end of the string is encountered.
+              </term>
+            </item>
+          </list>
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
+// This is because the newline is encountered first.
+// The width of 48 is used to constrain all remaining lines, causing
+// the 4th line to require line-wrapping.
+//
+// Notice also that all embedded '\n's are removed.
+IEnumerable&lt;string&gt; wrappedLines =
+		("This has a really\n" +
+		 "long, multi-line description that also\n" +
+		 "tests\n" +
+		 "the-builtin-supercalifragilisticexpialidicious-break-on-hyphen.  " +
+		 "Also, a list:\n" +
+		 "  item 1\n" +
+		 "  item 2")
+		.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"This has a really",
+		"long, multi-line description that also",
+		"tests",
+		"the-builtin-supercalifragilisticexpialidicious-",
+		"break-on-hyphen.  Also, a list:",
+		"  item 1",
+		"  item 2",
+}.SequenceEqual (wrappedLines));
+
+// Another example where the text has no whitespace before the
+// constrained width.
+wrappedLines =
+	"IWantThisDescriptionToBreakInsideAWordGeneratingAutoWordHyphenation."
+	.WrappedLines (50, 4, 5, 12);
+Assert.IsTrue (new[]{
+		"IWantThisDescriptionToBreakInsideAWordGeneratingA-", // length=50
+		"uto-",                                               // length=4
+		"Word-",                                              // length=5
+		"Hyphenation.",                                       // length=12
+}.SequenceEqual (wrappedLines));
+
+// Notice that '.' is treated as an end-of-line character
+wrappedLines =
+	"OnlyOnePeriod.AndNoWhitespaceShouldBeSupportedEvenWithLongDescriptions"
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"OnlyOnePeriod.",
+		"AndNoWhitespaceShouldBeSupportedEvenWithLongDes-",
+		"criptions",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new []{
+		"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0",
+		"1 2 3 4 5 and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle - . - . - . - . - . - . - . - and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"Lots of spaces in the middle - . - . - . - . - . -",
+		" . - . - and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+// An ~infinite sequence of widths
+wrappedLines =
+	"1121231234123451234561234567123456781234567891234567890"
+	.WrappedLines (Sequence.Iterate(2, v =&gt; v + 1));
+Assert.IsTrue (new[]{
+		"1-",
+		"12-",
+		"123-",
+		"1234-",
+		"12345-",
+		"123456-",
+		"1234567-",
+		"12345678-",
+		"123456789-",
+		"1234567890",
+}.SequenceEqual (wrappedLines));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="widths" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="widths" /> contains a value that is less than 2.
+        </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

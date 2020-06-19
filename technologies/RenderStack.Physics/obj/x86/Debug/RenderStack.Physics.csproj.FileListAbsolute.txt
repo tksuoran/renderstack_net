@@ -1,0 +1,12 @@
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\RenderStack.Physics.dll
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\RenderStack.Physics.pdb
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\Jitter.dll
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\Newtonsoft.Json.Net35.dll
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\RenderStack.Math.dll
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\Jitter.pdb
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\RenderStack.Math.pdb
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\Newtonsoft.Json.Net35.pdb
+C:\git\renderstack_net\technologies\RenderStack.Physics\bin\x86\Debug\Newtonsoft.Json.Net35.xml
+C:\git\renderstack_net\technologies\RenderStack.Physics\obj\x86\Debug\RenderStack.Physics.csprojResolveAssemblyReference.cache
+C:\git\renderstack_net\technologies\RenderStack.Physics\obj\x86\Debug\RenderStack.Physics.dll
+C:\git\renderstack_net\technologies\RenderStack.Physics\obj\x86\Debug\RenderStack.Physics.pdb

@@ -1,0 +1,54 @@
+﻿/*!
+ 
+\package RenderStack.Geometry
+
+Geometry namespace provides basic classes to manipulate
+geometric objects with arbitrary attributes.
+
+Points and corners have no attributes attached by default.
+Any attributes are stored in external attribute maps.
+Attribute maps are Dictionaries, for example to store
+point locations one can use Dictionary<Point, Vector3>.
+
+Attribute maps are stored in Geometry class. There are
+attribute maps for Points, Corners, Polygons and Edges.
+
+- Basic Geometry classes:
+    - Point:                   List of Corners
+    - Corner:                  References single Point and single Polygon
+    - Polygon:                 List of Corners
+    - Geometry:                Contains Points, Polygons, Edges and their attribute maps.
+    - AttributeMapCollection:  Maintains a collection of arbitrary, named Dictionaries for a specific KeyType.
+
+- Classes to generate some basic shapes:
+    - Cone, cube cuboctahedron, cylinder, dodecahedron, icosahedron, octahedron, quad, sphere, tetrahedron
+    - Tube class that can generate a tube around parametric curve
+
+- Geometry manipulation classes that can produce modified
+  copies of Geometry instances
+    - Clone
+    - Subdivide
+    - Triangulate
+    - Catmull-Clark subdivision
+    - Sqrt(3) subdivision
+    - Truncate
+
+\section status Status
+
+This namespace is mostly stable.
+
+\section dependencies Dependencies
+
+RenderStack.Math
+
+\section usedby Used by
+
+RenderStack.Mesh
+
+\warning Truncate is not always working right, and known to enter endless loop for certain geometries.
+
+\todo Fix known issues with truncate
+\todo Add operations to cleanup and fix geometry
+\todo Profile and optimize if necessary
+
+*/

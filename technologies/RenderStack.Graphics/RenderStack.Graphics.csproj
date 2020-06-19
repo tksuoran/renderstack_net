@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34030B2F-D230-4CFC-8FC7-6045A7B17E29}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RenderStack.Graphics</RootNamespace>
+    <AssemblyName>RenderStack.Graphics</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;GL3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ASSET_MONITOR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;GL3</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Newtonsoft.Json.Net35">
+      <HintPath>..\json\Net35\Newtonsoft.Json.Net35.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssetMonitor.cs" />
+    <Compile Include="BufferPool.cs" />
+    <Compile Include="BufferWriters\BufferWriter.cs" />
+    <Compile Include="ISampler\SamplerGL1.cs" />
+    <Compile Include="ISampler\SamplerGL3.cs" />
+    <None Include="ISampler\SamplerRL.cs" />
+    <Compile Include="IUniformBlock\IUniformBlock.cs" />
+    <Compile Include="ITexture\ITexture.cs" />
+    <None Include="IBuffer\BufferGLRL.cs" />
+    <None Include="IBufferRange\BufferRangeGLRL.cs" />
+    <Compile Include="IBufferRange\BufferRangeGL.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Attribute.cs" />
+    <Compile Include="AttributeBinding.cs" />
+    <None Include="IVertexStream\VertexStreamRL.cs" />
+    <Compile Include="IVertexStream\IVertexStream.cs" />
+    <Compile Include="IVertexStream\VertexStreamGL.cs" />
+    <Compile Include="AttributeMappings.cs" />
+    <Compile Include="IBuffer\BufferGL.cs" />
+    <Compile Include="IProgram\FixedFunctionProgram.cs" />
+    <Compile Include="BufferWriters\IndexBufferWriter.cs" />
+    <Compile Include="IBufferRange\IBufferRange.cs" />
+    <Compile Include="IBuffer\IBuffer.cs" />
+    <Compile Include="IFramebuffer\IFramebuffer.cs" />
+    <Compile Include="IProgram\IProgram.cs" />
+    <Compile Include="IRenderBuffer\IRenderBuffer.cs" />
+    <Compile Include="IUniformBuffer\IUniformBuffer.cs" />
+    <Compile Include="IRenderBuffer\RenderBufferGL1.cs" />
+    <Compile Include="IFramebuffer\FramebufferGL1.cs" />
+    <Compile Include="Debug.cs" />
+    <Compile Include="IFramebuffer\FramebufferGL3.cs" />
+    <Compile Include="GhostManager.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="IMonitored.cs" />
+    <Compile Include="IUniformValue.cs" />
+    <Compile Include="IUniformBlock\UniformBlockRL.cs" />
+    <Compile Include="Params.cs" />
+    <Compile Include="IProgram\ProgramGL3.cs" />
+    <Compile Include="ProgramAttribute.cs" />
+    <Compile Include="IProgram\ProgramGL1.cs" />
+    <Compile Include="IRenderBuffer\RenderBufferGL3.cs" />
+    <None Include="IBufferRange\BufferRangeRL.cs" />
+    <None Include="IBuffer\BufferRL.cs" />
+    <None Include="IFramebuffer\FramebufferRL.cs" />
+    <None Include="IProgram\ProgramRL.cs" />
+    <None Include="IProgram\ShaderRL.cs" />
+    <None Include="ITexture\TextureRL.cs" />
+    <None Include="IUniformBuffer\UniformBufferRL.cs" />
+    <Compile Include="ISampler\ISampler.cs" />
+    <Compile Include="Samplers.cs" />
+    <Compile Include="IProgram\ShaderGL3.cs" />
+    <Compile Include="ITexture\TextureGL.cs" />
+    <Compile Include="TransformFeedback.cs" />
+    <Compile Include="Uniform.cs" />
+    <Compile Include="IUniformBlock\UniformBlockGL.cs" />
+    <Compile Include="IUniformBuffer\UniformBufferGL.cs" />
+    <Compile Include="BufferWriters\VertexBufferWriter.cs" />
+    <Compile Include="UniformBufferData.cs" />
+    <Compile Include="VertexFormat.cs" />
+    <Compile Include="VertexUsage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\nvtt\Nvidia.TextureTools\Nvidia.TextureTools.csproj">
+      <Project>{CAB55C39-8FA9-4912-98D9-E52669C8911D}</Project>
+      <Name>Nvidia.TextureTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\opentk\Source\OpenTK\OpenTK.csproj">
+      <Project>{A37A7E14-0000-0000-0000-000000000000}</Project>
+      <Name>OpenTK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RenderStack.Math\RenderStack.Math.csproj">
+      <Project>{2556D282-DC14-4938-A30A-66DA900C1C08}</Project>
+      <Name>RenderStack.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RenderStack.Services\RenderStack.Services.csproj">
+      <Project>{C9282192-3BAC-4172-94E7-45F338454E0B}</Project>
+      <Name>RenderStack.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\targaimage\TargaImage.csproj">
+      <Project>{56F4BD87-2404-4263-80D5-6FA2161EB0A4}</Project>
+      <Name>TargaImage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.Graphics.dox" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

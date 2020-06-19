@@ -1,0 +1,69 @@
+﻿Query the maximum UBO size on your platform 
+( i.e. glGet + MAX_UNIFORM_BLOCK_SIZE ).
+
+Calculate the following:
+
+Size of your instance data:    ( bytes per instance * number of instances )
+Number of instances per block: ( maximum UBO size / bytes per instance )
+Number of blocks:              ceil( size of your instance data / ( number of instances per block * bytes per instance ) )
+
+During rendering:
+
+...
+
+number of instances rendered = 0
+
+instances to render = number of instances per block
+
+while ( number of instances rendered < total number of instances )
+{
+    if ( ( number of instances rendered + instances to render ) > total number of instances )
+    {
+        instances to render = ( total number of instances - number of instances rendered )
+
+        BindBufferRange( UNIFORM_BUFFER, 0, ..., ( number of instances rendered * bytes per instance ), ( instances to render * bytes per instance ) )
+
+        DrawElementsInstanced( TARGET, ..., TYPE, NULL, ( instances to render ) )
+
+        number of instances rendered  += instances to render 
+    }
+}
+
+...
+
+Within the shader ( UBO ):
+
+#version 150
+
+#define N  ( ... )                              // Number of instances per block
+
+layout( std140 ) uniform S0 { mat4 M1[N] } U0;  // Translation
+
+uniform mat4          M0;                       // Projection * View
+in      vec4          V0;                       // Vertex
+
+void
+main( void )
+{
+    gl_Position = vec4( mat4( M0 * U0.M1[ gl_InstanceID ] ) * V0 );
+}
+
+Within the shader ( TBO ):
+
+#version 150
+
+uniform samplerBuffer S0;                       // Translation
+
+uniform mat4          M0;                       // Projection * View
+in      vec4          V0;                       // Vertex
+
+void 
+main( void ) 
+{
+    mat4 M1     = mat4( texelFetch( S0, gl_InstanceID * 4 + 0 ),
+                        texelFetch( S0, gl_InstanceID * 4 + 1 ),
+                        texelFetch( S0, gl_InstanceID * 4 + 2 ),
+                        texelFetch( S0, gl_InstanceID * 4 + 3 ) );
+    
+    gl_Position = vec4( mat4( M0 * M1 ) * V0 );
+}

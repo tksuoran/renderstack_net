@@ -1,0 +1,368 @@
+{
+  "TextureUnits": [
+    {
+      "TextureTarget": "Texture2D",
+      "TextureEnvMode": "Modulate",
+      "TextureEnvColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "TextureLodBias": 0.0,
+      "TextureGenS": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenT": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenR": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenQ": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "CombineRGB": "Modulate",
+      "CombineAlpha": "Modulate",
+      "Src0RGB": "Texture",
+      "Src1RGB": "Previous",
+      "Src2RGB": "Constant",
+      "Src0Alpha": "Texture",
+      "Src1Alpha": "Previous",
+      "Src2Alpha": "Constant",
+      "Operand0RGB": "SrcColor",
+      "Operand1RGB": "SrcColor",
+      "Operand2RGB": "SrcColor",
+      "Operand0Alpha": "SrcAlpha",
+      "Operand1Alpha": "SrcAlpha",
+      "Operand2Alpha": "SrcAlpha",
+      "RGBScale": 1.0,
+      "AlphaScale": 1.0
+    },
+    {
+      "TextureTarget": "Texture2D",
+      "TextureEnvMode": "Modulate",
+      "TextureEnvColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "TextureLodBias": 0.0,
+      "TextureGenS": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenT": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenR": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenQ": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "CombineRGB": "Modulate",
+      "CombineAlpha": "Modulate",
+      "Src0RGB": "Texture",
+      "Src1RGB": "Previous",
+      "Src2RGB": "Constant",
+      "Src0Alpha": "Texture",
+      "Src1Alpha": "Previous",
+      "Src2Alpha": "Constant",
+      "Operand0RGB": "SrcColor",
+      "Operand1RGB": "SrcColor",
+      "Operand2RGB": "SrcColor",
+      "Operand0Alpha": "SrcAlpha",
+      "Operand1Alpha": "SrcAlpha",
+      "Operand2Alpha": "SrcAlpha",
+      "RGBScale": 1.0,
+      "AlphaScale": 1.0
+    },
+    {
+      "TextureTarget": "Texture2D",
+      "TextureEnvMode": "Modulate",
+      "TextureEnvColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "TextureLodBias": 0.0,
+      "TextureGenS": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenT": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenR": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenQ": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "CombineRGB": "Modulate",
+      "CombineAlpha": "Modulate",
+      "Src0RGB": "Texture",
+      "Src1RGB": "Previous",
+      "Src2RGB": "Constant",
+      "Src0Alpha": "Texture",
+      "Src1Alpha": "Previous",
+      "Src2Alpha": "Constant",
+      "Operand0RGB": "SrcColor",
+      "Operand1RGB": "SrcColor",
+      "Operand2RGB": "SrcColor",
+      "Operand0Alpha": "SrcAlpha",
+      "Operand1Alpha": "SrcAlpha",
+      "Operand2Alpha": "SrcAlpha",
+      "RGBScale": 1.0,
+      "AlphaScale": 1.0
+    },
+    {
+      "TextureTarget": "Texture2D",
+      "TextureEnvMode": "Modulate",
+      "TextureEnvColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "TextureLodBias": 0.0,
+      "TextureGenS": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenT": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenR": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "TextureGenQ": {
+        "TextureGen": false,
+        "EyePlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ObjectPlane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "TextureGenMode": "EyeLinear"
+      },
+      "CombineRGB": "Modulate",
+      "CombineAlpha": "Modulate",
+      "Src0RGB": "Texture",
+      "Src1RGB": "Previous",
+      "Src2RGB": "Constant",
+      "Src0Alpha": "Texture",
+      "Src1Alpha": "Previous",
+      "Src2Alpha": "Constant",
+      "Operand0RGB": "SrcColor",
+      "Operand1RGB": "SrcColor",
+      "Operand2RGB": "SrcColor",
+      "Operand0Alpha": "SrcAlpha",
+      "Operand1Alpha": "SrcAlpha",
+      "Operand2Alpha": "SrcAlpha",
+      "RGBScale": 1.0,
+      "AlphaScale": 1.0
+    }
+  ]
+}

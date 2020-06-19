@@ -1,0 +1,6 @@
+C:\git\renderstack_net\technologies\WildMagic\bin\x86\Debug\WildMagic.dll
+C:\git\renderstack_net\technologies\WildMagic\bin\x86\Debug\WildMagic.pdb
+C:\git\renderstack_net\technologies\WildMagic\bin\x86\Debug\RenderStack.Math.dll
+C:\git\renderstack_net\technologies\WildMagic\bin\x86\Debug\RenderStack.Math.pdb
+C:\git\renderstack_net\technologies\WildMagic\obj\x86\Debug\WildMagic.dll
+C:\git\renderstack_net\technologies\WildMagic\obj\x86\Debug\WildMagic.pdb

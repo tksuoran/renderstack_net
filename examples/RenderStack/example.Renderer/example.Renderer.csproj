@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA170ADA-9116-470B-8FFD-80C65694AE18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>example.Renderer</RootNamespace>
+    <AssemblyName>example.Renderer</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ASSET_MONITOR</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ASSET_MONITOR</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ASSET_MONITOR</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Newtonsoft.Json.Net35">
+      <HintPath>..\..\..\technologies\json\Net35\Newtonsoft.Json.Net35.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AMDGPUPerf.cs" />
+    <Compile Include="Batch.cs" />
+    <None Include="IRenderer\RendererGL1RL.cs" />
+    <Compile Include="IRenderer\RendererGL1.cs" />
+    <Compile Include="IRenderer\IRenderer.cs" />
+    <None Include="IRenderer\RendererGL3RL.cs" />
+    <Compile Include="ISceneManager.cs" />
+    <Compile Include="State.cs" />
+    <Compile Include="RenderStates\BlendState.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="CubeRenderer.cs" />
+    <Compile Include="RenderStates\DepthState.cs" />
+    <Compile Include="RenderStates\FaceCullState.cs" />
+    <Compile Include="Group.cs" />
+    <Compile Include="IPhysicsObject.cs" />
+    <Compile Include="RenderStates\MaskState.cs" />
+    <Compile Include="Material.cs" />
+    <Compile Include="MaterialManager.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="NotInUseYet\Clear.cs" />
+    <Compile Include="NotInUseYet\RenderPass.cs" />
+    <Compile Include="NotInUseYet\SetFramebuffer.cs" />
+    <Compile Include="NotInUseYet\SetViewport.cs" />
+    <Compile Include="Programs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuadRenderer.cs" />
+    <Compile Include="IRenderer\RendererGL3.cs" />
+    <Compile Include="RenderStates\RenderState.cs" />
+    <Compile Include="RenderStates\SortOrder.cs" />
+    <Compile Include="RenderStates\StencilState.cs" />
+    <None Include="IRenderer\RendererRL.cs" />
+    <Compile Include="TextRenderer.cs" />
+    <Compile Include="Timer.cs" />
+    <Compile Include="TimerRenderer.cs" />
+    <Compile Include="Timers.cs" />
+    <Compile Include="DepthStencilVisualizer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\technologies\cadenza\src\Cadenza\Cadenza.csproj">
+      <Project>{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}</Project>
+      <Name>Cadenza</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\GPUPerfAPI.NET\GPUPerfAPI.NET.csproj">
+      <Project>{8153C679-507E-42BD-9F41-E4FF2D6DAC78}</Project>
+      <Name>GPUPerfAPI.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\nvtt\Nvidia.TextureTools\Nvidia.TextureTools.csproj">
+      <Project>{CAB55C39-8FA9-4912-98D9-E52669C8911D}</Project>
+      <Name>Nvidia.TextureTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\opentk\Source\OpenTK\OpenTK.csproj">
+      <Project>{A37A7E14-0000-0000-0000-000000000000}</Project>
+      <Name>OpenTK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
+      <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
+      <Name>RenderStack.Geometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Graphics\RenderStack.Graphics.csproj">
+      <Project>{34030B2F-D230-4CFC-8FC7-6045A7B17E29}</Project>
+      <Name>RenderStack.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.LightWave\RenderStack.LightWave.csproj">
+      <Project>{4132C149-2F98-4866-B5A9-FBA758255CB9}</Project>
+      <Name>RenderStack.LightWave</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Math\RenderStack.Math.csproj">
+      <Project>{2556D282-DC14-4938-A30A-66DA900C1C08}</Project>
+      <Name>RenderStack.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Mesh\RenderStack.Mesh.csproj">
+      <Project>{367E25F8-6259-4F2B-8295-89BA0E458239}</Project>
+      <Name>RenderStack.Mesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Physics\RenderStack.Physics.csproj">
+      <Project>{D17EDCEC-A775-48C9-B909-6FC2F91F888A}</Project>
+      <Name>RenderStack.Physics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Scene\RenderStack.Scene.csproj">
+      <Project>{313B7D0F-B612-4363-B080-6B95AD71B1A9}</Project>
+      <Name>RenderStack.Scene</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Services\RenderStack.Services.csproj">
+      <Project>{C9282192-3BAC-4172-94E7-45F338454E0B}</Project>
+      <Name>RenderStack.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\renderstack.ui\RenderStack.UI.csproj">
+      <Project>{04685B14-A959-47F4-A1F8-4B2A9A94AF4D}</Project>
+      <Name>RenderStack.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

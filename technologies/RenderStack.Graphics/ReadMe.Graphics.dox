@@ -1,0 +1,29 @@
+﻿/*!
+ 
+\package RenderStack.Graphics
+
+This namespace provides low level OpenGL rendering classes.
+This namespace should be rendering architecture agnostic.
+
+\section status Status
+
+Most of the namespace is mostly stable.
+
+\section dependencies Dependencies
+
+- RenderStack.AssetMonitor - Currently disabled 
+- RenderStack.Math
+- OpenTK
+- Nvidia.TextureTools
+- TargaImage
+
+\section usedby Used By
+
+- RenderStack.Mesh
+- RenderStack.Scene
+
+\todo Add support for OpenGL uniform buffer objects
+\todo See if dependencies can be removed to AssetMonitor and Parameters
+\todo See if if use by RenderStack.Scene can be removed
+
+*/

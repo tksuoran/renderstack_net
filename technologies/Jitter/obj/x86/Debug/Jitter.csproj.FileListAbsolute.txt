@@ -1,0 +1,4 @@
+C:\git\renderstack_net\technologies\Jitter\bin\x86\Debug\Jitter.dll
+C:\git\renderstack_net\technologies\Jitter\bin\x86\Debug\Jitter.pdb
+C:\git\renderstack_net\technologies\Jitter\obj\x86\Debug\Jitter.dll
+C:\git\renderstack_net\technologies\Jitter\obj\x86\Debug\Jitter.pdb

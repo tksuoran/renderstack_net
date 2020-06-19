@@ -1,0 +1,9 @@
+C:\git\renderstack_net\examples\RenderStack\example.Loading\bin\x86\Debug\OpenTK.dll.config
+C:\git\renderstack_net\examples\RenderStack\example.Loading\bin\x86\Debug\example.Loading.dll
+C:\git\renderstack_net\examples\RenderStack\example.Loading\bin\x86\Debug\example.Loading.pdb
+C:\git\renderstack_net\examples\RenderStack\example.Loading\bin\x86\Debug\OpenTK.dll
+C:\git\renderstack_net\examples\RenderStack\example.Loading\bin\x86\Debug\OpenTK.pdb
+C:\git\renderstack_net\examples\RenderStack\example.Loading\bin\x86\Debug\OpenTK.xml
+C:\git\renderstack_net\examples\RenderStack\example.Loading\obj\x86\Debug\example.Loading.csprojResolveAssemblyReference.cache
+C:\git\renderstack_net\examples\RenderStack\example.Loading\obj\x86\Debug\example.Loading.dll
+C:\git\renderstack_net\examples\RenderStack\example.Loading\obj\x86\Debug\example.Loading.pdb

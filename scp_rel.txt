@@ -1,0 +1,8 @@
+option confirm off
+open neure@pyksy.ath.cx
+cd /home/neure/public_html
+call rm -fr renderstack_new
+call mkdir renderstack_new
+cd renderstack_new
+put %1%
+exit

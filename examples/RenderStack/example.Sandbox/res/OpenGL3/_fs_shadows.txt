@@ -1,0 +1,26 @@
+﻿//  _fs_shadows.txt
+#if HARDWARE_PCF
+
+float sampleLightVisibility(vec4 coord, float lightIndex)
+{
+    vec4    coordProj   = coord / coord.w;
+    float   fragDepth   = coordProj.z + lights.bias.x;
+    
+    //  .w  is used as Dref
+    //  .z  is used as array layer
+    return texture(t_shadowmap, vec4(coordProj.xy, lightIndex, fragDepth));
+}
+
+#else
+
+float sampleLightVisibility(vec4 coord, float lightIndex)
+{
+    vec4    coordProj   = coord / coord.w;
+    float   fragDepth   = coordProj.z;
+    
+    //return texture(t_shadowmap, vec3(coordProj.xy, lightIndex)).x;
+    if(fragDepth <= texture(t_shadowmap, vec3(coordProj.xy, lightIndex)).x) return 1.0;
+    return 0.0;
+}
+
+#endif

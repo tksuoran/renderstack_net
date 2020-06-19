@@ -1,0 +1,20 @@
+﻿/*!
+
+\package RenderStack.Scene
+
+\section status Status
+
+The namespace is experimental.
+
+\section dep Dependencies
+
+- RenderStack.Math
+- RenderStack.Graphics
+
+\section use Used by
+
+- Not used by other RenderStack namespaces
+
+\todo Remove dependency to Graphics.
+
+*/

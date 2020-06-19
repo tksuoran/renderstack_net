@@ -1,0 +1,22 @@
+﻿/*!
+
+\package RenderStack.Math
+
+- Basic Math classes and routines
+
+\section status Status
+
+This namespace is mostly stable.
+
+\section dep Dependencies
+
+- None
+
+\section used Used by
+
+- Most other RenderStack namespaces
+
+\todo Add quaternion support?
+\todo Add wavelet support?
+
+*/

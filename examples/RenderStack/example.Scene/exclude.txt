@@ -1,0 +1,7 @@
+audio\
+fmodex.dll
+fmod_cs.dll
+RenderStack.AssetMonitor.dll
+RenderStack.Parameters.dll
+default.png
+large_0.tga

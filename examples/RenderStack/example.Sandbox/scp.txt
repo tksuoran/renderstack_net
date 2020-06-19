@@ -1,0 +1,6 @@
+option confirm off
+open neure@pyksy.ath.cx
+cd /home/neure/public_html
+put %1%
+exit
+HTTP://WWW.GOOGLE.COM/READER/SHARED/C0DE517E

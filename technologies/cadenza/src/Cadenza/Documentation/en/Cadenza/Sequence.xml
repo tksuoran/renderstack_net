@@ -1,0 +1,416 @@
+<Type Name="Sequence" FullName="Cadenza.Sequence">
+  <TypeSignature Language="C#" Value="public static class Sequence" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Sequence extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Provides a set of static methods for creating sequences.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Expand">
+      <MemberSignature Language="C#" Value="public static System.Collections.IEnumerable Expand (object o);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.IEnumerable Expand(object o) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.IEnumerable</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="o" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="o">
+          A <see cref="T:System.Object" /> containing the object graph to traverse.
+        </param>
+        <summary>Depth-first object graph traversal.</summary>
+        <returns>
+          An <see cref="T:System.Collections.IEnumerable" /> containing all 
+          non-<see cref="T:System.String" />, non-<see cref="T:System.Collections.IEnumerable" />
+          values found while traversing <paramref name="o" /></returns>
+        <remarks>
+          <para>
+            This is to simplify supporting 
+            <see cref="M:System.Xml.Linq.XContainer.Add(System.Object)" />-style 
+            enumerable traversal.
+          </para>
+          <para>
+            If <paramref name="o" /> does not implement 
+            <see cref="T:System.Collections.IEnumerable" />, then an enumerator
+            which will yield <paramref name="o" /> is returned.
+          </para>
+          <para>
+            If <paramref name="o" /> implements <c>IEnumerable</c>, then it is 
+            enumerated over, and if an enumerated element implements 
+            <c>IEnumerable</c>, it too is enumerated, repeatedly, until
+            the enumerated element doesn't implement <c>IEnumerable</c> or
+            the element is a <see cref="T:System.String" />.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Expand">Assert.AreEqual (
+	"1,2,3,4",
+	Sequence.Expand (new object[]{
+		Enumerable.Range (1, 2),
+		"3",
+		4
+	}).Cast&lt;object&gt;().Implode (","));
+</code>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Expand">
+      <MemberSignature Language="C#" Value="public static System.Collections.IEnumerable Expand (object o, System.Collections.Generic.IEnumerable&lt;Type&gt; except);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.IEnumerable Expand(object o, class System.Collections.Generic.IEnumerable`1&lt;class System.Type&gt; except) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.IEnumerable</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="o" Type="System.Object" />
+        <Parameter Name="except" Type="System.Collections.Generic.IEnumerable&lt;System.Type&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="o">
+          A <see cref="T:System.Object" /> containing the object graph to traverse.
+        </param>
+        <param name="except">
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Type}" /> containing
+          the types that, while implementing <see cref="T:System.Collections.IEnumerable" />,
+          should not be traversed.  An inheritance match is used.
+        </param>
+        <summary>Depth-first object graph traversal.</summary>
+        <returns>
+          An <see cref="T:System.Collections.IEnumerable" /> containing only 
+          values with types present within <paramref name="except" /> or values
+          with types that do not implement <see cref="T:System.Collections.IEnumerable" />.
+        </returns>
+        <remarks>
+          <para>
+            This is to simplify supporting 
+            <see cref="M:System.Xml.Linq.XContainer.Add(System.Object)" />-style 
+            enumerable traversal.
+          </para>
+          <para>
+            If <paramref name="o" /> does not implement 
+            <see cref="T:System.Collections.IEnumerable" />, then an enumerator
+            which will yield <paramref name="o" /> is returned.
+          </para>
+          <para>
+            If <paramref name="o" /> implements <c>IEnumerable</c>, then it is 
+            enumerated over, and if an enumerated element implements 
+            <c>IEnumerable</c>, it too is enumerated, repeatedly, until either
+            the enumerated element doesn't implement <c>IEnumerable</c> or
+            the element's type is present within <paramref name="except" />.
+            <paramref name="except" /> type matching is based on 
+            <see cref="M:System.Type.IsAssignableFrom(System.Type)" />; 
+            consequently, exact type matching is not performed, and inheritance
+            relationships are taken into consideration.
+          </para>
+          <para>
+            For example, if <paramref name="except" /> contains 
+            <c>typeof(<see cref="T:System.Collections.ICollection" />)</c>,
+            then if <paramref name="o" /> were a
+            <see cref="T:System.Collections.Generic.List{System.Int32}" />
+            (which implements <c>ICollection</c>), then the embedded list
+            will not be further enumerated.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Expand(IEnumerable)">IEnumerable seq = Sequence.Expand (new List&lt;int&gt; { 1, 2, 3 }, typeof (ICollection));
+foreach (object v in seq)
+	Assert.IsTrue (v is List&lt;int&gt;);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="except" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Expand">
+      <MemberSignature Language="C#" Value="public static System.Collections.IEnumerable Expand (object o, Type[] except);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.IEnumerable Expand(object o, class System.Type[] except) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.IEnumerable</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="o" Type="System.Object" />
+        <Parameter Name="except" Type="System.Type[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="o">
+          A <see cref="T:System.Object" /> containing the object graph to traverse.
+        </param>
+        <param name="except">
+          A <see cref="T:System.Type" /> array containing
+          the types that, while implementing <see cref="T:System.Collections.IEnumerable" />,
+          should not be traversed.  An inheritance match is used.
+        </param>
+        <summary>Depth-first object graph traversal.</summary>
+        <returns>
+          An <see cref="T:System.Collections.IEnumerable" /> containing only 
+          values with types present within <paramref name="except" /> or values
+          with types that do not implement <see cref="T:System.Collections.IEnumerable" />.
+        </returns>
+        <remarks>
+          <para>
+            This is to simplify supporting 
+            <see cref="M:System.Xml.Linq.XContainer.Add(System.Object)" />-style 
+            enumerable traversal.
+          </para>
+          <para>
+            If <paramref name="o" /> does not implement 
+            <see cref="T:System.Collections.IEnumerable" />, then an enumerator
+            which will yield <paramref name="o" /> is returned.
+          </para>
+          <para>
+            If <paramref name="o" /> implements <c>IEnumerable</c>, then it is 
+            enumerated over, and if an enumerated element implements 
+            <c>IEnumerable</c>, it too is enumerated, repeatedly, until either
+            the enumerated element doesn't implement <c>IEnumerable</c> or
+            the element's type is present within <paramref name="except" />.
+            <paramref name="except" /> type matching is based on 
+            <see cref="M:System.Type.IsAssignableFrom(System.Type)" />; 
+            consequently, exact type matching is not performed, and inheritance
+            relationships are taken into consideration.
+          </para>
+          <para>
+            For example, if <paramref name="except" /> contains 
+            <c>typeof(<see cref="T:System.Collections.ICollection" />)</c>,
+            then if <paramref name="o" /> were a
+            <see cref="T:System.Collections.Generic.List{System.Int32}" />
+            (which implements <c>ICollection</c>), then the embedded list
+            will not be further enumerated.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Expand(IEnumerable)">IEnumerable seq = Sequence.Expand (new List&lt;int&gt; { 1, 2, 3 }, typeof (ICollection));
+foreach (object v in seq)
+	Assert.IsTrue (v is List&lt;int&gt;);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="except" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GenerateReverse&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; GenerateReverse&lt;TSource,TResult&gt; (TSource value, Func&lt;TSource,Cadenza.Maybe&lt;Cadenza.Tuple&lt;TResult,TSource&gt;&gt;&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; GenerateReverse&lt;TSource, TResult&gt;(!!TSource value, class System.Func`2&lt;!!TSource, valuetype Cadenza.Maybe`1&lt;class Cadenza.Tuple`2&lt;!!TResult, !!TSource&gt;&gt;&gt; selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,Cadenza.Maybe&lt;Cadenza.Tuple&lt;TResult,TSource&gt;&gt;&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the seed value.
+        </typeparam>
+        <typeparam name="TResult">
+          The type to create a sequence of.
+        </typeparam>
+        <param name="value">
+          A <typeparamref name="TSource" /> containing the initial value to
+          pass to <paramref name="selector" />.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource,Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}}" />
+          which is invoked to generate the sequence.
+        </param>
+        <summary>
+          Creates a <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />
+          containing the values returned by <paramref name="selector" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />
+          containing the values returned by <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>GenerateReverse</c> acts as a "dual" to 
+            <see cref="M:Cadenza.Collections.IEnumerableCoda.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />:
+            while <c>AggregateReverse</c> reduces a list to a summary value
+            (evaluating the list starting from the end),
+            <c>GenerateReverse</c> builds a list from a seed value.
+          </para>
+          <block subset="none" type="behaviors">
+            <para>
+              <paramref name="selector" /> is first invoked with 
+              <paramref name="value" />, and returns a
+              <see cref="T:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}" />.
+              If the returned 
+              <see cref="T:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}" />.
+              contains a value 
+              (<see cref="M:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}.HasValue" />
+              is <see langword="true" />),
+              then <see cref="P:Cadenza.Tuple{TResult,TSource}._1" /> will
+              be returned from the generator, and 
+              <see cref="P:Cadenza.Tuple{TResult,TSource}._2" /> will be
+              used as the value for subsequent <paramref name="selector" />
+              invocations.
+            </para>
+            <para>
+              When <paramref name="selector" /> returns 
+              <see cref="F:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}.Nothing" />,
+              the sequence is terminated.
+            </para>
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#GenerateReverse">Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
+	Sequence.GenerateReverse (10, 
+		b =&gt; Maybe.When (b &gt; 0, Tuple.Create (b, b-1)))
+	.Implode (","));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="selector" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Collections.IEnumerableCoda.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
+        <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,System.Func{``0})" />
+        <altmember cref="T:Cadenza.Tuple{TResult,TSource}" />
+      </Docs>
+    </Member>
+    <Member MemberName="Iterate&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Iterate&lt;TSource&gt; (TSource value, Func&lt;TSource,TSource&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Iterate&lt;TSource&gt;(!!TSource value, class System.Func`2&lt;!!TSource, !!TSource&gt; selector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TSource&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the seed value <paramref name="value" /> and 
+          the element type of the generated sequence.
+        </typeparam>
+        <param name="value">
+          The initial value to provide to <paramref name="selector" />.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource,TSource}" /> which is used to
+          generate the next value in the sequence.
+        </param>
+        <summary>
+          Creates an infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          sequence determined by <paramref name="value" />
+          and <paramref name="selector" />.
+        </summary>
+        <returns>
+          An infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          sequence determined by <paramref name="value" />
+          and <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="behaviors">
+            <para>
+              On the first <paramref name="selector" /> invocation, 
+              <paramref name="value" /> is provided as the parameter value.
+            </para>
+            <para>
+              For all subsequent <paramref name="selector" /> invocations, the
+              parameter value is the result of the previous 
+              <paramref name="selector" /> invocation.
+            </para>
+            <para>
+              Thus, the generated sequence is equivalent to:
+              <c>new[]{ <paramref name="selector" />(<paramref name="value" />),
+              <paramref name="selector" />(<paramref name="selector" />(<paramref name="value" />)),
+              <paramref name="selector" />(<paramref name="selector" />(<paramref name="selector" />(<paramref name="value" />))),
+              ... }</c>.
+            </para>
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Iterate">Assert.AreEqual ("16,8,4,2,1",
+		Sequence.Iterate (16, v =&gt; v / 2).Take (5).Implode (","));
+Assert.AreEqual ("1,2,3,4,5",
+		Sequence.Iterate (1, v =&gt; v+1).Take (5).Implode (","));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="selector" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Repeat&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Repeat&lt;TSource&gt; (TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Repeat&lt;TSource&gt;(!!TSource value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the value to repeat.
+        </typeparam>
+        <param name="value">
+          A <typeparamref name="TSource" /> containing the value to repeat.
+        </param>
+        <summary>
+          Creates an infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          seqeuence where each element value is <paramref name="value" />.
+        </summary>
+        <returns>
+          An infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          seqeuence where each element value is <paramref name="value" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Repeat">Assert.AreEqual ("1,1,1,1,1",
+		Sequence.Repeat (1).Take (5).Implode (","));
+</code>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

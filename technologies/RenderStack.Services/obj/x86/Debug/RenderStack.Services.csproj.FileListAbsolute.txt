@@ -1,0 +1,5 @@
+C:\git\renderstack_net\technologies\RenderStack.Services\bin\x86\Debug\RenderStack.Services.dll
+C:\git\renderstack_net\technologies\RenderStack.Services\bin\x86\Debug\RenderStack.Services.pdb
+C:\git\renderstack_net\technologies\RenderStack.Services\obj\x86\Debug\RenderStack.Services.csprojResolveAssemblyReference.cache
+C:\git\renderstack_net\technologies\RenderStack.Services\obj\x86\Debug\RenderStack.Services.dll
+C:\git\renderstack_net\technologies\RenderStack.Services\obj\x86\Debug\RenderStack.Services.pdb

@@ -1,0 +1,143 @@
+﻿<?xml version = "1.0" encoding = "UTF-8"?>
+
+<xs:schema 
+    xmlns:xs            = "http://www.w3.org/2001/XMLSchema"
+    targetNamespace     = "http://www.collada.org/2008/03/COLLADASchema" 
+    elementFormDefault  = "qualified" 
+    version             = "11.10.0" 
+    xml:lang            = "EN"
+>
+
+    <xs:simpleType name = "FloatList">
+        <xs:list itemType = "xs:double"/>
+    </xs:simpleType>
+
+    <!-- xs:simpleType name = "Vector4">
+        <xs:restriction base = "FloatList">
+            <xs:length value = "4"/>
+        </xs:restriction>
+    </xs:simpleType -->
+
+    <xs:simpleType name="Vector4">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:pattern value="((\+|\-)?(0|[1-9][0-9]*)?(\.[0-9]*)?((E|e)(\+|\-)?[0-9]+)? (\+|\-)?(0|[1-9][0-9]*)?(\.[0-9]*)?((E|e)(\+|\-)?[0-9]+)? (\+|\-)?(0|[1-9][0-9]*)?(\.[0-9]*)?((E|e)(\+|\-)?[0-9]+)? (\+|\-)?(0|[1-9][0-9]*)?(\.[0-9]*)?((E|e)(\+|\-)?[0-9]+)?)?"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name = "TextureGenMode">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "EyeLinear"/>
+            <xs:enumeration value = "ObjectLinear"/>
+            <xs:enumeration value = "SphereMap"/>
+            <xs:enumeration value = "ReflectionMap"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name = "TextureTarget">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "Disabled"/>
+            <xs:enumeration value = "Texture1D"/>
+            <xs:enumeration value = "Texture2D"/>
+            <xs:enumeration value = "Texture3D"/>
+            <xs:enumeration value = "TextureCubeMap"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name = "TextureEnvMode">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "Add"/>
+            <xs:enumeration value = "Blend"/>
+            <xs:enumeration value = "Modulate"/>
+            <xs:enumeration value = "Decal"/>
+            <xs:enumeration value = "Combine"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name = "TextureEnvModeCombine">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "Add"/>
+            <xs:enumeration value = "Replace"/>
+            <xs:enumeration value = "Modulate"/>
+            <xs:enumeration value = "Subtract"/>
+            <xs:enumeration value = "AddSigned"/>
+            <xs:enumeration value = "Interpolate"/>
+            <xs:enumeration value = "Dot3Rgb"/>
+            <xs:enumeration value = "Dot3Rgba"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name = "TextureEnvModeSource">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "Texture"/>
+            <xs:enumeration value = "Texture0"/>
+            <xs:enumeration value = "Texture1"/>
+            <xs:enumeration value = "Texture2"/>
+            <xs:enumeration value = "Texture3"/>
+            <xs:enumeration value = "Constant"/>
+            <xs:enumeration value = "PrimaryColor"/>
+            <xs:enumeration value = "Previous"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name = "TextureEnvModeOperandRgb">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "SrcColor"/>
+            <xs:enumeration value = "OneMinusSrcColor"/>
+            <xs:enumeration value = "SrcAlpha"/>
+            <xs:enumeration value = "OneMinusSrcAlpha"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name = "TextureEnvModeOperandAlpha">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "SrcAlpha"/>
+            <xs:enumeration value = "OneMinusSrcAlpha"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name = "TexGen">>
+        <xs:sequence>
+            <xs:element name = "TextureGen"     type = "xs:boolean"     default = "false"/>
+            <xs:element name = "EyePlane"       type = "Vector4"        default = "1.0 0.0 0.0 0.0"/>
+            <xs:element name = "ObjectPlane"    type = "Vector4"        default = "1.0 0.0 0.0 0.0"/>
+            <xs:element name = "TextureGenMode" type = "TextureGenMode" default = "EyeLinear"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name = "TextureEnvironmentUnit">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "TextureTarget"      type = "TextureTarget"              default = "Disabled"/>
+                <xs:element name = "TextureEnvMode"     type = "TextureEnvMode"             default = "Modulate"/>
+                <xs:element name = "TextureEnvColor"    type = "Vector4"                    default = "0.0 0.0 0.0 0.0"/>
+                <xs:element name = "TextureLodBias"     type = "xs:double"                  default = "0.0"/>
+                <xs:element name = "TextureGenS"        type = "TexGen"/>
+                <xs:element name = "TextureGenT"        type = "TexGen"/>
+                <xs:element name = "TextureGenR"        type = "TexGen"/>
+                <xs:element name = "TextureGenQ"        type = "TexGen"/>
+                <xs:element name = "CombineRGB"         type = "TextureEnvModeCombine"      default = "Modulate"/>
+                <xs:element name = "CombineAlpha"       type = "TextureEnvModeCombine"      default = "Modulate"/>
+                <xs:element name = "Src0RGB"            type = "TextureEnvModeSource"       default = "Texture"/>
+                <xs:element name = "Src1RGB"            type = "TextureEnvModeSource"       default = "Previous"/>
+                <xs:element name = "Src2RGB"            type = "TextureEnvModeSource"       default = "Constant"/>
+                <xs:element name = "Src0Alpha"          type = "TextureEnvModeSource"       default = "Texture"/>
+                <xs:element name = "Src1Alpha"          type = "TextureEnvModeSource"       default = "Previous"/>
+                <xs:element name = "Src2Alpha"          type = "TextureEnvModeSource"       default = "Constant"/>
+                <xs:element name = "Operand0RGB"        type = "TextureEnvModeOperandRgb"   default = "SrcColor"/>
+                <xs:element name = "Operand1RGB"        type = "TextureEnvModeOperandRgb"   default = "SrcColor"/>
+                <xs:element name = "Operand2RGB"        type = "TextureEnvModeOperandRgb"   default = "SrcColor"/>
+                <xs:element name = "Operand0Alpha"      type = "TextureEnvModeOperandAlpha" default = "SrcAlpha"/>
+                <xs:element name = "Operand1Alpha"      type = "TextureEnvModeOperandAlpha" default = "SrcAlpha"/>
+                <xs:element name = "Operand2Alpha"      type = "TextureEnvModeOperandAlpha" default = "SrcAlpha"/>
+                <xs:element name = "RGBScale"           type = "xs:double"                  default = "1.0"/>
+                <xs:element name = "AlphaScale"         type = "xs:double"                  default = "1.0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name = "TextureEnvironment">
+        <xs:list itemType = "TextureEnvironmentUnit"/>
+    </xs:simpleType>
+
+</xs:schema>

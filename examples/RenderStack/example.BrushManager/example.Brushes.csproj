@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{713B4B62-40E5-4403-A6C7-2DF73385A4AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>example.BrushManager</RootNamespace>
+    <AssemblyName>example.BrushManager</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Brush.cs" />
+    <Compile Include="BrushAttribute.cs" />
+    <Compile Include="BrushManager.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="EllipsoidShape.cs" />
+    <Compile Include="GeometryParsers\ColladaGeometry.cs" />
+    <Compile Include="GeometryParsers\NetlibPolyhedron.cs" />
+    <Compile Include="GeometryParsers\VrmlPolyhedron.cs" />
+    <Compile Include="GeometryParsers\VrmlPolyhedronGeometry.cs" />
+    <Compile Include="GeometryParsers\XmlPolyhedra.cs" />
+    <Compile Include="InertiaCache.cs" />
+    <Compile Include="InertiaData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\technologies\opentk\Source\OpenTK\OpenTK.csproj">
+      <Project>{A37A7E14-0000-0000-0000-000000000000}</Project>
+      <Name>OpenTK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
+      <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
+      <Name>RenderStack.Geometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Graphics\RenderStack.Graphics.csproj">
+      <Project>{34030B2F-D230-4CFC-8FC7-6045A7B17E29}</Project>
+      <Name>RenderStack.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Math\RenderStack.Math.csproj">
+      <Project>{2556D282-DC14-4938-A30A-66DA900C1C08}</Project>
+      <Name>RenderStack.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Mesh\RenderStack.Mesh.csproj">
+      <Project>{367E25F8-6259-4F2B-8295-89BA0E458239}</Project>
+      <Name>RenderStack.Mesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Physics\RenderStack.Physics.csproj">
+      <Project>{D17EDCEC-A775-48C9-B909-6FC2F91F888A}</Project>
+      <Name>RenderStack.Physics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Services\RenderStack.Services.csproj">
+      <Project>{C9282192-3BAC-4172-94E7-45F338454E0B}</Project>
+      <Name>RenderStack.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\example.Renderer\example.Renderer.csproj">
+      <Project>{FA170ADA-9116-470B-8FFD-80C65694AE18}</Project>
+      <Name>example.Renderer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

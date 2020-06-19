@@ -1,0 +1,6 @@
+option confirm off
+open neure@pyksy.ath.cx
+cd /home/neure/public_html/renderstack_new
+put %1%
+call unzip doc.zip
+exit

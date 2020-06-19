@@ -1,0 +1,23 @@
+License for RenderStack and other parts:
+
+RenderStack:
+    Origin:         http://neure.ath.cx/renderstack/index.html
+    Author:         Timo Suoranta
+    License, file:  MIT, COPYING
+
+NVIDIA Texture Tools:
+    Notes:          A subset of NVIDIA Texture Tools is included in RenderStack, see origin for full version
+    Origin:         http://code.google.com/p/nvidia-texture-tools
+    Author:         NVIDIA Corporation
+    License, file:  MIT, technologies/nvtt/NVIDIA_Texture_Tools_LISENCE.txt
+
+OpenTK:
+    Notes:          A subset of OpenTK is included in RenderStack, see origin for full version
+    Origin:         http://www.opentk.com
+    Author:         The Open Toolkit library
+    License, file:  MIT / X11, technologies/opentk/license.txt
+
+TargaImage:
+    Origin:         http://www.codeproject.com/KB/graphics/TargaImage.aspx
+    Author:         David Polomis
+    License, file:  The Code Project Open License (CPOL), technologies/targaimage/ReadMe.txt

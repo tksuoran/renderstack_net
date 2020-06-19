@@ -1,0 +1,4 @@
+11.06.1 - Fixed some OpenGL 2 compatibility issues
+11.06.2 - Fixed some more OpenGL 2 compatibility issues, better support detecting various GL extensions/versions
+11.06.3 - Fixed some more OpenGL 2 compatibility issues, GLSL v. 120 and v. 330 shaders, can build OpenTK with Ubuntu 10.04
+11.10.1 - Dropped GL 2 support, Added GL 1 Support, instancing, support uniform buffers and instancing

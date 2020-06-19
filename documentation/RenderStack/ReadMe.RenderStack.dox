@@ -1,0 +1,60 @@
+/*!
+
+\mainpage RenderStack
+
+RenderStack is a set of C# assemblies that make it easier to use OpenGL 3.
+Documentation is non-existent - use the source. RenderStack uses OpenTK.
+
+\section features Current RenderStack features
+
+- Modular design: RenderStack is split to a number of assemblies which have minimal dependencies, and there is no central Core assembly.
+- Low level geometry creation: Points, corners, polygons, edges
+- Basic mesh creation: Sphere, grid, platonic solids, some archimedean solids
+- Low level 3D math building blocks: Vector, Matrix
+- Low level scene building blocks: Camera, Frame
+- Interface for Framebuffer objects
+- Interface for shader Programs
+- Limited external dependencies: OpenTK is needed (included)
+
+\section download Download
+
+<a href="renderstack-11.06.3.zip">renderstack-11.06.3.zip</a> source archive, June 21, 2011
+
+\section license License
+
+RenderStack is licensed with the MIT / X11 license. Copyright (c) 2011 Timo Suoranta.
+
+\section examples Examples
+
+Currently there are following examples.
+
+\subsection e1 Simple
+
+\image html simple.png
+
+This is a minimal application using RenderStack. It renders a sphere on screen.
+
+\include example.Simple\Program.cs
+
+\subsection e2 RenderToTexture
+
+This is the simple example modified to render the sphere to a texture and then
+render a quad with that texture.
+
+\subsection e3 Scene
+
+This is an example how to render multiple objects in a scene.
+
+\subsection e4 UI
+
+\image html ui.png
+
+This is the scene example with added simple user interface. Only few of the user
+interface components actually work.
+
+\warning The OpenTK version included is a snapshot of OpenTK subversion 16th June 2011.
+Sometimes it may not work as expected, you may need to get latest OpenTK from subversion
+and build it using OpenTK solution, and replace project reference with a reference to
+OpenTK.dll.
+
+*/

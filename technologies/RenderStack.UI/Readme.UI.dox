@@ -1,0 +1,41 @@
+﻿/*!
+
+\package RenderStack.UI
+
+This experimental namespace provides some basic user
+interface classes. The classes in this namespace are
+renderer independent (even though Mesh is used.)
+
+Area is the base class for all user interface classes.
+Area provides layout and children.
+
+Dock can layout a number of children sequantially
+either horizontally or vertically.
+
+NinePatch can provide a Mesh suitable for rendering
+rectangles that strech differently on the edges, and
+center area, and which corners are not streched.
+
+\section status Status
+
+The namespace is experimental.
+
+\section dep Dependencies
+
+- RenderStack.Graphics
+- RenderStack.Math
+- RenderStack.Mesh
+- Nvidia.TextureTools
+- OpenTK
+
+\section use Used by
+
+- Not used by other RenderStack namespaces
+
+\bug Expanding does not work with nesting Areas?
+
+\todo Figure out renderer/Mesh dependecies
+\todo Figure out how to bring renderer dependent classes (Button, Choice, Slider)
+\todo Fix known issues
+\todo Futher layout support
+\todo More widgets

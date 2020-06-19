@@ -1,0 +1,7 @@
+C:\git\renderstack_net\technologies\renderstack.geometry\bin\x64\Debug\RenderStack.Geometry.dll
+C:\git\renderstack_net\technologies\renderstack.geometry\bin\x64\Debug\RenderStack.Geometry.pdb
+C:\git\renderstack_net\technologies\renderstack.geometry\bin\x64\Debug\RenderStack.Math.dll
+C:\git\renderstack_net\technologies\renderstack.geometry\bin\x64\Debug\RenderStack.Math.pdb
+C:\git\renderstack_net\technologies\renderstack.geometry\obj\x64\Debug\RenderStack.Geometry.csprojResolveAssemblyReference.cache
+C:\git\renderstack_net\technologies\renderstack.geometry\obj\x64\Debug\RenderStack.Geometry.dll
+C:\git\renderstack_net\technologies\renderstack.geometry\obj\x64\Debug\RenderStack.Geometry.pdb

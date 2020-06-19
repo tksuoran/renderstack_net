@@ -1,0 +1,34 @@
+﻿/*!
+
+\package RenderStack.Mesh
+
+This namespace provides Mesh and related classes that
+make rendering a bit simpler than using Graphics alone.
+
+Mesh contains vertex buffer and a set of index buffers.
+It also maintains vertex attribute bindings that assist
+rendering the vertex and index buffers
+
+GeometryMesh provides a way to turn Geometry into renderable
+Mesh.
+
+Material maintains a set of arbitrary parameters that can
+be set and bound to uniforms. It also maintains MeshMode
+value that selects the index buffer.
+
+\section status Status
+
+The namespace is functional but more experimental
+than Graphics.
+
+\section dep Dependencies
+
+- RenderStack.AssetMonitor - Currently disabled
+- RenderStack.Geometry
+- RenderStack.Graphics
+- RenderStack.Math
+- OpenTK
+
+\todo GeometryMesh is totally unoptimized - profile and optimize
+
+*/

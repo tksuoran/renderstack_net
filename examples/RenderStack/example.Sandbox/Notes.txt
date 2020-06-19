@@ -1,0 +1,308 @@
+﻿OpenRL comments:
+
+Due to following differences I need to handle some things quite differently in OpenRL vs. OpenGL:
+
+1) Uniform Buffers are different from OpenGL.
+    In OpenGL, uniform buffers are bound to "binding points" which are like texture
+    units: shared to all programs. A single buffer object can be bound to all programs
+    easily by reserving a global binding point.
+
+    In OpenRL there is no concept of binding point, so when switching a uniform block
+    to multiple programs, rlUniformBlockBuffer() must be called for each program.
+
+    An example use for changing uniform buffer for a large number of programs is when
+    switching from one camera to another. Each camera has their own uniform buffer.
+    In OpenGL code, a single glBindBufferRange() will do, while in OpenRL I will need to
+    setup each program individually.
+
+    In OpenGL, glBindBufferRange() binds a range of a buffer object to a binding point.
+    This allows to place multiple uniform buffers into a single buffer object. That way
+    there is less need to bind calls when accessing the buffer, and fewer buffer objects
+    are needed.
+
+2) Missing rlBindAttribLocation()
+    In OpenGL, different programs can share the same vertex stream setup when attributes
+    are assigned to fixed slot locations. This is not possible in OpenRL; effectively
+    each (Program, VertexFormat) pair needs their own vertex stream setup.
+
+    Adding rlBindAttribLocation() would allow me to use the same, nicer vertex stream setup
+    code as I use for OpenGL.
+
+    
+
+    - In OpenRL uniform buffer
+
+2) Attribute locations can not be set.
+
+http://kodierer.blogspot.com/2009/05/oscar-algorithm-silverlight-real-time.html
+
+first method using conditions:
+
+    <Reference Include="Oracle.DataAccess, Version=4.112.1.2, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" Condition="'$(OdpVersion)' == '4'">
+      <HintPath>..\..\Lib\ODP.NET\4.x\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.102.2.20, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" Condition="'$(OdpVersion)' == '2'">
+      <HintPath>..\..\Lib\ODP.NET\2.x\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+
+second method using variables:
+
+    <Reference Include="Oracle.DataAccess, Version=2.102.2.20, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <HintPath>..\..\Lib\ODP.NET\$(OdpVersion)\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+
+Future development:
+    Done    Est.    Class   Description
+    -----------------------------------------------------------------------------------------------------------------
+    N/A             Maint   Fix known issues
+    N/A             Maint   See what can be moved to other namespaces
+    N/A             Maint   Profile and optimize
+
+    25%             MaFe    Allow editing materials
+     0%     4       MaFe    Sky color
+     0%     2       MiFe    Partial derivative normal maps
+    10%     4       MaFe    Gamma correct rendering
+    10%     1       MaFe    Scene serialization
+    10%    10       MaFe    Add tool to manage physics constraints
+     0%     3       MaFe    Implement reference frame for manipulator tool
+     0%     4       MaFe    Add scale and rotate to manipulator tool
+     0%     2       MaFe    Add tool to select polygons, edges, points and corners
+     0%     2       MaFe    Add tool to move selected polygon / edge / point
+
+     0%     5       MaFe    Implement model multi-representation
+    75%     2       MaFe    Implement operation stack (undo/redo)
+
+    75%     2       MiFe    Improve Palette, allow picking Brush
+     0%     2       MaFe    Highlight hover polygon
+
+Completed:
+   100%             MaFe    Improve physics dragging
+   100%             Opt     Figure out how to cache Mesh inertia and mass
+   100%             MaFe    Generalize curve tool to handle spline with further control points
+   100%             MaFe    Generalize curve tool to handle other curves
+   100%             MaFe    Basic shadow mapping
+   100%             Bug     Fix manipulator tool to apply move with correct scale (closest to mouse)
+   100%                     Ambient Occlusion with 12 shadow maps - use viewport array
+   100%                     Instanced rendering with UBO
+
+Deprecated:
+   100%     2       MiFe    Add custom polyhedron serialization :: was slower
+
+
+Schlick:
+Schlick
+=======
+
+1. Introduction
+
+2. Background
+
+
+L(P,V) = integral L/hemisphere  R(P, V, L) L(P,-L) (NL) dL    (1)
+
+L(P,V)		: reflected radiance leaving point P in direction V
+L(P,-L)		: the incident radiance reaching point P from direction -L
+R(P,V,L)	: BRDF of the surface at point P between directions V and L
+dL		: differential solid angle surrounding direction L
+
+"The reflected radiance is the integral, for all possible directions,
+of incident radiances scaled by the BRDF and the projected solid angle."
+
+
+Helmholtz:
+
+	R(P,V,L) = R(P,L,V)                                     (2)
+
+Energy conservation:
+
+	integral L/hemisphere  R(P,V,L)(NL)cL <= 1              (3)
+
+2.1 The Cook-Torrance Model
+
+              d        s
+R(t,u,v,l) = ---- C + ---------- * F(beta) * G(theta, theta') * D(alpha, phi)       (4)
+              Pi       4 Pi v l
+
+                  d        s
+R(HN,HV,VN,LN) = ---- C + ------------ * F(HV) * G(VN, LN) * D(HN, TH)              (4)
+                  Pi       4 Pi VN LN
+
+
+d : ratio of surface behaving as diffuse reflector
+    0..1
+C : ratio of light reflected by the diffuse reflector
+    0..1 (diffuse color)
+D(alpha, phi):  the microfacet slope distribution function
+                which defines the fraction of the facets
+                that are oriented in direction H
+                0..inf
+F(beta):    the fresnel factor which defines the ratio
+            of light reflected by each microfacet
+            0..1 (specular color)
+            (as specular reflector)
+G(theta, theta'): the geometrical attenuation coefficient which
+                  expresses the ratio of light that is not
+                  self-obstructed by the surface
+
+d + s = 1
+
+2.2 The He-Torrance-Sillion-Greenberg Model
+
+              d        s                                   s
+R(t,u,v,l) = ---- C + ---------- * F(u) * G(v,l) * D(t) + ----- * F(v) * G(v,l) * A(v,l) * Dirac                (9)
+              Pi       4 Pi v l                            ldL
+
+              d        s                                         s
+R(t,u,v,l) = ---- C + ------------ * F(HV) * G(VN,LN) * D(HN) + ----- * F(VN) * G(VN,LN) * A(VN,LN) * Dirac     (9)
+              Pi       4 Pi VN LN                                LNdL
+
+Has additional term in the linear combination which corresponds
+to coherent reflection on the mean plane of the surface (not the
+microfacets). Decreases rapidly when the surface roughness
+increases
+
+2.3 The Ward Model
+
+              d          s
+R(t,v,l,w) = ---- * C + --------------- * C' * D(t,w)       (10)
+              Pi         4 Pi sqrt(vl)
+
+                (t^2 - 1)   w^2    1 - w^2
+          1    ---------- (----- + -------)                 (10)
+D(t,w) = ---- e   t^2       m^2       n^2
+          mm
+
+
+...
+
+5 A New BRDF Model
+
+C 0..1 reflection factor
+r 0..1 roughness
+p 0..1 isotropy
+
+5.1 Formulation
+
+SINGLE  R(t,u,v,l,w) = S(u) * D(t,v,l,w)                                        (22)
+DOUBLE  R(t,u,v,l,w) = S(u) * D(t,v,l,w) + [1 - S(u)] * S'(u) * D(t,v,l,w)
+
+SINGLE  R(HN,HV,VN,LN,TH) = S(HV) * D(HN,VN,LN,TH)
+DOUBLE  R(HN,HV,VN,LN,TH) = S(HV) * D(HN,VN,LN,TH) +                            (22)
+                            [1 - S(HV)] * S'(HV) * D(HN,VN,LN,TH)
+
+Spectral factor
+
+S(u)  = C + (1 - C)(1 - u)^5                                                    (24)
+S(HV) = C + (1 - C)(1 - VN)^5
+
+Directional factor (without G or reemission)
+
+              1
+D(t,v,l,w) = --------- * Z(t) * A(w)                                            (25)
+              4 Pi vl
+
+                  1
+D(HN,VN,LN,TH) = ------------ * Z(HN) * A(TH)                                   (25)
+                  4 Pi VN LN
+
+         r
+Z(t) = --------------------                                                     (28)
+        (1 + rt^2 - t^2)^2
+
+         r
+Z(HN) = ---------------------                                                   (28)
+        (1 + rHN^2 - HN^2)^2
+
+Z is constant when r = 1 or r = 1
+
+
+              p
+A(w) = sqrt( ----------------------- )                                          (28)
+              p^2 - p^2 * w^2 + w^2
+
+              p
+A(TH) = sqrt( ----------------------- )                                         (28)
+              p^2 - p^2 * TH^2 + TH^2
+
+A is constant when p = 1 or p = 0
+
+Including self obstruction by using geometrical attenuation
+factor G, and reemission of self obstructed light 1 - G
+
+              G(v)G(l)                   1 - G(v)G(l)
+D(t,v,l,w) = ---------- * Z(t) * A(w) + --------------                          (30)
+              4 Pi vl                    4 Pi vl
+
+        v
+G(v) = ------------                                                             (31)
+        r - rv + v
+
+        l
+G(l) = ------------                                                             (31)
+        r - rl + l
+
+              a      b                         c
+D(t,v,l,w) = ---- + ---------- * B(t,v,l,w) + ----- * Dirac                     (32)
+              Pi     4 Pi v l                  ldL
+
+t = HN		alpha
+u = HV		beta
+v = VN		theta
+l = LN		theta'
+w = TH		phi
+
+                  a      b                           c
+D(HN,VN,LN,TH) = ---- + ------------ * B(t,v,l,w) + ------- * Dirac             (32)
+                  Pi     4 Pi VN LN                  LN dL
+
+a + b + c = 1 
+
+if(r < 0.5)
+{
+	b = 4 * r * (1 - r)
+	a = 0;
+	c = 1 - b;
+}
+else
+{
+	b = 4 * r * (1 - r)
+	c = 0;
+	a = 1 - b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+t = HN		alpha
+u = HV		beta
+v = VN		theta
+l = LN		theta'
+w = TH		phi

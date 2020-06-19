@@ -1,0 +1,22 @@
+﻿/*!
+
+\package RenderStack.LightWave
+
+This namespace provides parsers for LightWave scene and object files.
+
+\section status Status
+
+The code is based on Teddy, which I wrote in C++ in the late 1990s.
+The C# port has not been tested much yet.
+
+\section dependencies Dependencies
+
+- RenderStack.Math
+- RenderStack.Geometry
+
+\section usedby Used By
+
+\todo Test and improve
+\todo Sample player code
+
+*/

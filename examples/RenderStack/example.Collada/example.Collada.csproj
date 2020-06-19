@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E79E2B8-B610-402F-86C6-93A4E877278C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>example.Collada</RootNamespace>
+    <AssemblyName>example.Collada</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\technologies\collada\Collada.csproj">
+      <Project>{602B0806-FF8F-47E5-80BD-94BB6FE6627A}</Project>
+      <Name>Collada</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\opentk\Source\OpenTK\OpenTK.csproj">
+      <Project>{A37A7E14-0000-0000-0000-000000000000}</Project>
+      <Name>OpenTK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.AssetMonitor\RenderStack.AssetMonitor.csproj">
+      <Project>{3A67640C-D053-4BC2-979D-EED23C899677}</Project>
+      <Name>RenderStack.AssetMonitor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
+      <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
+      <Name>RenderStack.Geometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Graphics\RenderStack.Graphics.csproj">
+      <Project>{34030B2F-D230-4CFC-8FC7-6045A7B17E29}</Project>
+      <Name>RenderStack.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Math\RenderStack.Math.csproj">
+      <Project>{2556D282-DC14-4938-A30A-66DA900C1C08}</Project>
+      <Name>RenderStack.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Mesh\RenderStack.Mesh.csproj">
+      <Project>{367E25F8-6259-4F2B-8295-89BA0E458239}</Project>
+      <Name>RenderStack.Mesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Parameters\RenderStack.Parameters.csproj">
+      <Project>{EDDFCB31-B98E-4635-87AC-54E38E0386AD}</Project>
+      <Name>RenderStack.Parameters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Scene\RenderStack.Scene.csproj">
+      <Project>{313B7D0F-B612-4363-B080-6B95AD71B1A9}</Project>
+      <Name>RenderStack.Scene</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColladaGeometry.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cube.dae">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,490 @@
+example.Sandbox.exe Information: 0 : DateTime:       13/10/2013 14:09:20
+example.Sandbox.exe Information: 0 : Build:          13/10/2013 14:06:05
+example.Sandbox.exe Information: 0 : Region:         GB
+example.Sandbox.exe Information: 0 : OSVersion:      Microsoft Windows NT 6.1.7601 Service Pack 1
+example.Sandbox.exe Information: 0 : ProcessorCount: 4
+Detected configuration: Windows / .Net
+DisplayDevice 1 (primary) supports 219 resolutions.
+example.Sandbox.exe Information: 0 : Refresh rate:   60
+Creating default GraphicsMode (32, 16, 0, 0, 0, 2, False).
+Creating GraphicsContext.
+    GraphicsMode: Index: 2, Color: 0 (0000), Depth: 0, Stencil: 0, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 330294, Parent (Windows.WindowInfo: Handle 593136, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 1.0
+    Loaded opengl32.dll: 8791208820736
+    Created WinGLContext
+    OpenGL will be bound to window:330294 on thread:1
+    Setting pixel format... 2
+    Creating temporary context for wgl extensions.
+    Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 20 ms.
+    Using WGL_ARB_create_context... success! (id: 131072)
+Retrieving ARB pixel formats.... Disposing context 131072.
+OpenGL context 131072 disposed manually
+Destroying window: Windows.WindowInfo: Handle 593136, Parent (null)
+Creating GraphicsContext.
+    GraphicsMode: Index: 13, Color: 32 (8888), Depth: 24, Stencil: 8, Samples: 2, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 593176, Parent (Windows.WindowInfo: Handle 658672, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 1.5
+    OpenGL will be bound to window:593176 on thread:1
+    Setting pixel format... 13
+    Using WGL_ARB_create_context... success! (id: 196608)
+Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 1 ms.
+Loading extensions for OpenTK.Graphics.OpenGL.GL... 2269 extensions loaded in 429.775 ms.
+---------------------------------------
+Vendor:   ATI Technologies Inc.
+Renderer: AMD RADEON HD 6450
+Version:  4.2.12217 Compatibility Profile Context 12.104.0.0
+glVersion:   420
+glslVersion: 420
+compatibilityProfile
+canUseTextureArrays
+canUseTextureBufferObject (268435456)
+canUseSeamlessCubeMap
+canUseGeometryShaders
+canUseTesselationShaders
+canUseTimerQuery
+canUseUniformBufferObject (max block size = 65536, offset alignment = 256, max bindings = 75, max vertex blocks = 15, max fragment blocks = 15)
+canUseInstancing
+canUseFramebufferObject
+canUseVertexArrayObject
+canUseFloatTextures
+canUseBaseVertex
+canUseIntegerFramebufferFormat
+canUseBinaryShaders
+---------------------------------------
+Creating GraphicsContext.
+    GraphicsMode: Index: 2, Color: 32 (8888), Depth: 24, Stencil: 8, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 592824, Parent (Windows.WindowInfo: Handle 396208, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 2.1
+    OpenGL will be bound to window:592824 on thread:4
+    Setting pixel format... 2
+    Using WGL_ARB_create_context... success! (id: 65537)
+    Sharing state with context 196608: failed with win32 error 170
+Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 1 ms.
+Loading extensions for OpenTK.Graphics.OpenGL.GL... 2269 extensions loaded in 36.6523 ms.
+Entering main loop.
+example.Sandbox.exe Warning: 0 : no load info found
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing AssetMonitor (28 left)
+example.Sandbox.exe Information: 0 : Initializing MainSceneRenderer (27 left)
+example.Sandbox.exe Information: 0 : Initializing Statistics (26 left)
+example.Sandbox.exe Information: 0 : Initializing TimerRenderer (25 left)
+example.Sandbox.exe Information: 0 : Initializing Statistics (24 left)
+example.Sandbox.exe Information: 0 : Initializing UpdateManager (23 left)
+example.Sandbox.exe Information: 0 : Initializing PhysicsDrag (22 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Renderer (21 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing MaterialManager (20 left)
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+example.Sandbox.exe Information: 0 : Initializing StereoscopicRenderer (19 left)
+Loading program res/OpenGL3/Blend
+example.Sandbox.exe Information: 0 : Initializing TextRenderer (18 left)
+Loading program res/OpenGL3/Font
+example.Sandbox.exe Information: 0 : Initializing AmbientOcclusionManager (17 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing DepthStencilVisualizer (16 left)
+Loading program res/OpenGL3/VisualizeDepth
+Loading program res/OpenGL3/VisualizeStencil
+example.Sandbox.exe Information: 0 : Initializing HighLevelRenderer (15 left)
+Loading program res/OpenGL3/Schlick
+Loading program res/OpenGL3/Anisotropic
+Loading program res/OpenGL3/TFloat
+Loading program res/OpenGL3/Grid
+Loading program res/OpenGL3/WideLineUniformColor
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+Loading program res/OpenGL3/ColorFill
+Loading program res/OpenGL3/HSVColorFill
+Loading program res/OpenGL3/HSVColorFill2
+Loading program res/OpenGL3/SchlickNoise
+Loading program res/OpenGL3/Rim
+Loading program res/OpenGL3/Manipulator
+example.Sandbox.exe Information: 0 : Initializing IDRenderer (14 left)
+Loading program res/OpenGL3/IdVec3
+example.Sandbox.exe Information: 0 : Initializing LineRenderer (13 left)
+Loading program res/OpenGL3/WideLine
+example.Sandbox.exe Information: 0 : Initializing ShadowRenderer (12 left)
+Loading program res/OpenGL3/VisualizeShadowMap
+Loading program res/OpenGL3/ShadowCaster2
+example.Sandbox.exe Information: 0 : Initializing Sounds (11 left)
+example.Sandbox.exe Information: 0 : Initializing StyleManager (10 left)
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+Loading program res/OpenGL3/Ninepatch
+example.Sandbox.exe Information: 0 : Initializing BrushManager (9 left)
+BrushManager: DeserializeInertiaCache...
+BrushManager: Collections...
+MakeBrushesFromSources took 312 ticks
+brushes.Count()      = 75
+namedBrushes.Count() = 75
+BrushManager: SerializeInertiaCache...
+BrushManager: Preset collections...
+example.Sandbox.exe Information: 0 : Initializing OperationStack (8 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing SceneManager (7 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Game (6 left)
+example.Sandbox.exe Information: 0 : Initializing ManipulatorManager (5 left)
+example.Sandbox.exe Information: 0 : Initializing CurveTool (4 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing SelectionManager (3 left)
+Loading program res/OpenGL3/FatTriangle
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing UserInterfaceManager (2 left)
+Loading program res/OpenGL3/Anachrome
+Loading program res/OpenGL3/Triochrome
+Loading program res/OpenGL3/ColorCode
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Operations (1 left)
+Destroying window: Windows.WindowInfo: Handle 396208, Parent (null)
+Disposing context 65537.
+OpenGL context 65537 disposed manually
+OnLoad() took 7316 ticks
+Entering main loop.
+Initializing input driver.
+Using WinRawKeyboard.
+    Registered keyboard HID Keyboard Device
+Using WinRawMouse.
+    Registered mouse HID-compliant mouse
+Input window attached to Windows.WindowInfo: Handle 461750, Parent (Windows.WindowInfo: Handle 461744, Parent (null))
+Using WinRawInput.
+Loading program res/OpenGL3/Slider
+example.Sandbox.exe Information: 0 : AddTestSceneObjects using size: 21.25 objects: 23
+Virtual key OEM_8 (223) not mapped.
+Virtual key OEM_8 (2686977) not mapped.
+Virtual key OEM_8 (223) not mapped.
+Virtual key OEM_8 (3223912449) not mapped.
+Destroying window: Windows.WindowInfo: Handle 658672, Parent (null)
+Disposing context 196608.
+OpenGL context 196608 disposed manually
+[Warning] INativeWindow leaked (OpenTK.Platform.Windows.WinGLNative). Did you forget to call INativeWindow.Dispose()?
+[Warning] Resource leaked: OpenTK.Platform.Windows.WinRawInput.
+example.Sandbox.exe Information: 0 : DateTime:       27/07/2014 20:45:50
+example.Sandbox.exe Information: 0 : Build:          27/07/2014 20:43:56
+example.Sandbox.exe Information: 0 : Region:         GB
+example.Sandbox.exe Information: 0 : OSVersion:      Microsoft Windows NT 6.1.7601 Service Pack 1
+example.Sandbox.exe Information: 0 : ProcessorCount: 4
+Detected configuration: Windows / .Net
+DisplayDevice 1 (primary) supports 219 resolutions.
+example.Sandbox.exe Information: 0 : Refresh rate:   60
+Creating default GraphicsMode (32, 16, 0, 0, 0, 2, False).
+Creating GraphicsContext.
+    GraphicsMode: Index: 2, Color: 0 (0000), Depth: 0, Stencil: 0, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 67794, Parent (Windows.WindowInfo: Handle 67790, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 1.0
+    Loaded opengl32.dll: 8791223304192
+    Created WinGLContext
+    OpenGL will be bound to window:67794 on thread:1
+    Setting pixel format... 2
+    Creating temporary context for wgl extensions.
+    Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 19 ms.
+    Using WGL_ARB_create_context... success! (id: 131072)
+Retrieving ARB pixel formats.... Disposing context 131072.
+OpenGL context 131072 disposed manually
+Destroying window: Windows.WindowInfo: Handle 67790, Parent (null)
+Creating GraphicsContext.
+    GraphicsMode: Index: 11, Color: 32 (8888), Depth: 24, Stencil: 8, Samples: 2, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 133328, Parent (Windows.WindowInfo: Handle 133326, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 1.5
+    OpenGL will be bound to window:133328 on thread:1
+    Setting pixel format... 11
+    Using WGL_ARB_create_context... success! (id: 196608)
+Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 1 ms.
+Loading extensions for OpenTK.Graphics.OpenGL.GL... 2269 extensions loaded in 413.1121 ms.
+---------------------------------------
+Vendor:   ATI Technologies Inc.
+Renderer: AMD RADEON HD 6450
+Version:  4.4.12874 Compatibility Profile Context 14.100.0.0
+glVersion:   440
+glslVersion: 430
+compatibilityProfile
+canUseTextureArrays
+canUseTextureBufferObject (268435456)
+canUseSeamlessCubeMap
+canUseGeometryShaders
+canUseTesselationShaders
+canUseTimerQuery
+canUseUniformBufferObject (max block size = 65536, offset alignment = 256, max bindings = 75, max vertex blocks = 15, max fragment blocks = 15)
+canUseInstancing
+canUseFramebufferObject
+canUseVertexArrayObject
+canUseFloatTextures
+canUseBaseVertex
+canUseIntegerFramebufferFormat
+canUseBinaryShaders
+---------------------------------------
+Creating GraphicsContext.
+    GraphicsMode: Index: 2, Color: 32 (8888), Depth: 24, Stencil: 8, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 67804, Parent (Windows.WindowInfo: Handle 67800, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 2.1
+    OpenGL will be bound to window:67804 on thread:4
+    Setting pixel format... 2
+    Using WGL_ARB_create_context... success! (id: 65537)
+    Sharing state with context 196608: failed with win32 error 170
+Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 1 ms.
+Loading extensions for OpenTK.Graphics.OpenGL.GL... 2269 extensions loaded in 34.2251 ms.
+Entering main loop.
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing AssetMonitor (28 left)
+example.Sandbox.exe Information: 0 : Initializing MainSceneRenderer (27 left)
+example.Sandbox.exe Information: 0 : Initializing Statistics (26 left)
+example.Sandbox.exe Information: 0 : Initializing TimerRenderer (25 left)
+example.Sandbox.exe Information: 0 : Initializing Statistics (24 left)
+example.Sandbox.exe Information: 0 : Initializing UpdateManager (23 left)
+example.Sandbox.exe Information: 0 : Initializing PhysicsDrag (22 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Renderer (21 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing MaterialManager (20 left)
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+example.Sandbox.exe Information: 0 : Initializing StereoscopicRenderer (19 left)
+Loading program res/OpenGL3/Blend
+example.Sandbox.exe Information: 0 : Initializing TextRenderer (18 left)
+Loading program res/OpenGL3/Font
+example.Sandbox.exe Information: 0 : Initializing AmbientOcclusionManager (17 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing DepthStencilVisualizer (16 left)
+Loading program res/OpenGL3/VisualizeDepth
+Loading program res/OpenGL3/VisualizeStencil
+example.Sandbox.exe Information: 0 : Initializing HighLevelRenderer (15 left)
+Loading program res/OpenGL3/Schlick
+Loading program res/OpenGL3/Anisotropic
+Loading program res/OpenGL3/TFloat
+Loading program res/OpenGL3/Grid
+Loading program res/OpenGL3/WideLineUniformColor
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+Loading program res/OpenGL3/ColorFill
+Loading program res/OpenGL3/HSVColorFill
+Loading program res/OpenGL3/HSVColorFill2
+Loading program res/OpenGL3/SchlickNoise
+Loading program res/OpenGL3/Rim
+Loading program res/OpenGL3/Manipulator
+example.Sandbox.exe Information: 0 : Initializing IDRenderer (14 left)
+Loading program res/OpenGL3/IdVec3
+example.Sandbox.exe Information: 0 : Initializing LineRenderer (13 left)
+Loading program res/OpenGL3/WideLine
+example.Sandbox.exe Information: 0 : Initializing ShadowRenderer (12 left)
+Loading program res/OpenGL3/VisualizeShadowMap
+Loading program res/OpenGL3/ShadowCaster2
+example.Sandbox.exe Information: 0 : Initializing Sounds (11 left)
+example.Sandbox.exe Information: 0 : Initializing StyleManager (10 left)
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+Loading program res/OpenGL3/Ninepatch
+example.Sandbox.exe Information: 0 : Initializing BrushManager (9 left)
+BrushManager: DeserializeInertiaCache...
+BrushManager: Collections...
+MakeBrushesFromSources took 234 ticks
+brushes.Count()      = 75
+namedBrushes.Count() = 75
+BrushManager: SerializeInertiaCache...
+BrushManager: Preset collections...
+example.Sandbox.exe Information: 0 : Initializing OperationStack (8 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing SceneManager (7 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Game (6 left)
+example.Sandbox.exe Information: 0 : Initializing ManipulatorManager (5 left)
+example.Sandbox.exe Information: 0 : Initializing CurveTool (4 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing SelectionManager (3 left)
+Loading program res/OpenGL3/FatTriangle
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing UserInterfaceManager (2 left)
+Loading program res/OpenGL3/Anachrome
+Loading program res/OpenGL3/Triochrome
+Loading program res/OpenGL3/ColorCode
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Operations (1 left)
+Destroying window: Windows.WindowInfo: Handle 67800, Parent (null)
+Disposing context 65537.
+OpenGL context 65537 disposed manually
+OnLoad() took 2793 ticks
+Entering main loop.
+Initializing input driver.
+Using WinRawKeyboard.
+    Registered keyboard HID Keyboard Device
+Using WinRawMouse.
+    Registered mouse HID-compliant mouse
+Input window attached to Windows.WindowInfo: Handle 133338, Parent (Windows.WindowInfo: Handle 133336, Parent (null))
+Using WinRawInput.
+Loading program res/OpenGL3/Slider
+example.Sandbox.exe Information: 0 : AddTestSceneObjects using size: 19.25 objects: 24
+example.Sandbox.exe Information: 0 : ao update 0
+Virtual key Last (255) not mapped.
+Virtual key Last (255) not mapped.
+example.Sandbox.exe Information: 0 : ao update 0
+Virtual key Last (255) not mapped.
+Virtual key Last (255) not mapped.
+Destroying window: Windows.WindowInfo: Handle 133326, Parent (null)
+Disposing context 196608.
+OpenGL context 196608 disposed manually
+[Warning] INativeWindow leaked (OpenTK.Platform.Windows.WinGLNative). Did you forget to call INativeWindow.Dispose()?
+[Warning] Resource leaked: OpenTK.Platform.Windows.WinRawInput.
+example.Sandbox.exe Information: 0 : DateTime:       27/07/2014 21:33:15
+example.Sandbox.exe Information: 0 : Build:          27/07/2014 21:33:14
+example.Sandbox.exe Information: 0 : Region:         GB
+example.Sandbox.exe Information: 0 : OSVersion:      Microsoft Windows NT 6.1.7601 Service Pack 1
+example.Sandbox.exe Information: 0 : ProcessorCount: 4
+Detected configuration: Windows / .Net
+DisplayDevice 1 (primary) supports 219 resolutions.
+example.Sandbox.exe Information: 0 : Refresh rate:   60
+Creating default GraphicsMode (32, 16, 0, 0, 0, 2, False).
+Creating GraphicsContext.
+    GraphicsMode: Index: 2, Color: 0 (0000), Depth: 0, Stencil: 0, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 198498, Parent (Windows.WindowInfo: Handle 198528, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 1.0
+    Loaded opengl32.dll: 8791238115328
+    Created WinGLContext
+    OpenGL will be bound to window:198498 on thread:1
+    Setting pixel format... 2
+    Creating temporary context for wgl extensions.
+    Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 17 ms.
+    Using WGL_ARB_create_context... success! (id: 131072)
+Retrieving ARB pixel formats.... Disposing context 131072.
+OpenGL context 131072 disposed manually
+Destroying window: Windows.WindowInfo: Handle 198528, Parent (null)
+Creating GraphicsContext.
+    GraphicsMode: Index: 11, Color: 32 (8888), Depth: 24, Stencil: 8, Samples: 2, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 264074, Parent (Windows.WindowInfo: Handle 264064, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 1.5
+    OpenGL will be bound to window:264074 on thread:1
+    Setting pixel format... 11
+    Using WGL_ARB_create_context... success! (id: 196608)
+Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 1 ms.
+Loading extensions for OpenTK.Graphics.OpenGL.GL... 2269 extensions loaded in 398.9643 ms.
+---------------------------------------
+Vendor:   ATI Technologies Inc.
+Renderer: AMD RADEON HD 6450
+Version:  4.4.12874 Compatibility Profile Context 14.100.0.0
+glVersion:   440
+glslVersion: 430
+compatibilityProfile
+canUseTextureArrays
+canUseTextureBufferObject (268435456)
+canUseSeamlessCubeMap
+canUseGeometryShaders
+canUseTesselationShaders
+canUseTimerQuery
+canUseUniformBufferObject (max block size = 65536, offset alignment = 256, max bindings = 75, max vertex blocks = 15, max fragment blocks = 15)
+canUseInstancing
+canUseFramebufferObject
+canUseVertexArrayObject
+canUseFloatTextures
+canUseBaseVertex
+canUseIntegerFramebufferFormat
+canUseBinaryShaders
+---------------------------------------
+Creating GraphicsContext.
+    GraphicsMode: Index: 2, Color: 32 (8888), Depth: 24, Stencil: 8, Samples: 0, Accum: 0 (0000), Buffers: 2, Stereo: False
+    IWindowInfo: Windows.WindowInfo: Handle 264040, Parent (Windows.WindowInfo: Handle 198586, Parent (null))
+    GraphicsContextFlags: Default
+    Requested version: 2.1
+    OpenGL will be bound to window:264040 on thread:4
+    Setting pixel format... 2
+    Using WGL_ARB_create_context... success! (id: 65537)
+    Sharing state with context 196608: failed with win32 error 170
+Load extensions for OpenTK.Platform.Windows.Wgl... 60 extensions loaded in 1 ms.
+Loading extensions for OpenTK.Graphics.OpenGL.GL... 2269 extensions loaded in 63.5823 ms.
+Entering main loop.
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing AssetMonitor (28 left)
+example.Sandbox.exe Information: 0 : Initializing MainSceneRenderer (27 left)
+example.Sandbox.exe Information: 0 : Initializing Statistics (26 left)
+example.Sandbox.exe Information: 0 : Initializing TimerRenderer (25 left)
+example.Sandbox.exe Information: 0 : Initializing Statistics (24 left)
+example.Sandbox.exe Information: 0 : Initializing UpdateManager (23 left)
+example.Sandbox.exe Information: 0 : Initializing PhysicsDrag (22 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Renderer (21 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing MaterialManager (20 left)
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+example.Sandbox.exe Information: 0 : Initializing StereoscopicRenderer (19 left)
+Loading program res/OpenGL3/Blend
+example.Sandbox.exe Information: 0 : Initializing TextRenderer (18 left)
+Loading program res/OpenGL3/Font
+example.Sandbox.exe Information: 0 : Initializing AmbientOcclusionManager (17 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing DepthStencilVisualizer (16 left)
+Loading program res/OpenGL3/VisualizeDepth
+Loading program res/OpenGL3/VisualizeStencil
+example.Sandbox.exe Information: 0 : Initializing HighLevelRenderer (15 left)
+Loading program res/OpenGL3/Schlick
+Loading program res/OpenGL3/Anisotropic
+Loading program res/OpenGL3/TFloat
+Loading program res/OpenGL3/Grid
+Loading program res/OpenGL3/WideLineUniformColor
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+Loading program res/OpenGL3/ColorFill
+Loading program res/OpenGL3/HSVColorFill
+Loading program res/OpenGL3/HSVColorFill2
+Loading program res/OpenGL3/SchlickNoise
+Loading program res/OpenGL3/Rim
+Loading program res/OpenGL3/Manipulator
+example.Sandbox.exe Information: 0 : Initializing IDRenderer (14 left)
+Loading program res/OpenGL3/IdVec3
+example.Sandbox.exe Information: 0 : Initializing LineRenderer (13 left)
+Loading program res/OpenGL3/WideLine
+example.Sandbox.exe Information: 0 : Initializing ShadowRenderer (12 left)
+Loading program res/OpenGL3/VisualizeShadowMap
+Loading program res/OpenGL3/ShadowCaster2
+example.Sandbox.exe Information: 0 : Initializing Sounds (11 left)
+example.Sandbox.exe Information: 0 : Initializing StyleManager (10 left)
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+example.Sandbox.exe Warning: 0 : Unable to generate mipmaps, could not use nvtt?
+Loading program res/OpenGL3/Ninepatch
+example.Sandbox.exe Information: 0 : Initializing BrushManager (9 left)
+BrushManager: DeserializeInertiaCache...
+BrushManager: Collections...
+MakeBrushesFromSources took 218 ticks
+brushes.Count()      = 75
+namedBrushes.Count() = 75
+BrushManager: SerializeInertiaCache...
+BrushManager: Preset collections...
+example.Sandbox.exe Information: 0 : Initializing OperationStack (8 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing SceneManager (7 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Game (6 left)
+example.Sandbox.exe Information: 0 : Initializing ManipulatorManager (5 left)
+example.Sandbox.exe Information: 0 : Initializing CurveTool (4 left)
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing SelectionManager (3 left)
+Loading program res/OpenGL3/FatTriangle
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing UserInterfaceManager (2 left)
+Loading program res/OpenGL3/Anachrome
+Loading program res/OpenGL3/Triochrome
+Loading program res/OpenGL3/ColorCode
+example.Sandbox.exe Information: 0 : ====== Service initialization pass
+example.Sandbox.exe Information: 0 : Initializing Operations (1 left)
+Destroying window: Windows.WindowInfo: Handle 198586, Parent (null)
+Disposing context 65537.
+OpenGL context 65537 disposed manually
+OnLoad() took 2574 ticks
+Entering main loop.
+Initializing input driver.
+Using WinRawKeyboard.
+    Registered keyboard HID Keyboard Device
+Using WinRawMouse.
+    Registered mouse HID-compliant mouse
+Input window attached to Windows.WindowInfo: Handle 329646, Parent (Windows.WindowInfo: Handle 264122, Parent (null))
+Using WinRawInput.
+Loading program res/OpenGL3/Slider
+example.Sandbox.exe Information: 0 : AddTestSceneObjects using size: 19 objects: 23
+Virtual key Last (255) not mapped.
+Virtual key Last (255) not mapped.
+Destroying window: Windows.WindowInfo: Handle 264064, Parent (null)
+Disposing context 196608.
+OpenGL context 196608 disposed manually
+[Warning] INativeWindow leaked (OpenTK.Platform.Windows.WinGLNative). Did you forget to call INativeWindow.Dispose()?
+[Warning] Resource leaked: OpenTK.Platform.Windows.WinRawInput.

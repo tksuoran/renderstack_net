@@ -1,0 +1,227 @@
+<Type Name="DictionaryCoda" FullName="Cadenza.Collections.DictionaryCoda">
+  <TypeSignature Language="C#" Value="public static class DictionaryCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit DictionaryCoda extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GetValueOrCreate&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrCreate&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key) where TValue : new();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrCreate&lt;TKey, .ctor TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue">
+          <Constraints>
+            <ParameterAttribute>DefaultConstructorConstraint</ParameterAttribute>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetValueOrCreate&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrCreate&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue&gt; creator);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrCreate&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key, class System.Func`1&lt;!!TValue&gt; creator) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="creator" Type="System.Func&lt;TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="creator">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetValueOrDefault&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrDefault&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrDefault&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetValueOrDefault&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrDefault&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, TValue defaultValue);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrDefault&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key, !!TValue defaultValue) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="defaultValue" Type="TValue" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="defaultValue">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SequenceEqual&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static bool SequenceEqual&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; other);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool SequenceEqual&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; other) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="other" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="other">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SequenceEqual&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static bool SequenceEqual&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; other, System.Collections.Generic.IEqualityComparer&lt;TValue&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool SequenceEqual&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; other, class System.Collections.Generic.IEqualityComparer`1&lt;!!TValue&gt; comparer) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="other" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="other">To be added.</param>
+        <param name="comparer">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.DictionaryCoda.SequenceEqual``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEqualityComparer{``1})" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateValue&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue UpdateValue&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue,TValue&gt; valueSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue UpdateValue&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key, class System.Func`2&lt;!!TValue, !!TValue&gt; valueSelector) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="valueSelector" Type="System.Func&lt;TValue,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="valueSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
