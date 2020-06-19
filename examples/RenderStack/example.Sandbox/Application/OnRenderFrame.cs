@@ -1,26 +1,7 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
+﻿#define EXTRA_DEBUG
 
-#define EXTRA_DEBUG
-
-using System;
 using System.Diagnostics;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-
-using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
-
 using RenderStack.Graphics;
-using RenderStack.Math;
-using RenderStack.Scene;
-using RenderStack.Mesh;
-
-using Buffer = RenderStack.Graphics.BufferGL;
-using Debug = RenderStack.Graphics.Debug;
 
 namespace example.Sandbox
 {
@@ -31,23 +12,23 @@ namespace example.Sandbox
         //private long                    frameCounter = 0;
         private Stopwatch               interFrameStopwatch = new Stopwatch();
 
-        protected override void OnRenderFrame(OpenTK.FrameEventArgs ea)
+        protected override void OnRenderFrame(OpenTK.FrameEventArgs e)
         {
-            var highLevelRenderer = Services.Get<HighLevelRenderer>();
+            HighLevelRenderer highLevelRenderer = RenderStack.Services.BaseServices.Get<HighLevelRenderer>();
             highLevelRenderer.BeginFrame();
 
             interFrameStopwatch.Stop();
             long elapsed = interFrameStopwatch.ElapsedTicks;
             interFrameStopwatch.Reset();
             interFrameStopwatch.Start();
-            var ui = Services.Get<UserInterfaceManager>();
+            UserInterfaceManager ui = RenderStack.Services.BaseServices.Get<UserInterfaceManager>();
             if(ui != null)
             {
-                ui.InterFrameTime = (float)(1000.0 * (double)elapsed / (double)Stopwatch.Frequency);
+                ui.InterFrameTime = (float)(1000.0 * elapsed / Stopwatch.Frequency);
             }
-            var updateManager = Services.Get<UpdateManager>();
+            UpdateManager updateManager = RenderStack.Services.BaseServices.Get<UpdateManager>();
             updateManager.PerformFixedUpdates();
-            if(Configuration.threadedRendering == false)
+            if (Configuration.threadedRendering == false)
             {
                 Render();
             }
@@ -72,7 +53,7 @@ namespace example.Sandbox
         }
         protected void Render()
         {
-            var updateManager = Services.Get<UpdateManager>();
+            var updateManager = RenderStack.Services.BaseServices.Get<UpdateManager>();
             GhostManager.Process();
             updateManager.UpdateOncePerFrame();
             GhostManager.Process();
@@ -86,7 +67,7 @@ namespace example.Sandbox
 
             GhostManager.Process();
 
-            var highLevelRenderer = Services.Get<HighLevelRenderer>();
+            var highLevelRenderer = RenderStack.Services.BaseServices.Get<HighLevelRenderer>();
 #if CATCH
             try
 #endif

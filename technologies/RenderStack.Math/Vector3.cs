@@ -1,24 +1,4 @@
-﻿//  Copyright (C) 2011 by Timo Suoranta                                            
-//                                                                                 
-//  Permission is hereby granted, free of charge, to any person obtaining a copy   
-//  of this software and associated documentation files (the "Software"), to deal  
-//  in the Software without restriction, including without limitation the rights   
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell      
-//  copies of the Software, and to permit persons to whom the Software is          
-//  furnished to do so, subject to the following conditions:                       
-//                                                                                 
-//  The above copyright notice and this permission notice shall be included in     
-//  all copies or substantial portions of the Software.                            
-//                                                                                 
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN      
-//  THE SOFTWARE.                                                                  
-
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 
 namespace RenderStack.Math
@@ -137,7 +117,7 @@ namespace RenderStack.Math
             Vector3 x2_x1   = x2 - x1;
 
             float a   = x1_x0.LengthSquared * x2_x1.LengthSquared;
-            float dot = Vector3.Dot(x1_x0, x2_x1);
+            float dot = Dot(x1_x0, x2_x1);
             return (a - dot * dot) / x2_x1.LengthSquared;
         }
         public static Vector3 operator -(Vector3 vec)
@@ -228,9 +208,9 @@ namespace RenderStack.Math
         public static IVector3 IFloor(Vector3 v)
         {
             return new IVector3(
-                ((v.X)<0 ? ((int)v.X-1) : ((int)v.X)),
-                ((v.Y)<0 ? ((int)v.Y-1) : ((int)v.Y)),
-                ((v.Z)<0 ? ((int)v.Z-1) : ((int)v.Z))
+                v.X < 0 ? ((int)v.X - 1) : ((int)v.X),
+                v.Y < 0 ? ((int)v.Y - 1) : ((int)v.Y),
+                v.Z < 0 ? ((int)v.Z - 1) : ((int)v.Z)
             );
         }
         public static Vector3 Normalize(Vector3 v)
@@ -291,7 +271,7 @@ namespace RenderStack.Math
 
         public override string ToString()
         {
-            return String.Format("({0}, {1}, {2})", X, Y, Z);
+            return string.Format("({0}, {1}, {2})", X, Y, Z);
         }
 
         public ILinear PlusWeightTimesOther(float weight, ILinear other)
@@ -315,16 +295,12 @@ namespace RenderStack.Math
             return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
         }
 
-        bool System.IEquatable<Vector3>.Equals(Vector3 o)
-        {
-            return this == o;
-        }
+        bool IEquatable<Vector3>.Equals(Vector3 o) => this == o;
 
-        public override bool Equals(object o)
+        public override bool Equals(object obj)
         {
-            if(o is Vector3)
+            if (obj is Vector3 c)
             {
-                Vector3 c = (Vector3)o;
                 return this == c;
             }
             return false;

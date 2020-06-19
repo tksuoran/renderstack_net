@@ -1,17 +1,10 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-//#define OPENRL
+﻿//#define OPENRL
 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-
 using OpenTK.Graphics.OpenGL;
-
 using RenderStack.Geometry;
 using RenderStack.Geometry.Shapes;
 using RenderStack.Graphics;
@@ -19,9 +12,7 @@ using RenderStack.LightWave;
 using RenderStack.Math;
 using RenderStack.Mesh;
 using RenderStack.Physics;
-using RenderStack.Scene;
 using RenderStack.Services;
-
 using example.Brushes;
 using example.Renderer;
 

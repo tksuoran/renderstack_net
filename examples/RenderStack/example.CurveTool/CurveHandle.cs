@@ -1,25 +1,7 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-
-using OpenTK.Graphics.OpenGL;
-
-using RenderStack.Graphics;
+﻿using RenderStack.Graphics;
 using RenderStack.Math;
-using RenderStack.Mesh;
 
 using example.Renderer;
-
-using Buffer = RenderStack.Graphics.BufferGL;
-using Attribute = RenderStack.Graphics.Attribute;
-using Sphere = RenderStack.Geometry.Shapes.Sphere;
 
 //  TODO:
 //      http://www.niksula.hut.fi/~hkankaan/Homepages/bezierfast.html

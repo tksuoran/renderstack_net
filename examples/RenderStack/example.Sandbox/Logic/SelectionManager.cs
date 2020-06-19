@@ -1,8 +1,3 @@
-//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -355,46 +350,45 @@ namespace example.Sandbox
 
                     //  Temp debug code
                     IMeshSource meshSource = HoverModel.Batch.MeshSource;
-                    if(meshSource is GeometryMesh)
+                    if (meshSource is GeometryMesh original)
                     {
-                        GeometryMesh original = (GeometryMesh)meshSource;
-                        if(original.Geometry.PolygonAttributes.Contains<Vector3>("polygon_normals"))
+                        if (original.Geometry.PolygonAttributes.Contains<Vector3>("polygon_normals"))
                         {
-                            if(modelPolygonId < original.Geometry.Polygons.Count)
+                            if (modelPolygonId < original.Geometry.Polygons.Count)
                             {
                                 HoverPolygon = original.Geometry.Polygons[(int)modelPolygonId];
 #if true
                                 //selectionMesh.Geometry = Geometry.Clone(original.Geometry, SelectedPolygonIds).Destination;
                                 //selectionMesh.BuildMeshFromGeometry();
-                                Frame   hoverFrame          = HoverModel.Frame;
-                                Polygon polygon             = HoverPolygon;
-                                var     polygonNormals      = original.Geometry.PolygonAttributes.Find<Vector3>("polygon_normals");
-                                var     polygonCentroids    = original.Geometry.PolygonAttributes.Find<Vector3>("polygon_centroids");
-                                Vector3 normalInModel       = polygonNormals[polygon];
-                                Vector3 positionInModel     = hoverFrame.LocalToWorld.InverseMatrix.TransformPoint(HoverPosition);
-                                var     pointLocations      = original.Geometry.PointAttributes.Find<Vector3>("point_locations");
-                                Corner  pivotCorner         = original.Geometry.ClosestPolygonCorner(polygon, positionInModel);
-                                Point   pivotPoint          = pivotCorner.Point;
+                                Frame hoverFrame = HoverModel.Frame;
+                                Polygon polygon = HoverPolygon;
+                                var polygonNormals = original.Geometry.PolygonAttributes.Find<Vector3>("polygon_normals");
+                                var polygonCentroids = original.Geometry.PolygonAttributes.Find<Vector3>("polygon_centroids");
+                                Vector3 normalInModel = polygonNormals[polygon];
+                                Vector3 positionInModel = hoverFrame.LocalToWorld.InverseMatrix.TransformPoint(HoverPosition);
+                                var pointLocations = original.Geometry.PointAttributes.Find<Vector3>("point_locations");
+                                Corner pivotCorner = original.Geometry.ClosestPolygonCorner(polygon, positionInModel);
+                                Point pivotPoint = pivotCorner.Point;
 
                                 HoverPoint = pivotPoint;
 
                                 Edge firstEdge;
                                 Edge secondEdge;
                                 original.Geometry.PolygonCornerEdges(polygon, pivotCorner, out firstEdge, out secondEdge);
-                                Point   firstEdgeOutPoint   = firstEdge.Other(pivotPoint);
-                                Point   secondEdgeOutPoint  = secondEdge.Other(pivotPoint);
-                                Vector3 pivotLocation       = hoverFrame.LocalToWorld.Matrix.TransformPoint(pointLocations[pivotPoint]);
-                                Vector3 firstOutLocation    = hoverFrame.LocalToWorld.Matrix.TransformPoint(pointLocations[firstEdgeOutPoint]);
-                                Vector3 secondOutLocation   = hoverFrame.LocalToWorld.Matrix.TransformPoint(pointLocations[secondEdgeOutPoint]);
-                                Vector3 normal              = hoverFrame.LocalToWorld.Matrix.TransformDirection(normalInModel);
-                                Vector3 firstDirection      = Vector3.Normalize(firstOutLocation - pivotLocation);
-                                Vector3 secondDirection     = Vector3.Normalize(secondOutLocation - pivotLocation);
-                                Vector3 centroid            = hoverFrame.LocalToWorld.Matrix.TransformPoint(polygonCentroids[polygon]);
-                                if(Configuration.hoverDebug)
+                                Point firstEdgeOutPoint = firstEdge.Other(pivotPoint);
+                                Point secondEdgeOutPoint = secondEdge.Other(pivotPoint);
+                                Vector3 pivotLocation = hoverFrame.LocalToWorld.Matrix.TransformPoint(pointLocations[pivotPoint]);
+                                Vector3 firstOutLocation = hoverFrame.LocalToWorld.Matrix.TransformPoint(pointLocations[firstEdgeOutPoint]);
+                                Vector3 secondOutLocation = hoverFrame.LocalToWorld.Matrix.TransformPoint(pointLocations[secondEdgeOutPoint]);
+                                Vector3 normal = hoverFrame.LocalToWorld.Matrix.TransformDirection(normalInModel);
+                                Vector3 firstDirection = Vector3.Normalize(firstOutLocation - pivotLocation);
+                                Vector3 secondDirection = Vector3.Normalize(secondOutLocation - pivotLocation);
+                                Vector3 centroid = hoverFrame.LocalToWorld.Matrix.TransformPoint(polygonCentroids[polygon]);
+                                if (Configuration.hoverDebug)
                                 {
                                     lineRenderer.Begin();
-                                    lineRenderer.Line(HoverPosition,    HoverPosition + 0.5f * normal, new Vector4(1.0f, 1.0f, 1.0f, 1.0f));
-                                    lineRenderer.Line(centroid,         centroid + 0.25f * normal, new Vector4(0.5f, 0.5f, 0.5f, 1.0f));
+                                    lineRenderer.Line(HoverPosition, HoverPosition + 0.5f * normal, new Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+                                    lineRenderer.Line(centroid, centroid + 0.25f * normal, new Vector4(0.5f, 0.5f, 0.5f, 1.0f));
                                     /*LineRenderer.Line(pivotLocation, pivotLocation + normal);
                                     LineRenderer.Line(pivotLocation - firstDirection * 1.0f, pivotLocation + firstDirection  * 1.0f);
                                     LineRenderer.Line(pivotLocation - secondDirection * 1.0f, pivotLocation + secondDirection * 1.0f);*/

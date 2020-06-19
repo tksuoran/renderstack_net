@@ -7,15 +7,14 @@ namespace example.Sandbox
 {
     public partial class SceneManager : Service, ISceneManager
     {
-        private ulong                       updateSerial = 1; // must start greater than 0
-        public ulong                        UpdateSerial { get { return updateSerial; } }
+        public ulong UpdateSerial { get; private set; } = 1;
 
         private List<IUpdateOncePerFrame>   updateOncePerFrame = new List<IUpdateOncePerFrame>();
         private List<IUpdateFixedStep>      updateFixedStep    = new List<IUpdateFixedStep>();
 
         public void NextUpdateSerial()
         {
-            ++updateSerial;
+            ++UpdateSerial;
         }
 
         public void Add(IUpdateOncePerFrame update)
@@ -50,7 +49,7 @@ namespace example.Sandbox
                 UpdateShadowMap = true;
             }
 
-            camera.Frame.UpdateHierarchical(updateSerial);
+            camera.Frame.UpdateHierarchical(UpdateSerial);
             foreach(var group in RenderGroups)
             {
                 UpdateOncePerFrame(group);
@@ -60,11 +59,11 @@ namespace example.Sandbox
         {
             foreach(var light in group.Lights)
             {
-                light.Camera.Frame.UpdateHierarchical(updateSerial);
+                light.Camera.Frame.UpdateHierarchical(UpdateSerial);
             }
             foreach(var model in group.Models)
             {
-                model.Frame.UpdateHierarchical(updateSerial);
+                model.Frame.UpdateHierarchical(UpdateSerial);
             }
         }
         public void UpdateFixed()

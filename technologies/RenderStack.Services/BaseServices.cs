@@ -1,28 +1,19 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Collections.Generic;
-
 
 namespace RenderStack.Services
 {
     public abstract class BaseServices
     {
         public static   BaseServices        BaseInstance { get; private set; }
+        protected HashSet<IService> ServicesSet { get; private set; } = new HashSet<IService>();
+        private Dictionary<Type, object> servicesDictionary = new Dictionary<Type, object>();
 
-        private         HashSet<IService>   servicesSet = new HashSet<IService>();
-        protected       HashSet<IService>   ServicesSet { get { return servicesSet; } }
-        private         Dictionary<System.Type, object> servicesDictionary = new Dictionary<Type,object>();
+        public static T Get<T>() { return (T)BaseInstance.Get2(typeof(T)); }
 
-        public static T Get<T>(){ return (T)BaseInstance.Get2(typeof(T)); }
-
-        public object Get2(System.Type type)
+        public object Get2(Type type)
         {
-            if(servicesDictionary.ContainsKey(type))
+            if (servicesDictionary.ContainsKey(type))
             {
                 return servicesDictionary[type];
             }
@@ -36,11 +27,11 @@ namespace RenderStack.Services
 
         protected void ClearServices()
         {
-            servicesSet = null;
+            ServicesSet = null;
         }
         public void Add(IService service)
         {
-            servicesSet.Add(service);
+            ServicesSet.Add(service);
             servicesDictionary[service.ServiceType] = service;
         }
         //abstract void Cleanup()

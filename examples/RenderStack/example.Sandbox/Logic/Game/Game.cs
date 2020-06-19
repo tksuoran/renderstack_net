@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using RenderStack.Math;
 using RenderStack.Mesh;
-using RenderStack.Scene;
 using RenderStack.Services;
 using RenderStack.Geometry;
 using RenderStack.Geometry.Shapes;

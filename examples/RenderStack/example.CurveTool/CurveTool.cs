@@ -1,12 +1,5 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 using OpenTK.Graphics.OpenGL;
@@ -19,9 +12,6 @@ using RenderStack.Services;
 
 using example.Renderer;
 
-using Buffer    = RenderStack.Graphics.BufferGL;
-using Attribute = RenderStack.Graphics.Attribute;
-using Sphere    = RenderStack.Geometry.Shapes.Sphere;
 
 //  TODO:
 //      http://www.niksula.hut.fi/~hkankaan/Homepages/bezierfast.html
@@ -33,44 +23,35 @@ namespace example.CurveTool
         {
             get { return "CurveTool"; }
         }
+
         #region Services
-        //FramebufferManager          framebufferManager;
-        MaterialManager             materialManager;
-        IRenderer                   renderer;
-        ISceneManager               sceneManager;
+        IRenderer renderer;
+        ISceneManager sceneManager;
         //SelectionManager            selectionManager;
         //UserInterfaceManager        userInterfaceManager;
         //Application                 window;
         #endregion
 
         private Material            tMaterial;
-        private Material            handleMaterial;
         private GeometryMesh        controlHandle;
-        private Model               editHandle;
-        private Group               handleGroup = new Group("CurveTool.handleGroup");
-        private Group               tubeGroup   = new Group("CurveTool.tubeGroup");
-        private Group               lineGroup   = new Group("CurveTool.lineGroup");
-
         private List<CurveSegment>  segments = new List<CurveSegment>();
         private CurveSegment        editSegment;    //  Current edit segment
         private CurveHandle         modifyHandle = null;
         private float               editT = 0.5f;   //  Current editing t, local to current segment
-        //private CurveSegment        mouseSegment;   //  Current mouse hover segment
-        private float               mouseT = 0.5f;  //  Current mouse t, local to current segment
         private float               scale = 0.4f;
         private IFramebuffer        framebuffer;
 
-        public  MaterialManager     MaterialManager { get { return materialManager; } }
-        public  Mesh                HandleMesh      { get { return controlHandle.GetMesh; } }
-        public  Material            HandleMaterial  { get { return handleMaterial; } }
-        public  Group               HandleGroup     { get { return handleGroup; } }
-        public  Group               TubeGroup       { get { return tubeGroup; } }
-        public  Group               LineGroup       { get { return lineGroup; } }
-        public  Model               EditHandle      { get { return editHandle; } }
-        public  bool                LockEditHandle  { get; set; }
-        public  bool                ShowHandles     { set { handleGroup.Visible = value; } }
-        public  float               MouseT          { get { return mouseT; } }
-        public  bool                Enabled = false;
+        public MaterialManager MaterialManager { get; private set; }
+        public Mesh            HandleMesh      { get { return controlHandle.GetMesh; } }
+        public Material        HandleMaterial  { get; private set; }
+        public Group           HandleGroup     { get; } = new Group("CurveTool.handleGroup");
+        public Group           TubeGroup       { get; } = new Group("CurveTool.tubeGroup");
+        public Group           LineGroup       { get; } = new Group("CurveTool.lineGroup");
+        public Model           EditHandle      { get; private set; }
+        public bool            LockEditHandle  { get; set; }
+        public bool            ShowHandles     { set { HandleGroup.Visible = value; } }
+        public float           MouseT          { get; private set; } = 0.5f;
+        public bool            Enabled;
 
         public Floats TCB = new Floats(0.0f, 0.0f, 0.0f);
 
@@ -116,7 +97,7 @@ namespace example.CurveTool
             ISceneManager   sceneManager
         )
         {
-            this.materialManager = materialManager;
+            this.MaterialManager = materialManager;
             this.renderer = renderer;
             this.sceneManager = sceneManager;
 
@@ -161,18 +142,18 @@ namespace example.CurveTool
             CreateFramebuffers();
             renderer.Resize += new EventHandler<EventArgs>(window_Resize);
 
-            tMaterial = materialManager.MakeMaterial("tMaterial", "TFloat");
+            tMaterial = MaterialManager.MakeMaterial("tMaterial", "TFloat");
 
             //materialManager.MakeSimpleMaterial("CurveToolControlHandle", 1.0f, 1.0f,1.0f);
-            handleMaterial = materialManager.MakeMaterial("CurveToolControlHandle", "Schlick"); 
+            HandleMaterial = MaterialManager.MakeMaterial("CurveToolControlHandle", "Schlick"); 
             float diffuse = 0.5f;
             float specular = 1.0f;
             float roughness = 0.02f;
             float r = 1.0f; float g = 1.0f; float b = 1.0f;
-            handleMaterial.Floats("surface_diffuse_reflectance_color"    ).Set(diffuse * r, diffuse * g, diffuse * b);
-            handleMaterial.Floats("surface_specular_reflectance_color"   ).Set(specular * r, specular * r, specular *r);
-            handleMaterial.Floats("surface_roughness"                    ).Set(roughness);
-            handleMaterial.Sync();
+            HandleMaterial.Floats("surface_diffuse_reflectance_color"    ).Set(diffuse * r, diffuse * g, diffuse * b);
+            HandleMaterial.Floats("surface_specular_reflectance_color"   ).Set(specular * r, specular * r, specular *r);
+            HandleMaterial.Floats("surface_roughness"                    ).Set(roughness);
+            HandleMaterial.Sync();
         }
 
         public void Reset()
@@ -199,16 +180,16 @@ namespace example.CurveTool
 
             editSegment = segments.First();
             editT = 0.5f;
-            editHandle = new Model("EditHandle", controlHandle, handleMaterial);
+            EditHandle = new Model("EditHandle", controlHandle, HandleMaterial);
             //handleGroup.Models.Add(editHandle);
 
             LineGroup.Visible = Configuration.curveToolLines;
-            sceneManager.RenderGroups.Add(lineGroup);
-            sceneManager.RenderGroups.Add(tubeGroup);
-            sceneManager.ShadowCasterGroups.Add(tubeGroup);
-            sceneManager.RenderGroups.Add(handleGroup);
-            sceneManager.IdGroups.Add(tubeGroup);
-            sceneManager.IdGroups.Add(handleGroup);
+            sceneManager.RenderGroups.Add(LineGroup);
+            sceneManager.RenderGroups.Add(TubeGroup);
+            sceneManager.ShadowCasterGroups.Add(TubeGroup);
+            sceneManager.RenderGroups.Add(HandleGroup);
+            sceneManager.IdGroups.Add(TubeGroup);
+            sceneManager.IdGroups.Add(HandleGroup);
 
             // Without this we can't render without update
             dirty = true;
@@ -278,7 +259,7 @@ namespace example.CurveTool
             }
             renderer.EndScissorMouse();
 
-            mouseT = ReadMouseColor();
+            MouseT = ReadMouseColor();
             framebuffer.End();
         }
 

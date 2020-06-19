@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.InteropServices;
+﻿using System.IO;
 
 using RenderStack.Math;
 
@@ -10,15 +6,15 @@ namespace RenderStack.Graphics
 {
     public class VertexBufferWriter
     {
-        private BufferWriter    BufferWriter;
+        private BufferWriter BufferWriter;
         //private IBuffer         Buffer          { get { return BufferWriter.Buffer; } }
-        private MemoryStream    memoryStream    { get { return BufferWriter.memoryStream; } }
-        private BinaryWriter    writer          { get { return BufferWriter.writer; } }
-        public  uint            CurrentIndex    { get { return BufferWriter.CurrentIndex; } set { BufferWriter.CurrentIndex = value; } }
+        private MemoryStream MemoryStream => BufferWriter.memoryStream;
+        private BinaryWriter Writer => BufferWriter.writer;
+        public  uint         CurrentIndex    { get { return BufferWriter.CurrentIndex; } set { BufferWriter.CurrentIndex = value; } }
 
         public VertexBufferWriter(IBufferRange bufferRange)
         {
-            this.BufferWriter = new BufferWriter(bufferRange);
+            BufferWriter = new BufferWriter(bufferRange);
         }
 
         public void BeginEdit()
@@ -33,34 +29,34 @@ namespace RenderStack.Graphics
 #if true
         public void Set(Attribute attribute, params byte[] values)
         {
-            writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
+            Writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
             foreach(byte value in values)
             {
-                writer.Write(value);
+                Writer.Write(value);
             }
         }
         public void Set(Attribute attribute, params int[] values)
         {
-            writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
+            Writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
             foreach(int value in values)
             {
-                writer.Write(value);
+                Writer.Write(value);
             }
         }
         public void Set(Attribute attribute, params uint[] values)
         {
-            writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
+            Writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
             foreach(uint value in values)
             {
-                writer.Write(value);
+                Writer.Write(value);
             }
         }
         public void Set(Attribute attribute, params float[] values)
         {
-            writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
+            Writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
             foreach(float value in values)
             {
-                writer.Write(value);
+                Writer.Write(value);
             }
         }
 #else
@@ -87,24 +83,24 @@ namespace RenderStack.Graphics
 #endif
         public void Set(Attribute attribute, Vector2 value)
         {
-            writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
-            writer.Write(value.X);
-            writer.Write(value.Y);
+            Writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, SeekOrigin.Begin);
+            Writer.Write(value.X);
+            Writer.Write(value.Y);
         }
         public void Set(Attribute attribute, Vector3 value)
         {
-            writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
-            writer.Write(value.X);
-            writer.Write(value.Y);
-            writer.Write(value.Z);
+            Writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, SeekOrigin.Begin);
+            Writer.Write(value.X);
+            Writer.Write(value.Y);
+            Writer.Write(value.Z);
         }
         public void Set(Attribute attribute, Vector4 value)
         {
-            writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, System.IO.SeekOrigin.Begin);
-            writer.Write(value.X);
-            writer.Write(value.Y);
-            writer.Write(value.Z);
-            writer.Write(value.W);
+            Writer.Seek((int)CurrentIndex * BufferWriter.bufferRange.VertexFormat.Stride + attribute.Offset, SeekOrigin.Begin);
+            Writer.Write(value.X);
+            Writer.Write(value.Y);
+            Writer.Write(value.Z);
+            Writer.Write(value.W);
         }
         public void Position(Vector3 value)
         {

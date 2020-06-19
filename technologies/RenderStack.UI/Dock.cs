@@ -1,45 +1,20 @@
-﻿//  Copyright (C) 2011 by Timo Suoranta                                            
-//                                                                                 
-//  Permission is hereby granted, free of charge, to any person obtaining a copy   
-//  of this software and associated documentation files (the "Software"), to deal  
-//  in the Software without restriction, including without limitation the rights   
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell      
-//  copies of the Software, and to permit persons to whom the Software is          
-//  furnished to do so, subject to the following conditions:                       
-//                                                                                 
-//  The above copyright notice and this permission notice shall be included in     
-//  all copies or substantial portions of the Software.                            
-//                                                                                 
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN      
-//  THE SOFTWARE.                                                                  
-
-using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-
-using RenderStack.Math;
+﻿using RenderStack.Math;
 
 namespace RenderStack.UI
 {
     /*  Comment: Experimental  */ 
     public class Dock : Area
     {
-        private Orientation orientation;
-        private Vector2     cursorStart;
-        private Vector2     cursorEnd;
-        private Vector2     growDirection;
+        private Vector2 cursorStart;
+        private Vector2 cursorEnd;
+        private Vector2 growDirection;
 
-        public Orientation      Orientation { get { return orientation; } set { orientation = value; } }
+        public Orientation Orientation { get; set; }
         public AreaLayoutStyle  ChildLayoutStyle = AreaLayoutStyle.Normal;
 
         public Dock(Orientation orientation)
         {
-            this.orientation = orientation;
+            Orientation = orientation;
             EventOrdering = AreaOrder.Separate;
         }
 
@@ -59,7 +34,7 @@ namespace RenderStack.UI
             //Debug.Print(Name + ".CallSize(" + area.Name + ") = " + subSize.ToString());
             // size[axis_sum]   += sub_size[axis_sum] + style->padding[axis_sum];
             // size[axis_max]    = MAX( size[axis_max], sub_size[axis_max] );
-            switch(orientation)
+            switch(Orientation)
             {
                 case Orientation.Horizontal:
                 {
@@ -93,7 +68,7 @@ namespace RenderStack.UI
         {
             // size[axis_max] += 2 * style->padding[axis_max];
             // dmsg( M_WML, "%s->Dock::endSize( %f x %f )", this->getName().c_str(), size[0], size[1] );
-            switch(orientation)
+            switch(Orientation)
             {
                 case Orientation.Horizontal:
                 {
@@ -191,7 +166,7 @@ namespace RenderStack.UI
 
             Vector2 subSize = area.DoPlace(reference, growDirection);
 
-            switch(orientation)
+            switch(Orientation)
             {
                 case Orientation.Horizontal:    cursorStart.X += growDirection.X * (subSize.X + Style.InnerPadding.X); break;
                 case Orientation.Vertical:      cursorStart.Y += growDirection.Y * (subSize.Y + Style.InnerPadding.Y); break;

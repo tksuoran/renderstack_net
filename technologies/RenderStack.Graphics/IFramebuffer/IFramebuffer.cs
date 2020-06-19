@@ -1,12 +1,10 @@
-﻿using System.Diagnostics;
-
-using OpenTK.Graphics.OpenGL;
+﻿using OpenTK.Graphics.OpenGL;
 
 namespace RenderStack.Graphics
 {
     public interface IFramebuffer : System.IDisposable
     {
-        RenderStack.Math.Viewport Viewport { get; }
+        Math.Viewport Viewport { get; }
 
         TextureGL this[FramebufferAttachment attachment]{ get; }
 
@@ -54,9 +52,9 @@ namespace RenderStack.Graphics
         {
             if(Configuration.useGl1)
             {
-                return (IFramebuffer)new FramebufferGL1(window);
+                return new FramebufferGL1(window);
             }
-            return (IFramebuffer)new FramebufferGL3(window);
+            return new FramebufferGL3(window);
         }
         public static IFramebuffer Create(int width, int height)
         {

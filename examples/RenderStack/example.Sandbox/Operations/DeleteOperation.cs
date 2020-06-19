@@ -1,17 +1,4 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
-using System.IO;
-
-using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
-
+﻿using System.Collections.Generic;
 using example.Renderer;
 
 namespace example.Sandbox
@@ -42,53 +29,53 @@ namespace example.Sandbox
             }
         }
 
-        public void Execute(Application sandbox)
+        void IOperation.Execute(Application sandbox)
         {
-            var sceneManager = Services.Get<SceneManager>();
-            var selectionManager = Services.Get<SelectionManager>();
-            if(sceneManager == null)
+            SceneManager sceneManager = RenderStack.Services.BaseServices.Get<SceneManager>();
+            SelectionManager selectionManager = RenderStack.Services.BaseServices.Get<SelectionManager>();
+            if (sceneManager == null)
             {
                 return;
             }
-            foreach(var entry in entries)
+            foreach (var entry in entries)
             {
-                if(entry.model == sceneManager.FloorModel)
+                if (entry.model == sceneManager.FloorModel)
                 {
                     continue;
                 }
                 entry.model.Selected = false;
                 sceneManager.RemoveModel(entry.model);
-                if(selectionManager == null)
+                if (selectionManager == null)
                 {
                     continue;
                 }
-                if(entry.selected)
+                if (entry.selected)
                 {
                     selectionManager.Remove(entry.model);
                 }
             }
         }
-        public void Undo(Application sandbox)
+        void IOperation.Undo(Application sandbox)
         {
-            var sceneManager = Services.Get<SceneManager>();
-            var selectionManager = Services.Get<SelectionManager>();
-            if(sceneManager == null)
+            SceneManager sceneManager = RenderStack.Services.BaseServices.Get<SceneManager>();
+            SelectionManager selectionManager = RenderStack.Services.BaseServices.Get<SelectionManager>();
+            if (sceneManager == null)
             {
                 return;
             }
-            foreach(var entry in entries)
+            foreach (var entry in entries)
             {
-                if(entry.model == sceneManager.FloorModel)
+                if (entry.model == sceneManager.FloorModel)
                 {
                     continue;
                 }
                 entry.model.Selected = entry.selected;
                 sceneManager.AddModel(entry.model);
-                if(selectionManager == null)
+                if (selectionManager == null)
                 {
                     continue;
                 }
-                if(entry.selected)
+                if (entry.selected)
                 {
                     selectionManager.Add(entry.model);
                 }
@@ -100,7 +87,7 @@ namespace example.Sandbox
     {
         public void Delete()
         {
-            var selectionManager = Services.Get<SelectionManager>();
+            SelectionManager selectionManager = RenderStack.Services.BaseServices.Get<SelectionManager>();
             if(selectionManager == null)
             {
                 return;

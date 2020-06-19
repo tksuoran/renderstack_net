@@ -1,13 +1,15 @@
-﻿namespace RenderStack.Math
+﻿using static System.Math;
+
+namespace RenderStack.Math
 {
-    public class MathHelper
+    public static class MathHelper
     {
         //  Relative machine precision.
-        private static double Epsilon = 2.22e-16;
+        private static readonly double Epsilon = 2.22e-16;
         //  The smallest positive floating-point number such that 1/xminin is machine representable.
-        private static double XMinInv = 2.23e-308;
-        private static double Sqrt2Pi = System.Math.Sqrt(2.0 * System.Math.PI);
-        private static double LogSqrt2Pi = System.Math.Log(Sqrt2Pi);
+        private static readonly double XMinInv = 2.23e-308;
+        private static readonly double Sqrt2Pi = Sqrt(2.0 * PI);
+        private static readonly double LogSqrt2Pi = Log(Sqrt2Pi);
         /**
         * Gamma function.
         * Based on public domain NETLIB (Fortran) code by W. J. Cody and L. Stoltz<BR>
@@ -77,7 +79,7 @@
                     {
                         parity = true;
                     }
-                    fact = -System.Math.PI / System.Math.Sin(System.Math.PI * res);
+                    fact = -PI / Sin(PI * res);
                     y++;
                 }
                 else
@@ -151,8 +153,8 @@
                         sum = sum / ysq + g_c[i];
                     }
                     sum = sum / y - y + LogSqrt2Pi;
-                    sum += (y - 0.5) * System.Math.Log(y);
-                    res = System.Math.Exp(sum);
+                    sum += (y - 0.5) * Log(y);
+                    res = Exp(sum);
                 }
                 else
                 {
@@ -263,14 +265,14 @@
             {
                 if(y <= Epsilon)
                 {
-                    res = -System.Math.Log(y);
+                    res = -Log(y);
                 }
                 else if(y <= 1.5)
                 {
                     //  EPS .LT. X .LE. 1.5
                     if(y < pnt68)
                     {
-                        corr = -System.Math.Log(y);
+                        corr = -Log(y);
                         xm1 = y;
                     }
                     else
@@ -340,7 +342,7 @@
                             res = res / ysq + lg_c[i];
                     }
                     res /= y;
-                    corr = System.Math.Log(y);
+                    corr = Log(y);
                     res = res + LogSqrt2Pi - 0.5 * corr;
                     res += y * (corr - 1.0);
                 }
@@ -371,7 +373,7 @@
             }
             else
             {
-                return System.Math.Exp(
+                return Exp(
                     LogBeta(p, q)
                 );
             }

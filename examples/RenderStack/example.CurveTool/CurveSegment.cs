@@ -1,42 +1,23 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-
-using OpenTK.Graphics.OpenGL;
+﻿using System;
 
 using RenderStack.Graphics;
 using RenderStack.Math;
-using RenderStack.Mesh;
 
 using example.Renderer;
 
-using Buffer = RenderStack.Graphics.BufferGL;
-using Attribute = RenderStack.Graphics.Attribute;
-using Sphere = RenderStack.Geometry.Shapes.Sphere;
 
 namespace example.CurveTool
 {
     public class CurveSegment
     {
-        private CurveTool       tool;
-        private float           scale;
-        private ICurve          curve;
-        private CurveTube       tube;
-        private Model           tubeModel;
-        private bool            dirty = true;
-        private CurveHandle[]   handles;
+        private CurveTool    tool;
+        private float        scale;
+        private bool         dirty = true;
 
-        public CurveHandle[]    Handles     { get { return handles; } }
-        public ICurve           Curve       { get { return curve; } }
-        public CurveTube        Tube        { get { return tube; } }
-        public Model            TubeModel   { get { return tubeModel; } }
+        public CurveHandle[] Handles   { get; private set; }
+        public ICurve        Curve     { get; }
+        public CurveTube     Tube      { get; }
+        public Model         TubeModel { get; private set; }
 
         public CurveSegment(
             CurveTool   tool, 
@@ -68,9 +49,9 @@ namespace example.CurveTool
                 );
             }
 
-            this.curve = curve;
-            tube            = new GenericCurveTube(curve);
-            tube.TubeRadius = scale;
+            this.Curve = curve;
+            Tube = new GenericCurveTube(curve);
+            Tube.TubeRadius = scale;
 
             AddHandles(offset);
             AddTube();
@@ -79,7 +60,7 @@ namespace example.CurveTool
 
         public CurveHandle Handle(Model hoverModel)
         {
-            foreach(var handle in handles)
+            foreach(var handle in Handles)
             {
                 if(handle.model == hoverModel)
                 {
@@ -95,15 +76,15 @@ namespace example.CurveTool
             dirty = true;
             Update();
             //tubeModel = new Model("Tube", tube.TubeMesh, tool.MaterialManager["Tube"]);
-            tubeModel = new Model("Tube", tube.TubeMesh, tool.MaterialManager["Tube"]); // tool.MaterialManager["Schlick"]);
-            tool.TubeGroup.Add(tubeModel);
+            TubeModel = new Model("Tube", Tube.TubeMesh, tool.MaterialManager["Tube"]); // tool.MaterialManager["Schlick"]);
+            tool.TubeGroup.Add(TubeModel);
         }
 
         private void AddHandles(Vector3 offset)
         {
-            handles = new CurveHandle[curve.Count];
+            Handles = new CurveHandle[Curve.Count];
             //double r = 4.0;
-            for(int i = 0; i < curve.Count; ++i)
+            for(int i = 0; i < Curve.Count; ++i)
             {
                 //double rel = (double)(i) / (double)(curve.Count - 1);
                 //double theta = rel * 2.0 * Math.PI;
@@ -114,7 +95,7 @@ namespace example.CurveTool
                     tool.HandleMaterial
                 );
                 tool.HandleGroup.Add(Handles[i].model);
-                handles[i].Position = curve[i].Position;
+                Handles[i].Position = Curve[i].Position;
 #if false
                 handles[i].Position = new Vector3(
                     r * Math.Cos(theta),
@@ -127,8 +108,8 @@ namespace example.CurveTool
 
         private void AddLines()
         {
-            tool.LineGroup.Add(new Model("Tube lines",    tube.LineMesh,  tool.MaterialManager["EdgeLines"]));
-            tool.LineGroup.Add(new Model("Tube Lines 2",  tube.Line2Mesh, tool.MaterialManager["EdgeLines"]));
+            tool.LineGroup.Add(new Model("Tube lines", Tube.LineMesh,  tool.MaterialManager["EdgeLines"]));
+            tool.LineGroup.Add(new Model("Tube Lines 2", Tube.Line2Mesh, tool.MaterialManager["EdgeLines"]));
 
             tool.LineGroup.Visible = Configuration.curveToolLines;
         }
@@ -137,7 +118,7 @@ namespace example.CurveTool
         {
             bool change = false;
 
-            for(int i = 0; i < curve.Count; ++i)
+            for(int i = 0; i < Curve.Count; ++i)
             {
                 if(
                     (Curve[i].Position.X != Handles[i].Position.X) ||
@@ -161,7 +142,7 @@ namespace example.CurveTool
         }
         public void ControlHandlesToCurve()
         {
-            for(int i = 0; i < curve.Count; ++i)
+            for(int i = 0; i < Curve.Count; ++i)
             {
                 Handles[i].Position = Curve[i].Position;
             }
@@ -190,10 +171,10 @@ namespace example.CurveTool
         {
             if(dirty)
             {
-                tube.UpdateTubeMesh();      //  updates adaptive points
-                tube.UpdatePointMesh();     //  needs adaptive points
-                tube.UpdateLine2Mesh();     //  needs adaptive points
-                tube.UpdateLineMesh();
+                Tube.UpdateTubeMesh();      //  updates adaptive points
+                Tube.UpdatePointMesh();     //  needs adaptive points
+                Tube.UpdateLine2Mesh();     //  needs adaptive points
+                Tube.UpdateLineMesh();
                 dirty = false;
             }
         }

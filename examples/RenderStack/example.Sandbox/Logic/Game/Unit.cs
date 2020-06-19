@@ -1,8 +1,4 @@
-﻿using System;
-
-using RenderStack.Math;
-using RenderStack.Scene;
-
+﻿using RenderStack.Math;
 using example.Renderer;
 
 namespace example.Sandbox

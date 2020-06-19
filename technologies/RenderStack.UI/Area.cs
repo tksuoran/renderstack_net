@@ -1,27 +1,4 @@
-﻿//  Copyright (C) 2011 by Timo Suoranta                                            
-//                                                                                 
-//  Permission is hereby granted, free of charge, to any person obtaining a copy   
-//  of this software and associated documentation files (the "Software"), to deal  
-//  in the Software without restriction, including without limitation the rights   
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell      
-//  copies of the Software, and to permit persons to whom the Software is          
-//  furnished to do so, subject to the following conditions:                       
-//                                                                                 
-//  The above copyright notice and this permission notice shall be included in     
-//  all copies or substantial portions of the Software.                            
-//                                                                                 
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN      
-//  THE SOFTWARE.                                                                  
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-
+﻿using System.Collections.Generic;
 using RenderStack.Math;
 
 namespace RenderStack.UI
@@ -37,7 +14,6 @@ namespace RenderStack.UI
         public      Vector2     FillBasePixels          = new Vector2();
         public      Vector2     FillFreeSizeRelative    = new Vector2();
         protected   Area        parent;
-        private     List<Area>  children = new List<Area>();
         protected   AreaOrder   DrawOrdering;
         protected   AreaOrder   EventOrdering;
         protected   Vector2     size = new Vector2();
@@ -49,7 +25,7 @@ namespace RenderStack.UI
         public      float       SizeY   { get { return size.Y; } set { size.Y = value; } }
         public      Rectangle   Rect    { get { return rect; } }
         protected   Rectangle   InRect  { get { return inRect; } }
-        public      List<Area>  Children { get { return children; } }
+        public List<Area> Children { get; } = new List<Area>();
 
         public      bool        ClipToReference;
 

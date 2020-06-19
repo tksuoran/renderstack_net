@@ -31,30 +31,15 @@
         {
         }
 
-        public float Dot(Vector4 value)
-        {
-            return ((((this.Normal.X * value.X) + (this.Normal.Y * value.Y)) + (this.Normal.Z * value.Z)) + (this.D * value.W));
-        }
+        public float Dot(Vector4 value) => (Normal.X * value.X) + (Normal.Y * value.Y) + (Normal.Z * value.Z) + (D * value.W);
 
-        public float DotCoordinate(Vector3 value)
-        {
-            return ((((this.Normal.X * value.X) + (this.Normal.Y * value.Y)) + (this.Normal.Z * value.Z)) + this.D);
-        }
+        public float DotCoordinate(Vector3 value) => (Normal.X * value.X) + (Normal.Y * value.Y) + (Normal.Z * value.Z) + D;
 
-        public void DotCoordinate(ref Vector3 value, out float result)
-        {
-            result = (((this.Normal.X * value.X) + (this.Normal.Y * value.Y)) + (this.Normal.Z * value.Z)) + this.D;
-        }
+        public void DotCoordinate(ref Vector3 value, out float result) => result = (Normal.X * value.X) + (Normal.Y * value.Y) + (Normal.Z * value.Z) + D;
 
-        public float DotNormal(Vector3 value)
-        {
-            return (((this.Normal.X * value.X) + (this.Normal.Y * value.Y)) + (this.Normal.Z * value.Z));
-        }
+        public float DotNormal(Vector3 value) => (Normal.X * value.X) + (Normal.Y * value.Y) + (Normal.Z * value.Z);
 
-        public void DotNormal(ref Vector3 value, out float result)
-        {
-            result = ((this.Normal.X * value.X) + (this.Normal.Y * value.Y)) + (this.Normal.Z * value.Z);
-        }
+        public void DotNormal(ref Vector3 value, out float result) => result = (Normal.X * value.X) + (Normal.Y * value.Y) + (Normal.Z * value.Z);
 
         public void Normalize()
         {
@@ -90,9 +75,9 @@
             return plane1.Equals(plane2);
         }
 
-        public override bool Equals(object other)
+        public override bool Equals(object obj)
         {
-            return (other is Plane) ? this.Equals((Plane)other) : false;
+            return (obj is Plane) && Equals((Plane)obj);
         }
 
         public bool Equals(Plane other)

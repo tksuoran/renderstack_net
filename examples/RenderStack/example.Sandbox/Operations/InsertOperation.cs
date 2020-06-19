@@ -1,17 +1,4 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
-using System.IO;
-
-using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
-
+﻿using System.Collections.Generic;
 using RenderStack.Geometry;
 using RenderStack.Math;
 using RenderStack.Mesh;
@@ -31,11 +18,11 @@ namespace example.Sandbox
             this.model = model;
         }
 
-        public void Execute(Application sandbox)
+        void IOperation.Execute(Application sandbox)
         {
-            Services.Get<SceneManager>().AddModel(model);
-            var sounds = Services.Get<Sounds>();
-            if(sounds != null) sounds.Insert.Play();
+            RenderStack.Services.BaseServices.Get<SceneManager>().AddModel(model);
+            Sounds sounds = RenderStack.Services.BaseServices.Get<Sounds>();
+            if (sounds != null) sounds.Insert.Play();
         }
         public void Undo(Application sandbox)
         {
@@ -47,8 +34,8 @@ namespace example.Sandbox
     {
         public void Insert()
         {
-            var selectionManager = Services.Get<SelectionManager>();
-            var brushManager = Services.Get<BrushManager>();
+            SelectionManager selectionManager = RenderStack.Services.BaseServices.Get<SelectionManager>();
+            BrushManager brushManager = RenderStack.Services.BaseServices.Get<BrushManager>();
             if(
                 (selectionManager == null) || 
                 (brushManager == null) ||

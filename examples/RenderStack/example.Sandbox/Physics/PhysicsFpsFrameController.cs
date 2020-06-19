@@ -1,9 +1,4 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 
 using RenderStack.Math;
 using RenderStack.Scene;
@@ -22,14 +17,6 @@ namespace example.Sandbox
         private float           heading;
         private Matrix4         headingMatrix;
         private Matrix4         rotationMatrix;
-
-        private Controller      rotateX         = new Controller();
-        private Controller      rotateY         = new Controller();
-        private Controller      rotateZ         = new Controller();
-        private Controller      translateX      = new Controller();
-        private Controller      translateY      = new Controller();
-        private Controller      translateZ      = new Controller();
-        private Controller      speedModifier   = new Controller();
 
         public IPhysicsObject PhysicsObject
         {
@@ -73,13 +60,13 @@ namespace example.Sandbox
             rotationMatrix._33 = 1.0f;
         }
 
-        public  Controller  RotateX         { get { return rotateX; } }
-        public  Controller  RotateY         { get { return rotateY; } }
-        public  Controller  RotateZ         { get { return rotateZ; } }
-        public  Controller  TranslateX      { get { return translateX; } }
-        public  Controller  TranslateY      { get { return translateY; } }
-        public  Controller  TranslateZ      { get { return translateZ; } }
-        public  Controller  SpeedModifier   { get { return speedModifier; } }
+        public Controller RotateX       { get; } = new Controller();
+        public Controller RotateY       { get; } = new Controller();
+        public Controller RotateZ       { get; } = new Controller();
+        public Controller TranslateX    { get; } = new Controller();
+        public Controller TranslateY    { get; } = new Controller();
+        public Controller TranslateZ    { get; } = new Controller();
+        public Controller SpeedModifier { get; } = new Controller();
 
         public PhysicsFpsFrameController()
         {
@@ -203,7 +190,7 @@ namespace example.Sandbox
                 physicsObject.RigidBody.IsActive = true;
                 physicsObject.RigidBody.LinearVelocity += scale * headingMatrix.GetColumn3(1) * TranslateY.CurrentValue;
             }
-            if(translateZ.CurrentValue != 0.0f)
+            if(TranslateZ.CurrentValue != 0.0f)
             {
                 /*  View axis is column 2  */ 
                 //positionInParent += headingMatrix.GetColumn3(2) * TranslateZ.CurrentValue;

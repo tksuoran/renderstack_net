@@ -1,11 +1,5 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
+﻿using System.Collections.Generic;
 
-using System.Collections.Generic;
-
-using RenderStack.Geometry;
 using RenderStack.Math;
 
 namespace example.Brushes
@@ -13,11 +7,8 @@ namespace example.Brushes
     /*  Comment: Highly experimental  */ 
     public class VrmlPolyhedron
     {
-        private List<Vector3>   locations = new List<Vector3>();
-        private List<List<int>> polygons = new List<List<int>>();
-
-        public List<Vector3>    Locations   { get { return locations; } }
-        public List<List<int>>  Polygons    { get { return polygons; } }
+        public List<Vector3> Locations { get; } = new List<Vector3>();
+        public List<List<int>> Polygons { get; } = new List<List<int>>();
 
         private string  text;
         private int     pos = 0;
@@ -149,7 +140,7 @@ namespace example.Brushes
                     p.X = ParseFloat() * scale;
                     p.Y = ParseFloat() * scale;
                     p.Z = ParseFloat() * scale;
-                    locations.Add(p);
+                    Locations.Add(p);
                     sum.X += p.X;
                     sum.Y += p.Y;
                     sum.Z += p.Z;
@@ -160,7 +151,7 @@ namespace example.Brushes
             {
             }
 
-            Vector3 center = sum / locations.Count;
+            Vector3 center = sum / Locations.Count;
 
             while(true)
             {
@@ -184,7 +175,7 @@ namespace example.Brushes
                         {
                             if(polygon.Count > 2)
                             {
-                                polygons.Add(polygon);
+                                Polygons.Add(polygon);
                             }
                             polygon = new List<int>();
                             continue;

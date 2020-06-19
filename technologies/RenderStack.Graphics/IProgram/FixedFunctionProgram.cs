@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
-
 using OpenTK.Graphics.OpenGL;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-
-using RenderStack.Math;
 
 namespace RenderStack.Graphics
 {

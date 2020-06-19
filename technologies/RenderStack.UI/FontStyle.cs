@@ -1,35 +1,9 @@
-﻿//  Copyright (C) 2011 by Timo Suoranta                                            
-//                                                                                 
-//  Permission is hereby granted, free of charge, to any person obtaining a copy   
-//  of this software and associated documentation files (the "Software"), to deal  
-//  in the Software without restriction, including without limitation the rights   
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell      
-//  copies of the Software, and to permit persons to whom the Software is          
-//  furnished to do so, subject to the following conditions:                       
-//                                                                                 
-//  The above copyright notice and this permission notice shall be included in     
-//  all copies or substantial portions of the Software.                            
-//                                                                                 
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN      
-//  THE SOFTWARE.                                                                  
-
-using System;
+﻿using System;
 using System.Xml;
-using System.IO;
 using System.Collections.Generic;
-
-using OpenTK.Graphics.OpenGL;
-
 using RenderStack.Graphics;
-using RenderStack.Mesh;
 
 using Attribute = RenderStack.Graphics.Attribute;
-using Buffer = RenderStack.Graphics.BufferGL;
 
 namespace RenderStack.UI
 {
@@ -38,8 +12,6 @@ namespace RenderStack.UI
     {
         public class FontInfo
         {
-            private int[] padding = new int[4];
-            private int[] spacing = new int[2];
             public string   Face            { get; private set; }
             public int      Size            { get; private set; }
             public bool     Bold            { get; private set; }
@@ -49,8 +21,8 @@ namespace RenderStack.UI
             public int      StretchH        { get; private set; }
             public int      Smooth          { get; private set; }
             public int      Aa              { get; private set; }
-            public int[]    Padding         { get { return padding; } }
-            public int[]    Spacing         { get { return spacing; } }
+            public int[]    Padding { get; } = new int[4];
+            public int[]    Spacing { get; } = new int[2];
             public int      Outline         { get; private set; }
 
             public FontInfo(XmlNode node)
@@ -210,7 +182,7 @@ namespace RenderStack.UI
                             /*  kerning pairs are broken...  */ 
                             if(existingKerning.Second == second)
                             {
-                                if(
+                                if (
                                     (existingKerning.Amount == 0) ||
                                     (System.Math.Sign(existingKerning.Amount) != System.Math.Sign(amount))
                                 )
@@ -218,13 +190,13 @@ namespace RenderStack.UI
                                     existingKerning.Amount = 0;
                                     break;
                                 }
-                                else if(amount < 0 && amount < existingKerning.Amount)
+                                if (amount < 0 && amount < existingKerning.Amount)
                                 {
                                     existingKerning.Amount = amount;
                                     modifiedExisting = true;
                                     break;
                                 }
-                                else if(amount > 0 && amount > existingKerning.Amount)
+                                if (amount > 0 && amount > existingKerning.Amount)
                                 {
                                     existingKerning.Amount = amount;
                                     modifiedExisting = true;
@@ -255,15 +227,14 @@ namespace RenderStack.UI
             }
         }
 
-        Attribute           position;
-        Attribute           texCoord;
-        Attribute           color;
-        Rectangle           bounds = new Rectangle();
-        public Rectangle   Bounds { get { return bounds; } }
+        Attribute        position;
+        Attribute        texCoord;
+        Attribute        color;
+        public Rectangle Bounds { get; } = new Rectangle();
 
         public void BeginPrint(Mesh.Mesh mesh)
         {
-            bounds.ResetForGrow();
+            Bounds.ResetForGrow();
 
             var vertexFormat = mesh.VertexBufferRange.VertexFormat;
             position    = vertexFormat.FindAttribute(VertexUsage.Position, 0);
@@ -312,26 +283,26 @@ namespace RenderStack.UI
                 vertexWriter.Set(position,  x +     ox, y -     oy, z);
                 vertexWriter.Set(texCoord,  fontChar.U, fontChar.V);
                 vertexWriter.Set(color,     1.0f, 1.0f, 1.0f);
-                ++vertexWriter.CurrentIndex; 
-                bounds.Extend(x +     ox, y -     oy);
+                ++vertexWriter.CurrentIndex;
+                Bounds.Extend(x +     ox, y -     oy);
 
                 vertexWriter.Set(position, x + w + ox, y -     oy, z);
                 vertexWriter.Set(texCoord, fontChar.U2, fontChar.V);
                 vertexWriter.Set(color,     1.0f, 1.0f, 1.0f);
-                ++vertexWriter.CurrentIndex; 
-                bounds.Extend(x + w + ox, y -     oy);
+                ++vertexWriter.CurrentIndex;
+                Bounds.Extend(x + w + ox, y -     oy);
 
                 vertexWriter.Set(position, x + w + ox, y - h - oy, z);
                 vertexWriter.Set(texCoord, fontChar.U2, fontChar.V2);
                 vertexWriter.Set(color,     1.0f, 1.0f, 1.0f);
-                ++vertexWriter.CurrentIndex; 
-                bounds.Extend(x + w + ox, y - h - oy);
+                ++vertexWriter.CurrentIndex;
+                Bounds.Extend(x + w + ox, y - h - oy);
 
                 vertexWriter.Set(position, x +     ox, y - h - oy, z);
                 vertexWriter.Set(texCoord, fontChar.U, fontChar.V2);
                 vertexWriter.Set(color,     1.0f, 1.0f, 1.0f);
-                ++vertexWriter.CurrentIndex; 
-                bounds.Extend(x +     ox, y - h - oy);
+                ++vertexWriter.CurrentIndex;
+                Bounds.Extend(x +     ox, y - h - oy);
 
                 x += a;
 

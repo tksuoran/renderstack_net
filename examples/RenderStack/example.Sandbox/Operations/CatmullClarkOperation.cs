@@ -1,19 +1,6 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Linq;
-using System.Diagnostics;
-using System.IO;
-
-using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
-
+﻿using System;
 using RenderStack.Geometry;
 using RenderStack.Mesh;
-
 using example.Renderer;
 
 namespace example.Sandbox
@@ -46,9 +33,9 @@ namespace example.Sandbox
             this.after = after;
         }
 
-        public void Execute(Application sandbox)
+        void IOperation.Execute(Application sandbox)
         {
-            var sceneManager = Services.Get<SceneManager>();
+            SceneManager sceneManager = RenderStack.Services.BaseServices.Get<SceneManager>();
             sceneManager.RemoveModel(model);
             model.Name = after.Name;
             model.Batch = after.Batch;
@@ -56,9 +43,9 @@ namespace example.Sandbox
             sceneManager.UpdateShadowMap = true;
         }
 
-        public void Undo(Application sandbox)
+        void IOperation.Undo(Application sandbox)
         {
-            var sceneManager = Services.Get<SceneManager>();
+            SceneManager sceneManager = RenderStack.Services.BaseServices.Get<SceneManager>();
             sceneManager.RemoveModel(model);
             model.Name = before.Name;
             model.Batch = before.Batch;
@@ -71,9 +58,9 @@ namespace example.Sandbox
     {
         public void CatmullClark()
         {
-            var sceneManager = Services.Get<SceneManager>();
-            var selectionManager = Services.Get<SelectionManager>();
-            if(selectionManager == null)
+            SceneManager sceneManager = RenderStack.Services.BaseServices.Get<SceneManager>();
+            SelectionManager selectionManager = RenderStack.Services.BaseServices.Get<SelectionManager>();
+            if (selectionManager == null)
             {
                 return;
             }

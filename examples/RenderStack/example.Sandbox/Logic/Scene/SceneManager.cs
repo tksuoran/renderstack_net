@@ -1,25 +1,14 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-
 using RenderStack.Geometry;
 using RenderStack.Geometry.Shapes;
-using RenderStack.Graphics;
 using RenderStack.Math;
 using RenderStack.Mesh;
 using RenderStack.Scene;
 using RenderStack.Services;
 using RenderStack.Physics;
-
 using example.Brushes;
 using example.Renderer;
-
-using Attribute = RenderStack.Graphics.Attribute;
 
 namespace example.Sandbox
 {
@@ -261,7 +250,7 @@ namespace example.Sandbox
         public void UnparentModel(Model model)
         {
             NextUpdateSerial();
-            model.Frame.UpdateHierarchical(updateSerial);
+            model.Frame.UpdateHierarchical(UpdateSerial);
             Matrix4 localToWorld = model.Frame.LocalToWorld.Matrix;
             model.Frame.Parent = null;
             model.Frame.LocalToParent.Set(localToWorld);

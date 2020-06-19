@@ -1,15 +1,5 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.IO;
-using System.Linq;
-
-using OpenTK.Graphics;
+﻿using System;
 using OpenTK.Graphics.OpenGL;
-
 using RenderStack.Graphics;
 using RenderStack.Math;
 using RenderStack.Mesh;
@@ -17,8 +7,6 @@ using RenderStack.Scene;
 using RenderStack.Services;
 
 using example.Renderer;
-
-using Attribute = RenderStack.Graphics.Attribute;
 
 namespace example.Sandbox
 {
@@ -61,10 +49,9 @@ namespace example.Sandbox
         }
 
         private int halfSize;
-        private int fullSize;
         private int smallestMipmapLevel;
 
-        public int      Size { get { return fullSize; } }
+        public int Size { get; private set; }
         public float    Average;
 
         /*  Full frustum is given by -0.5 .. 0.5 for left..right and bottom..top  */ 
@@ -98,7 +85,7 @@ namespace example.Sandbox
         }
         protected override void InitializeService()
         {
-            fullSize = size;
+            Size = size;
             halfSize = size / 2;
             int i;
 

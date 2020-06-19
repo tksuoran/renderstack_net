@@ -1,13 +1,5 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
 
 using OpenTK.Graphics.OpenGL;
 
@@ -16,9 +8,7 @@ using RenderStack.Graphics;
 using RenderStack.Math;
 using RenderStack.Mesh;
 
-using Buffer = RenderStack.Graphics.BufferGL;
 using Attribute = RenderStack.Graphics.Attribute;
-using Conversions = RenderStack.Math.Conversions;
 
 namespace example.CurveTool
 {
@@ -28,17 +18,11 @@ namespace example.CurveTool
         #region members
         public      ICurve              curve;
 
-        private     Mesh                pointMesh;
-        private     Mesh                lineMesh;
-        private     Mesh                line2Mesh;
-        private     Mesh                tubeMesh;
-        private     GeometryMesh        frozenMesh;
-
-        public      Mesh                PointMesh       { get { return pointMesh; } }
-        public      Mesh                LineMesh        { get { return lineMesh; } }
-        public      Mesh                Line2Mesh       { get { return line2Mesh; } }
-        public      Mesh                TubeMesh        { get { return tubeMesh; } }
-        public      GeometryMesh        FrozenMesh      { get { return frozenMesh; } }
+        public      Mesh                PointMesh { get; }
+        public      Mesh                LineMesh { get; }
+        public      Mesh                Line2Mesh { get; }
+        public      Mesh                TubeMesh { get; }
+        public      GeometryMesh        FrozenMesh { get; private set; }
         //private     BufferRangeGL       tubeVertexBufferRange;
         //private     BufferRangeGL       tubeIndexBufferRange;
         private     VertexBufferWriter  tubeVertexWriter;
@@ -60,9 +44,8 @@ namespace example.CurveTool
         public      float               AdaptiveEpsilon         = 0.9995f;
         public      float               AdaptiveNastyEpsilon    = 0.9999f;
         public      float               TubeRadius              = 1.0f;
-        private     int                 tubeStackCount          =  0;
-        private     int                 tubeSliceCount          = 28;
-        public      int                 TubeStackCount { get { return tubeStackCount; } set { tubeStackCount = value; } }
+        private int                 tubeSliceCount          = 28;
+        public int TubeStackCount { get; set; } = 0;
 
         #endregion members
 
@@ -70,10 +53,10 @@ namespace example.CurveTool
         {
             this.curve = curve;
 
-            pointMesh   = new Mesh();
-            lineMesh    = new Mesh();
-            line2Mesh   = new Mesh();
-            tubeMesh    = new Mesh();
+            PointMesh   = new Mesh();
+            LineMesh    = new Mesh();
+            Line2Mesh = new Mesh();
+            TubeMesh    = new Mesh();
 
             var positionColor = new VertexFormat(); // pointMesh, lineMesh, line2Mesh
             var tubeVertexFormat = new VertexFormat();
@@ -92,39 +75,39 @@ namespace example.CurveTool
             var tubeVertexBuffer           = BufferFactory.Create(tubeVertexFormat, BufferUsageHint.DynamicDraw);
             var indexBuffer                = BufferFactory.Create(DrawElementsType.UnsignedInt, BufferUsageHint.DynamicDraw);
 
-            pointMesh.VertexBufferRange = positionColorVertexBuffer.CreateVertexBufferRange();
-            lineMesh.VertexBufferRange  = positionColorVertexBuffer.CreateVertexBufferRange();
-            line2Mesh.VertexBufferRange = positionColorVertexBuffer.CreateVertexBufferRange();
-            tubeMesh.VertexBufferRange  = tubeVertexBuffer.CreateVertexBufferRange();
+            PointMesh.VertexBufferRange = positionColorVertexBuffer.CreateVertexBufferRange();
+            LineMesh.VertexBufferRange  = positionColorVertexBuffer.CreateVertexBufferRange();
+            Line2Mesh.VertexBufferRange = positionColorVertexBuffer.CreateVertexBufferRange();
+            TubeMesh.VertexBufferRange  = tubeVertexBuffer.CreateVertexBufferRange();
 
-            var pointIndexBuffer = pointMesh.FindOrCreateIndexBufferRange(
+            var pointIndexBuffer = PointMesh.FindOrCreateIndexBufferRange(
                 MeshMode.CornerPoints, 
                 indexBuffer,
                 BeginMode.Points
             );
-            var lineIndexBuffer = lineMesh.FindOrCreateIndexBufferRange(
+            var lineIndexBuffer = LineMesh.FindOrCreateIndexBufferRange(
                 MeshMode.EdgeLines, 
                 indexBuffer,
                 BeginMode.Lines
             );
-            var line2IndexBuffer =line2Mesh.FindOrCreateIndexBufferRange(
+            var line2IndexBuffer = Line2Mesh.FindOrCreateIndexBufferRange(
                 MeshMode.EdgeLines, 
                 indexBuffer,
                 BeginMode.Lines
             );
-            var tubeIndexBuffer = tubeMesh.FindOrCreateIndexBufferRange(
+            var tubeIndexBuffer = TubeMesh.FindOrCreateIndexBufferRange(
                 MeshMode.PolygonFill,
                 indexBuffer,
                 BeginMode.Triangles
             );
 
-            tubeVertexWriter    = new VertexBufferWriter(tubeMesh.VertexBufferRange);
+            tubeVertexWriter    = new VertexBufferWriter(TubeMesh.VertexBufferRange);
             tubeIndexWriter     = new IndexBufferWriter(tubeIndexBuffer);
-            pointVertexWriter   = new VertexBufferWriter(pointMesh.VertexBufferRange);
+            pointVertexWriter   = new VertexBufferWriter(PointMesh.VertexBufferRange);
             pointIndexWriter    = new IndexBufferWriter(pointIndexBuffer);
-            lineVertexWriter    = new VertexBufferWriter(lineMesh.VertexBufferRange);
+            lineVertexWriter    = new VertexBufferWriter(LineMesh.VertexBufferRange);
             lineIndexWriter     = new IndexBufferWriter(lineIndexBuffer);
-            line2VertexWriter   = new VertexBufferWriter(line2Mesh.VertexBufferRange);
+            line2VertexWriter   = new VertexBufferWriter(Line2Mesh.VertexBufferRange);
             line2IndexWriter    = new IndexBufferWriter(line2IndexBuffer);
 
             UpdateIndexBuffers();
@@ -151,15 +134,15 @@ namespace example.CurveTool
 
         public void UpdateFrozenMesh()
         {
-            if(frozenMesh == null)
+            if(FrozenMesh == null)
             {
-                frozenMesh = new GeometryMesh(new Tube(curve, TubeRadius, 12, 60), NormalStyle.CornerNormals);
+                FrozenMesh = new GeometryMesh(new Tube(curve, TubeRadius, 12, 60), NormalStyle.CornerNormals);
             }
             else
             {
                 //frozenMesh.Reset();
-                frozenMesh.Geometry = new Tube(curve, TubeRadius, 12, 60);
-                frozenMesh.BuildMeshFromGeometry(BufferUsageHint.StaticDraw, NormalStyle.CornerNormals);
+                FrozenMesh.Geometry = new Tube(curve, TubeRadius, 12, 60);
+                FrozenMesh.BuildMeshFromGeometry(BufferUsageHint.StaticDraw, NormalStyle.CornerNormals);
             }
         }
 
@@ -170,7 +153,7 @@ namespace example.CurveTool
                 UpdateTubeMesh();
             }
 
-            var vertexFormat = pointMesh.VertexBufferRange.VertexFormat;
+            var vertexFormat = PointMesh.VertexBufferRange.VertexFormat;
             var position    = vertexFormat.FindAttribute(VertexUsage.Position, 0);
             var color       = vertexFormat.FindAttribute(VertexUsage.Color, 0);
 
@@ -193,7 +176,7 @@ namespace example.CurveTool
 
         public virtual void UpdateTubeMesh()
         {
-            var vertexFormat = tubeMesh.VertexBufferRange.VertexFormat;
+            var vertexFormat = TubeMesh.VertexBufferRange.VertexFormat;
             tubePosition    = vertexFormat.FindAttribute(VertexUsage.Position, 0);
             tubeNormal      = vertexFormat.FindAttribute(VertexUsage.Normal, 0);
             tubeTangent     = vertexFormat.FindAttribute(VertexUsage.Tangent, 0);
@@ -218,7 +201,7 @@ namespace example.CurveTool
 
             UpdateTubeMeshWithAdaptiveSubdivision();
 
-            for(int stack = 1; stack < tubeStackCount - 2; ++stack)
+            for(int stack = 1; stack < TubeStackCount - 2; ++stack)
             {
                 int nextStack = stack + 1;
                 for(int slice = 0; slice < tubeSliceCount; ++slice)
@@ -247,9 +230,9 @@ namespace example.CurveTool
             {
                 int nextSlice1 = (slice + 1) % tubeSliceCount;
                 tubeIndexWriter.Triangle(
-                    (uint)((tubeStackCount - 1) * tubeSliceCount + nextSlice1),
-                    (uint)((tubeStackCount - 1) * tubeSliceCount + slice),
-                    (uint)((tubeStackCount - 1) * tubeSliceCount)
+                    (uint)((TubeStackCount - 1) * tubeSliceCount + nextSlice1),
+                    (uint)((TubeStackCount - 1) * tubeSliceCount + slice),
+                    (uint)((TubeStackCount - 1) * tubeSliceCount)
                 );
                 tubeIndexWriter.CurrentIndex += 3;
             }
@@ -261,7 +244,7 @@ namespace example.CurveTool
 
         public void UpdateLineMesh()
         {
-            var vertexFormat = lineMesh.VertexBufferRange.VertexFormat;
+            var vertexFormat = LineMesh.VertexBufferRange.VertexFormat;
             var position = vertexFormat.FindAttribute(VertexUsage.Position, 0);
             var color    = vertexFormat.FindAttribute(VertexUsage.Color, 0);
 
@@ -338,7 +321,7 @@ namespace example.CurveTool
                 Vector3 B = Vector3.Normalize(Vector3.Cross(T, LastN));
                 LastN   = Vector3.Normalize(Vector3.Cross(B, T));
 
-                ++tubeStackCount;
+                ++TubeStackCount;
                 for(int slice = 0; slice < tubeSliceCount; ++slice)
                 {
                     float relPhi    = (float)slice / (float)tubeSliceCount;
@@ -381,7 +364,7 @@ namespace example.CurveTool
         }
         public void TubeRing(float t, Vector3 pos, Vector3 tangent)
         {
-            ++tubeStackCount;
+            ++TubeStackCount;
 
             Vector3 T   = tangent;
             Vector3 B   = Vector3.Normalize(Vector3.Cross(T, LastN));
@@ -413,7 +396,7 @@ namespace example.CurveTool
         }
         public void TubeRingCap(float t, Vector3 pos, Vector3 tangent)
         {
-            ++tubeStackCount;
+            ++TubeStackCount;
 
             Vector3 T   = tangent;
             Vector3 B   = Vector3.Normalize(Vector3.Cross(T, LastN));

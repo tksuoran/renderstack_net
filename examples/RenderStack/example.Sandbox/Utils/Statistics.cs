@@ -1,9 +1,4 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 
 using RenderStack.Services;
 
@@ -19,9 +14,7 @@ namespace example.Sandbox
         private long    AverageFrameTicks   = 0;
         private int     updateCounter       = 0;
         private long    lastRenderTime      = -1;
-        private float   frameTimeValue      = 0.0f;
-        private string  frameTime           = "";
-        private long    frameUpdateCount    = 10;
+        private readonly long frameUpdateCount    = 10;
 #if false
         private float   AverageCpuUsage     = 0.0f;
         private int gc0 = 0;
@@ -34,8 +27,8 @@ namespace example.Sandbox
         }
 
         public float InterFrameTime;
-        public float FrameTimeValue { get { return frameTimeValue; } }
-        public string FrameTime { get { return frameTime; } }
+        public float FrameTimeValue { get; private set; } = 0.0f;
+        public string FrameTime { get; private set; } = "";
 
         public void Update()
         {
@@ -63,8 +56,8 @@ namespace example.Sandbox
                     int megabytesInUse = (int)(MemoryUsage / (1024.0f * 1024.0f));
 #endif
                     //AverageFrameTicks /= 100;
-                    frameTimeValue = (float)(AverageFrameTicks) / (float)(frameUpdateCount);
-                    frameTime = frameTimeValue.ToString("0.00");
+                    FrameTimeValue = (float)(AverageFrameTicks) / (float)(frameUpdateCount);
+                    FrameTime = FrameTimeValue.ToString("0.00");
 
                     int newGc0 = GC.CollectionCount(0);
                     int newGc1 = GC.CollectionCount(1);

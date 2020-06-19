@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 
-using RenderStack.Geometry;
 using RenderStack.Graphics;
-using RenderStack.Math;
-using RenderStack.Mesh;
 using RenderStack.Scene;
-using RenderStack.UI;
 
 namespace example.Renderer
 {

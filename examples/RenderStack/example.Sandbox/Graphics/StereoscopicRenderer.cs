@@ -1,28 +1,13 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-#define EXTRA_DEBUG
+﻿#define EXTRA_DEBUG
 
 using System;
-using System.Diagnostics;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-
-using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
-
 using RenderStack.Graphics;
 using RenderStack.Math;
 using RenderStack.Mesh;
-using RenderStack.Scene;
 using RenderStack.Services;
-
 using example.Renderer;
 
-using Buffer = RenderStack.Graphics.BufferGL;
 using Debug = RenderStack.Graphics.Debug;
 
 namespace example.Sandbox

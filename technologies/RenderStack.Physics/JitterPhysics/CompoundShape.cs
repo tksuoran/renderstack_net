@@ -1,9 +1,5 @@
-﻿
-using System.Collections.Generic;
-
-using Jitter.Collision;
+﻿using System.Collections.Generic;
 using Jitter.LinearMath;
-
 using RenderStack.Math;
 
 namespace RenderStack.Physics

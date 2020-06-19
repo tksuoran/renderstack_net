@@ -1,26 +1,20 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.InteropServices;
-
 using OpenTK.Graphics.OpenGL;
-
-using RenderStack.Math;
 
 namespace RenderStack.Graphics
 {
     public class IndexBufferWriter
     {
-        private BufferWriter    BufferWriter;
+        private BufferWriter BufferWriter;
         //private IBuffer         Buffer          { get { return BufferWriter.Buffer; } }
-        private MemoryStream    memoryStream    { get { return BufferWriter.memoryStream; } }
-        private BinaryWriter    writer          { get { return BufferWriter.writer; } }
-        public  uint            CurrentIndex    { get { return BufferWriter.CurrentIndex; } set { BufferWriter.CurrentIndex = value; } }
+        private MemoryStream MemoryStream => BufferWriter.memoryStream;
+        private BinaryWriter Writer => BufferWriter.writer;
+        public  uint         CurrentIndex    { get { return BufferWriter.CurrentIndex; } set { BufferWriter.CurrentIndex = value; } }
 
         public IndexBufferWriter(IBufferRange bufferRange)
         {
-            this.BufferWriter = new BufferWriter(bufferRange);
+            BufferWriter = new BufferWriter(bufferRange);
         }
 
         public void BeginEdit()
@@ -43,8 +37,8 @@ namespace RenderStack.Graphics
                         throw new System.ArgumentOutOfRangeException();
                     }
                     byte value = (byte)indexValue;
-                    writer.Seek((int)indexPosition, System.IO.SeekOrigin.Begin);
-                    writer.Write(value);
+                        Writer.Seek((int)indexPosition, System.IO.SeekOrigin.Begin);
+                        Writer.Write(value);
                     break;
                 }
                 case DrawElementsType.UnsignedInt:
@@ -54,8 +48,8 @@ namespace RenderStack.Graphics
                         throw new System.ArgumentOutOfRangeException();
                     }
                     UInt32 value = (UInt32)indexValue;
-                    writer.Seek((int)indexPosition * sizeof(uint), System.IO.SeekOrigin.Begin);
-                    writer.Write(value);
+                        Writer.Seek((int)indexPosition * sizeof(uint), System.IO.SeekOrigin.Begin);
+                        Writer.Write(value);
                     break;
                 }
                 case DrawElementsType.UnsignedShort:
@@ -65,8 +59,8 @@ namespace RenderStack.Graphics
                         throw new System.ArgumentOutOfRangeException();
                     }
                     UInt16 value = (UInt16)indexValue;
-                    writer.Seek((int)indexPosition * sizeof(ushort), System.IO.SeekOrigin.Begin);
-                    writer.Write(value);
+                        Writer.Seek((int)indexPosition * sizeof(ushort), System.IO.SeekOrigin.Begin);
+                        Writer.Write(value);
                     break;
                 }
                 default:

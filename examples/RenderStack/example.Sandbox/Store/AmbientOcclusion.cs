@@ -1,28 +1,11 @@
-﻿//#define VISUALIZE_RAYS
-//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-
-using OpenTK.Graphics;
+﻿using System;
 using OpenTK.Graphics.OpenGL;
-
 using RenderStack.Geometry;
 using RenderStack.Graphics;
 using RenderStack.Math;
 using RenderStack.Mesh;
 using RenderStack.Services;
-
 using example.Renderer;
-
-using Debug = System.Diagnostics.Debug;
-using Buffer = RenderStack.Graphics.BufferGL;
 
 namespace example.Sandbox
 {
@@ -387,11 +370,6 @@ namespace example.Sandbox
 
 #if false 
 #define VISUALIZE_RAYS
-//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
 using System;
 using System.Diagnostics;
 using System.IO;

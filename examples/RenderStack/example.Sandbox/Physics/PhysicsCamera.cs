@@ -1,22 +1,11 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System.Collections.Generic;
-
-using RenderStack.Graphics;
-using RenderStack.Geometry;
-using RenderStack.Math;
-using RenderStack.Mesh;
-using RenderStack.Scene;
+﻿using RenderStack.Scene;
 using RenderStack.Physics;
 
 using example.Renderer;
 
 namespace example.Sandbox
 {
-    public partial class PhysicsCamera : IPhysicsObject
+    public class PhysicsCamera : IPhysicsObject
     {
         public Camera       Camera          { get; set; }
         public Shape        PhysicsShape    { get; set; } 
@@ -29,9 +18,8 @@ namespace example.Sandbox
         public string       Name            { get { return Camera.Name; } }
 
         public PhysicsCamera(Camera camera)
-        :base()
         {
-            this.Camera = camera;
+            Camera = camera;
 
             // If shape is sphere it will roll and friction won't work
             PhysicsShape = new SphereShape(1.0f);

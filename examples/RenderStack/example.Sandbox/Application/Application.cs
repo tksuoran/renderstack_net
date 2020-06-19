@@ -1,17 +1,5 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-
+﻿using System.Diagnostics;
 using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
-
-using example.Renderer;
 
 namespace example.Sandbox
 {
@@ -46,9 +34,9 @@ namespace example.Sandbox
 #endif
         )
         {
-            this.Visible = !Configuration.loadingWindow;;
+            Visible = !Configuration.loadingWindow;;
             this.device = device;
-            this.VSync = Configuration.vsync ? OpenTK.VSyncMode.On : OpenTK.VSyncMode.Off;
+            VSync = Configuration.vsync ? OpenTK.VSyncMode.On : OpenTK.VSyncMode.Off;
 
             if(Configuration.performanceMonitoring)
             {

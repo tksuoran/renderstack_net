@@ -1,15 +1,6 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Collections.Generic;
-
-using OpenTK.Graphics;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
 
 #if ASSET_MONITOR
 using RenderStack.Graphics.AssetMonitor;
@@ -23,15 +14,11 @@ using example.VoxelRenderer;
 
 namespace example.Sandbox
 {
-    public class Services : RenderStack.Services.BaseServices
+    public class Services : BaseServices
     {
         public static readonly Services Instance = new Services();
 
         private LoadingScreenManager    loading;
-
-        public Services():base()
-        {
-        }
 
         public void Cleanup()
         {

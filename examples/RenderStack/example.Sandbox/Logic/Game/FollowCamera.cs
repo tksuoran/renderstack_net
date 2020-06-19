@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-
-using RenderStack.Math;
-using RenderStack.Mesh;
+﻿using RenderStack.Math;
 using RenderStack.Scene;
-using RenderStack.Services;
-using RenderStack.Geometry;
-using RenderStack.Geometry.Shapes;
-
-using example.Renderer;
 
 namespace example.Sandbox
 {

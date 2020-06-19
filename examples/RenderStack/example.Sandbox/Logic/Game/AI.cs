@@ -1,11 +1,4 @@
-﻿using System;
-
-using RenderStack.Math;
-using RenderStack.Scene;
-
-using example.Renderer;
-
-namespace example.Sandbox
+﻿namespace example.Sandbox
 {
     internal interface IAI
     {

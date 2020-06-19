@@ -1,26 +1,7 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-
-using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL;
-
-using RenderStack.Graphics;
+﻿using System.Linq;
 using RenderStack.Math;
 using RenderStack.Mesh;
-using RenderStack.Scene;
-using RenderStack.UI;
-
 using example.Renderer;
-
-using Buffer = RenderStack.Graphics.BufferGL;
 
 namespace example.Sandbox
 {

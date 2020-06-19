@@ -1,9 +1,4 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
@@ -27,13 +22,11 @@ namespace example.Brushes
     public class Brush 
     {
         private BrushManager    brushManager;
-        private string          name;
-
         public static float     Radius = 1.0f;
 
         public Model            Model;
         public BoundingBox      BoundingBox;
-        public string           Name { get { return name; } }
+        public string Name { get; }
 
         public Dictionary<int, Polygon> PolygonDictionary = new Dictionary<int,Polygon>();
 
@@ -129,7 +122,7 @@ namespace example.Brushes
         public Brush(BrushManager brushManager, string name, GeometryMesh mesh)
         {
             this.brushManager = brushManager;
-            this.name = name;
+            this.Name = name;
 
             Geometry g = mesh.Geometry;
             /*g = new SubdivideGeometryOperation(g).Destination;

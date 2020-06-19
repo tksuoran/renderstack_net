@@ -1,6 +1,4 @@
-﻿using System;
-
-//  Trivially C# port of the improved perlin noise reference implementation
+﻿//  Trivially C# port of the improved perlin noise reference implementation
 //  http://mrl.nyu.edu/~perlin/noise/
 namespace RenderStack.Math
 {

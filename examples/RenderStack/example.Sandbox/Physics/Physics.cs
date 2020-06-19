@@ -1,15 +1,7 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using System.Collections.Generic;
 using RenderStack.Graphics;
 using RenderStack.Geometry;
 using RenderStack.Math;
-using RenderStack.Scene;
 using RenderStack.Mesh;
 using RenderStack.Physics;
 
@@ -22,14 +14,12 @@ namespace example.Sandbox
     public partial class SceneManager
     {
         public World World { private set; get; }
-
-        private List<IPhysicsObject>    physicsObjects = new List<IPhysicsObject>();
-        public List<IPhysicsObject>     PhysicsObjects { get { return physicsObjects; } }
+        public List<IPhysicsObject> PhysicsObjects { get; } = new List<IPhysicsObject>();
 
         public void ResetPhysics()
         {
             World.Clear();
-            physicsObjects.Clear();
+            PhysicsObjects.Clear();
         }
 
         public void InitializePhysics()
@@ -68,7 +58,7 @@ namespace example.Sandbox
 
         public void AddPhysicsObject(IPhysicsObject @object)
         {
-            @object.Frame.UpdateHierarchical(updateSerial);
+            @object.Frame.UpdateHierarchical(UpdateSerial);
 
             if(@object.RigidBody == null)
             {
@@ -101,11 +91,11 @@ namespace example.Sandbox
 
             World.AddBody(@object.RigidBody);
 
-            physicsObjects.Add(@object);
+            PhysicsObjects.Add(@object);
         }
         public void AddModelPhysics(Model model)
         {
-            model.Frame.UpdateHierarchical(updateSerial);
+            model.Frame.UpdateHierarchical(UpdateSerial);
 
             Shape initialShape = model.PhysicsShape;
             if(model.PhysicsShape == null)
@@ -135,7 +125,7 @@ namespace example.Sandbox
 
             World.AddBody(model.RigidBody);
 
-            physicsObjects.Add(model);
+            PhysicsObjects.Add(model);
         }
         public void MakeModelPhysicsConvexHull(Model model)
         {
@@ -172,7 +162,7 @@ namespace example.Sandbox
 #endif
         public void RemoveModelPhysics(Model model)
         {
-            physicsObjects.Remove(model);
+            PhysicsObjects.Remove(model);
             if(
                 (model.RigidBody != null)
             )
@@ -308,7 +298,7 @@ namespace example.Sandbox
 
         public void FetchPhysics()
         {
-            foreach(IPhysicsObject @object in physicsObjects)
+            foreach(IPhysicsObject @object in PhysicsObjects)
             {
                 if(@object.RigidBody == null)
                 {

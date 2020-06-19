@@ -1,17 +1,9 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
-using RenderStack.Geometry.Shapes;
+﻿using System;
 using RenderStack.Graphics;
 using RenderStack.Math;
 using RenderStack.Mesh;
-using RenderStack.Scene;
 using RenderStack.Services;
 
-using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 
 namespace example.Renderer

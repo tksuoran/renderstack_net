@@ -1,14 +1,8 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.InteropServices;
 using System.Linq;
 
 using RenderStack.Geometry;
@@ -30,39 +24,32 @@ namespace example.Brushes
 
         MaterialManager materialManager;
         TextRenderer    textRenderer;
-
-        #region Data members
-        private InertiaCache                                inertiaCache;
-        public  InertiaCache                                InertiaCache { get { return inertiaCache; } }
+        public InertiaCache InertiaCache { get; private set; }
 
         private List<Brush>                                 brushes = new List<Brush>();
         private Dictionary<string, Brush>                   namedBrushes = new Dictionary<string,Brush>();
 
         [NonSerialized]
         private ReadOnlyCollection<Brush>                   readOnlyBrushes;
-        private Dictionary<string, Dictionary<int, Brush>>  dictionaries = new Dictionary<string,Dictionary<int,Brush>>();
-        private Dictionary<string, List<Brush>>             lists = new Dictionary<string,List<Brush>>();
-
         [NonSerialized]
         public Brush                                        CurrentBrush;
         public ReadOnlyCollection<Brush>                    Brushes         { get { return readOnlyBrushes; } }
-        public Dictionary<string, Dictionary<int, Brush>>   Dictionaries    { get { return dictionaries; } }
-        public Dictionary<string, List<Brush>>              Lists           { get { return lists; } }
+        public Dictionary<string, Dictionary<int, Brush>> Dictionaries { get; } = new Dictionary<string, Dictionary<int, Brush>>();
+        public Dictionary<string, List<Brush>> Lists { get; } = new Dictionary<string, List<Brush>>();
         public Dictionary<int, Brush>  Dictionary(string category)
         {
             if(category == null)
             {
                 return null;
             }
-            if(dictionaries.ContainsKey(category) == false)
+            if(Dictionaries.ContainsKey(category) == false)
             {
                 return null;
             }
-            return dictionaries[category];
+            return Dictionaries[category];
         }
 
         Dictionary<int, Brush> all = new Dictionary<int,Brush>();
-        #endregion
 
         public MaterialManager MaterialManager { get { return materialManager; } }
 
@@ -83,8 +70,8 @@ namespace example.Brushes
                 CurrentBrush = null;
                 brushes.Clear();
                 namedBrushes.Clear();
-                dictionaries.Clear();
-                lists.Clear();
+                Dictionaries.Clear();
+                Lists.Clear();
                 if(all != null)
                 {
                     all.Clear();
@@ -100,14 +87,14 @@ namespace example.Brushes
                 Dictionary<int, Brush> stella       = new Dictionary<int,Brush>();
                 //Dictionary<int, Brush> all          = new Dictionary<int,Brush>();
 
-                dictionaries["pyramid"]     = pyramids;
-                dictionaries["prism"]       = prisms;
-                dictionaries["antiprism"]   = antiprisms;
-                dictionaries["cupola"]      = cupolas;
-                dictionaries["rotund"]      = rotund;
-                dictionaries["diminished"]  = diminished;
-                dictionaries["stella"]      = stella;
-                dictionaries["all"]         = all;
+                Dictionaries["pyramid"]     = pyramids;
+                Dictionaries["prism"]       = prisms;
+                Dictionaries["antiprism"]   = antiprisms;
+                Dictionaries["cupola"]      = cupolas;
+                Dictionaries["rotund"]      = rotund;
+                Dictionaries["diminished"]  = diminished;
+                Dictionaries["stella"]      = stella;
+                Dictionaries["all"]         = all;
             }
         }
 
@@ -182,7 +169,7 @@ namespace example.Brushes
             try
             {
                 List<Brush> list = new List<Brush>();
-                lists["platonic"] = list;
+                Lists["platonic"] = list;
                 list.Add(namedBrushes["tetrahedron"]);
                 list.Add(namedBrushes["cube"]);
                 list.Add(namedBrushes["octahedron"]);
@@ -283,7 +270,7 @@ namespace example.Brushes
                 Log("Adding " + name);
                 brushes.Add(brush);
                 namedBrushes[name] = brush;
-                foreach(var dict in dictionaries)
+                foreach(var dict in Dictionaries)
                 {
                     if(
                         (dict.Value == all) || 
@@ -321,7 +308,7 @@ namespace example.Brushes
                 Log("Adding " + name);
                 brushes.Add(brush);
                 namedBrushes[name] = brush;
-                foreach(var dict in dictionaries)
+                foreach(var dict in Dictionaries)
                 {
                     if(
                         (dict.Value == all) || 
@@ -761,7 +748,7 @@ namespace example.Brushes
 
                 System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
                             formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                formatter.Serialize(stream, inertiaCache);
+                formatter.Serialize(stream, InertiaCache);
                 stream.Close();
             }
             catch(Exception e)
@@ -782,7 +769,7 @@ namespace example.Brushes
 
                     System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
                                 formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                    inertiaCache = (InertiaCache)formatter.Deserialize(stream);
+                    InertiaCache = (InertiaCache)formatter.Deserialize(stream);
                     stream.Close();
                 }
             }
@@ -790,9 +777,9 @@ namespace example.Brushes
             {
                 Trace.TraceError("DeserializeInertiaCache() failed: " + e.ToString());
             }
-            if(inertiaCache == null)
+            if(InertiaCache == null)
             {
-                inertiaCache = new InertiaCache();
+                InertiaCache = new InertiaCache();
             }
         }
 

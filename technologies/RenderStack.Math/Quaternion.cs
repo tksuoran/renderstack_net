@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.Text;
 
 namespace RenderStack.Math
@@ -13,24 +11,22 @@ namespace RenderStack.Math
         public float Z;
         public float W;
 
-        public Vector3 Xyz { get { return new Vector3(X, Y, Z); } set { X = value.X; Y = value.Y; Z = value.Z; } }
-
-        private static Quaternion identity = new Quaternion(0, 0, 0, 1);
-        public static Quaternion Identity { get{ return identity; } }
+        public Vector3 Xyz { get { return new Vector3(X, Y, Z); } set { X = value.X; Y = value.Y; Z = value.Z; } }
+        public static Quaternion Identity { get; } = new Quaternion(0, 0, 0, 1);
 
         public Quaternion(float x, float y, float z, float w)
         {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-            this.W = w;
+            X = x;
+            Y = y;
+            Z = z;
+            W = w;
         }
         public Quaternion(Vector3 v, float s)
         {
-            this.X = v.X;
-            this.Y = v.Y;
-            this.Z = v.Z;
-            this.W = s;
+            X = v.X;
+            Y = v.Y;
+            Z = v.Z;
+            W = s;
         }
 
         public static Quaternion Add(Quaternion q1, Quaternion q2)
@@ -95,9 +91,9 @@ namespace RenderStack.Math
 
         public void Conjugate()
         {
-            this.X = -this.X;
-            this.Y = -this.Y;
-            this.Z = -this.Z;
+            X = -X;
+            Y = -Y;
+            Z = -Z;
         }
         public static Quaternion Conjugate(Quaternion value)
         {
@@ -496,11 +492,11 @@ namespace RenderStack.Math
 
         public void Normalize()
         {
-            float f1 = 1.0F / (float)System.Math.Sqrt((double)((this.X * this.X) + (this.Y * this.Y) + (this.Z * this.Z) + (this.W * this.W)));
-            this.X *= f1;
-            this.Y *= f1;
-            this.Z *= f1;
-            this.W *= f1;
+            float f1 = 1.0F / (float)System.Math.Sqrt((double)((X * X) + (Y * Y) + (Z * Z) + (W * W)));
+            X *= f1;
+            Y *= f1;
+            Z *= f1;
+            W *= f1;
         }
         public static Quaternion Normalize(Quaternion quaternion)
         {

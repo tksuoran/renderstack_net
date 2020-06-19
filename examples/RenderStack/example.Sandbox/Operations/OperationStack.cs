@@ -1,12 +1,4 @@
-﻿//  Copyright 2011 by Timo Suoranta.
-//  All rights reserved. Confidential and proprietary.
-//  Timo Suoranta, 106 Ovaltine Drive, Ovaltine Court
-//  Kings Langley, Hertfordshire, WD4 8GY, U.K.
-
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-
+﻿using System.Collections.Generic;
 using RenderStack.Services;
 
 namespace example.Sandbox
@@ -22,10 +14,6 @@ namespace example.Sandbox
 
         private Stack<IOperation> executed = new Stack<IOperation>();
         private Stack<IOperation> undone = new Stack<IOperation>();
-
-        public OperationStack() : base()
-        {
-        }
 
         public void Connect(Application sandbox)
         {
