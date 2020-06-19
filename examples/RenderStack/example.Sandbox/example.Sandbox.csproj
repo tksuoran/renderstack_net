@@ -48,7 +48,14 @@
     <Optimize>false</Optimize>
     <CustomCommands>
       <CustomCommands>
-        <Command type="Custom" name="install" command="install.bat ${ProjectName} ${TargetDir} ${TargetDir} ${ProjectDir}" workingdir="${ProjectDir}" externalConsole="true" pauseExternalConsole="true" />
+        <Command>
+          <type>Custom</type>
+          <name>install</name>
+          <command>install.bat ${ProjectName} ${TargetDir} ${TargetDir} ${ProjectDir}</command>
+          <workingdir>${ProjectDir}</workingdir>
+          <externalConsole>True</externalConsole>
+          <pauseExternalConsole>True</pauseExternalConsole>
+        </Command>
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
