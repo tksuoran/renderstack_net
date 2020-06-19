@@ -196,7 +196,7 @@ namespace example.Sandbox
                 transparent.MaskState = new MaskState();
                 transparent.MaskState.Depth = false;
 
-                var paletteMaterial = materialManager.MakeMaterial("Palette", "Manipulator");
+                var paletteMaterial = materialManager.MakeMaterial("Palette", "manipulator");
                 paletteMaterial.Floats("surface_diffuse_reflectance_color").Set(1.0f, 1.0f, 1.0f);
                 paletteMaterial.Sync();
             }

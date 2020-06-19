@@ -534,7 +534,7 @@ namespace example.Sandbox
             if(Configuration.stereo)
             {
                 stereoModes["R/C"] = new StereoMode(renderer.Programs["Anachrome"]);
-                stereoModes["G/M"] = new StereoMode(renderer.Programs["Triochrome"]);
+                stereoModes["G/M"] = new StereoMode(renderer.Programs["triochrome"]);
                 stereoModes["B/A"] = new StereoMode(renderer.Programs["ColorCode"]);
                 stereoModes["Mix"] = new StereoMode(renderer.Programs["Blend"]);
             }

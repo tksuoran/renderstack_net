@@ -25,7 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderStack.Math", "technol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildMagic", "technologies\WildMagic\WildMagic.csproj", "{E4BE7E19-865A-4ED1-9501-13B8A4B65AC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.Sandbox", "examples\RenderStack\example.Sandbox\example.Sandbox.csproj", "{C62E009F-C4EE-4EDD-AF80-8A8BC332242D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.Sandbox.orig", "examples\RenderStack\example.Sandbox\example.Sandbox.orig.csproj", "{C62E009F-C4EE-4EDD-AF80-8A8BC332242D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.Sandbox",      "examples\RenderStack\example.Sandbox\example.Sandbox.csproj",      "{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jitter", "technologies\Jitter\Jitter.csproj", "{AA03EF1A-94F7-4D30-AB14-2092863FF923}"
 EndProject
@@ -267,6 +269,14 @@ Global
 		{7C2B0CEA-1A9C-449A-BC0A-AADE80945BC8}.Release|x64.ActiveCfg = Release|x64
 		{7C2B0CEA-1A9C-449A-BC0A-AADE80945BC8}.Release|x86.ActiveCfg = Release|x86
 		{7C2B0CEA-1A9C-449A-BC0A-AADE80945BC8}.Release|x86.Build.0 = Release|x86
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Debug|x64.ActiveCfg = Debug|x64
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Debug|x64.Build.0 = Debug|x64
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Debug|x86.ActiveCfg = Debug|x64
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Debug|x86.Build.0 = Debug|x64
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Release|x64.ActiveCfg = Release|x64
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Release|x64.Build.0 = Release|x64
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Release|x86.ActiveCfg = Release|x64
+		{49F52E12-4ACE-4FD5-9A2A-772BC5B5E767}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

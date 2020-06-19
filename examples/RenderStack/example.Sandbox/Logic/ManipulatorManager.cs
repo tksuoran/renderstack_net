@@ -494,13 +494,13 @@ namespace example.Sandbox
             blendHidden.RGB.SourceFactor = BlendingFactorSrc.ConstantColor;
             blendHidden.RGB.DestinationFactor = BlendingFactorDest.ConstantAlpha;
             
-            var redMaterial = materialManager.MakeMaterial("ManipulatorRed", "Manipulator");
+            var redMaterial = materialManager.MakeMaterial("ManipulatorRed", "manipulator");
             redMaterial.Floats("surface_diffuse_reflectance_color").Set(1.0f, 0.0f, 0.0f);
             redMaterial.Sync();
-            var greenMaterial = materialManager.MakeMaterial("ManipulatorGreen", "Manipulator");
+            var greenMaterial = materialManager.MakeMaterial("ManipulatorGreen", "manipulator");
             greenMaterial.Floats("surface_diffuse_reflectance_color").Set(0.0f, 1.0f, 0.0f);
             greenMaterial.Sync();
-            var blueMaterial = materialManager.MakeMaterial("ManipulatorBlue", "Manipulator");
+            var blueMaterial = materialManager.MakeMaterial("ManipulatorBlue", "manipulator");
             blueMaterial.Floats("surface_diffuse_reflectance_color").Set(0.0f, 0.0f, 1.0f);
             blueMaterial.Sync();
 

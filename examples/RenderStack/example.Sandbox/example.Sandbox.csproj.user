@@ -3,4 +3,8 @@
   <PropertyGroup>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <StartAction>Project</StartAction>
+    <StartWorkingDirectory>.</StartWorkingDirectory>
+  </PropertyGroup>
 </Project>
