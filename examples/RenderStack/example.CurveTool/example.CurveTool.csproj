@@ -104,7 +104,7 @@
       <Project>{A37A7E14-0000-0000-0000-000000000000}</Project>
       <Name>OpenTK</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Geometry\RenderStack.Geometry.csproj">
       <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
       <Name>RenderStack.Geometry</Name>
     </ProjectReference>

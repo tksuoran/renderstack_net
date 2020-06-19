@@ -102,10 +102,6 @@
       <Project>{A37A7E14-0000-0000-0000-000000000000}</Project>
       <Name>OpenTK</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
-      <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
-      <Name>RenderStack.Geometry</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\technologies\RenderStack.Graphics\RenderStack.Graphics.csproj">
       <Project>{34030B2F-D230-4CFC-8FC7-6045A7B17E29}</Project>
       <Name>RenderStack.Graphics</Name>
@@ -126,13 +122,17 @@
       <Project>{C9282192-3BAC-4172-94E7-45F338454E0B}</Project>
       <Name>RenderStack.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\technologies\renderstack.ui\RenderStack.UI.csproj">
+    <ProjectReference Include="..\..\..\technologies\RenderStack.UI\RenderStack.UI.csproj">
       <Project>{04685B14-A959-47F4-A1F8-4B2A9A94AF4D}</Project>
       <Name>RenderStack.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\example.Renderer\example.Renderer.csproj">
       <Project>{FA170ADA-9116-470B-8FFD-80C65694AE18}</Project>
       <Name>example.Renderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Geometry\RenderStack.Geometry.csproj">
+      <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
+      <Name>RenderStack.Geometry</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

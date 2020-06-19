@@ -291,11 +291,11 @@
       <Project>{90782C0A-749E-4725-8B76-F278D98C71EF}</Project>
       <Name>example.VoxelRenderer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Geometry\RenderStack.Geometry.csproj">
       <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
       <Name>RenderStack.Geometry</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\technologies\renderstack.ui\RenderStack.UI.csproj">
+    <ProjectReference Include="..\..\..\technologies\RenderStack.UI\RenderStack.UI.csproj">
       <Project>{04685B14-A959-47F4-A1F8-4B2A9A94AF4D}</Project>
       <Name>RenderStack.UI</Name>
     </ProjectReference>

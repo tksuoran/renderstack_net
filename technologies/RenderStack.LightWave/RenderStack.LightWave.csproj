@@ -142,7 +142,7 @@
     <Compile Include="Scene\Token.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\renderstack.geometry\RenderStack.Geometry.csproj">
+    <ProjectReference Include="..\RenderStack.Geometry\RenderStack.Geometry.csproj">
       <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
       <Name>RenderStack.Geometry</Name>
     </ProjectReference>

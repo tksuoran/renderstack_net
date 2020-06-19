@@ -115,7 +115,7 @@
       <Project>{2556D282-DC14-4938-A30A-66DA900C1C08}</Project>
       <Name>RenderStack.Math</Name>
     </ProjectReference>
-    <ProjectReference Include="..\renderstack.geometry\RenderStack.Geometry.csproj">
+    <ProjectReference Include="..\RenderStack.Geometry\RenderStack.Geometry.csproj">
       <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
       <Name>RenderStack.Geometry</Name>
     </ProjectReference>

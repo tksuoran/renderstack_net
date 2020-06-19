@@ -105,7 +105,7 @@
       <Project>{313B7D0F-B612-4363-B080-6B95AD71B1A9}</Project>
       <Name>RenderStack.Scene</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\technologies\renderstack.geometry\RenderStack.Geometry.csproj">
+    <ProjectReference Include="..\..\..\technologies\RenderStack.Geometry\RenderStack.Geometry.csproj">
       <Project>{AB310CA6-3839-4FF3-B838-4A8F3E519207}</Project>
       <Name>RenderStack.Geometry</Name>
     </ProjectReference>
