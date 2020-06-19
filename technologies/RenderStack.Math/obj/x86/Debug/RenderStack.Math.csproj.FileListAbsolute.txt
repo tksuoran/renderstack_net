@@ -1,5 +1,0 @@
-C:\git\renderstack_net\technologies\RenderStack.Math\bin\x86\Debug\RenderStack.Math.dll
-C:\git\renderstack_net\technologies\RenderStack.Math\bin\x86\Debug\RenderStack.Math.pdb
-C:\git\renderstack_net\technologies\RenderStack.Math\obj\x86\Debug\RenderStack.Math.csprojResolveAssemblyReference.cache
-C:\git\renderstack_net\technologies\RenderStack.Math\obj\x86\Debug\RenderStack.Math.dll
-C:\git\renderstack_net\technologies\RenderStack.Math\obj\x86\Debug\RenderStack.Math.pdb

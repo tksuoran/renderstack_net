@@ -1,7 +1,0 @@
-C:\git\renderstack_net\technologies\WildMagic\bin\x64\Debug\WildMagic.dll
-C:\git\renderstack_net\technologies\WildMagic\bin\x64\Debug\WildMagic.pdb
-C:\git\renderstack_net\technologies\WildMagic\bin\x64\Debug\RenderStack.Math.dll
-C:\git\renderstack_net\technologies\WildMagic\bin\x64\Debug\RenderStack.Math.pdb
-C:\git\renderstack_net\technologies\WildMagic\obj\x64\Debug\WildMagic.csprojResolveAssemblyReference.cache
-C:\git\renderstack_net\technologies\WildMagic\obj\x64\Debug\WildMagic.dll
-C:\git\renderstack_net\technologies\WildMagic\obj\x64\Debug\WildMagic.pdb

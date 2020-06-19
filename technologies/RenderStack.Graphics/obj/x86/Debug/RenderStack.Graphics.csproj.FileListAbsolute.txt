@@ -1,1 +1,0 @@
-C:\git\renderstack_net\technologies\RenderStack.Graphics\obj\x86\Debug\RenderStack.Graphics.csprojResolveAssemblyReference.cache

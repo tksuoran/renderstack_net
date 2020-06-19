@@ -1,9 +1,0 @@
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\bin\x86\Debug\OpenTK.dll.config
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\bin\x86\Debug\OpenTK.dll
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\bin\x86\Debug\OpenTK.pdb
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\bin\x86\Debug\OpenTK.xml
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\obj\x86\Debug\OpenTK.csprojResolveAssemblyReference.cache
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\obj\x86\Debug\OpenTK.Properties.Resources.resources
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\obj\x86\Debug\OpenTK.csproj.GenerateResource.Cache
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\obj\x86\Debug\OpenTK.dll
-C:\git\renderstack_net\technologies\opentk\Source\OpenTK\obj\x86\Debug\OpenTK.pdb

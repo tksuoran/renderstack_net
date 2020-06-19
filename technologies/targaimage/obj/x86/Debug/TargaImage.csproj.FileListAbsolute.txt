@@ -1,7 +1,0 @@
-C:\git\renderstack_net\technologies\targaimage\bin\x86\Debug\TargaImage.dll
-C:\git\renderstack_net\technologies\targaimage\bin\x86\Debug\TargaImage.pdb
-C:\git\renderstack_net\technologies\targaimage\obj\x86\Debug\TargaImage.csprojResolveAssemblyReference.cache
-C:\git\renderstack_net\technologies\targaimage\obj\x86\Debug\TargaImage.Resource1.resources
-C:\git\renderstack_net\technologies\targaimage\obj\x86\Debug\TargaImage.csproj.GenerateResource.Cache
-C:\git\renderstack_net\technologies\targaimage\obj\x86\Debug\TargaImage.dll
-C:\git\renderstack_net\technologies\targaimage\obj\x86\Debug\TargaImage.pdb

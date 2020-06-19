@@ -1,5 +1,0 @@
-C:\git\renderstack_net\technologies\nvtt\Nvidia.TextureTools\bin\x86\Debug\Nvidia.TextureTools.dll
-C:\git\renderstack_net\technologies\nvtt\Nvidia.TextureTools\bin\x86\Debug\Nvidia.TextureTools.pdb
-C:\git\renderstack_net\technologies\nvtt\Nvidia.TextureTools\obj\x86\Debug\Nvidia.TextureTools.csprojResolveAssemblyReference.cache
-C:\git\renderstack_net\technologies\nvtt\Nvidia.TextureTools\obj\x86\Debug\Nvidia.TextureTools.dll
-C:\git\renderstack_net\technologies\nvtt\Nvidia.TextureTools\obj\x86\Debug\Nvidia.TextureTools.pdb

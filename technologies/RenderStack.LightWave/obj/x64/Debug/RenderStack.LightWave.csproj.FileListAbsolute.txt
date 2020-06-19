@@ -1,9 +1,0 @@
-C:\git\renderstack_net\technologies\RenderStack.LightWave\bin\x64\Debug\RenderStack.LightWave.dll
-C:\git\renderstack_net\technologies\RenderStack.LightWave\bin\x64\Debug\RenderStack.LightWave.pdb
-C:\git\renderstack_net\technologies\RenderStack.LightWave\bin\x64\Debug\RenderStack.Geometry.dll
-C:\git\renderstack_net\technologies\RenderStack.LightWave\bin\x64\Debug\RenderStack.Math.dll
-C:\git\renderstack_net\technologies\RenderStack.LightWave\bin\x64\Debug\RenderStack.Geometry.pdb
-C:\git\renderstack_net\technologies\RenderStack.LightWave\bin\x64\Debug\RenderStack.Math.pdb
-C:\git\renderstack_net\technologies\RenderStack.LightWave\obj\x64\Debug\RenderStack.LightWave.csprojResolveAssemblyReference.cache
-C:\git\renderstack_net\technologies\RenderStack.LightWave\obj\x64\Debug\RenderStack.LightWave.dll
-C:\git\renderstack_net\technologies\RenderStack.LightWave\obj\x64\Debug\RenderStack.LightWave.pdb

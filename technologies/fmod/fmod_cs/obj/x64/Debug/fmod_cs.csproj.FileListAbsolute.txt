@@ -1,4 +1,0 @@
-C:\git\renderstack_net\technologies\fmod\fmod_cs\bin\x64\Debug\fmod_cs.dll
-C:\git\renderstack_net\technologies\fmod\fmod_cs\bin\x64\Debug\fmod_cs.pdb
-C:\git\renderstack_net\technologies\fmod\fmod_cs\obj\x64\Debug\fmod_cs.dll
-C:\git\renderstack_net\technologies\fmod\fmod_cs\obj\x64\Debug\fmod_cs.pdb
