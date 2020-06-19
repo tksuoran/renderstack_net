@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.Simple", "examples\renderstack\example.Simple\example.Simple.csproj", "{96225F8F-C828-4FDF-9C0E-D948A29B5FB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.Simple", "examples\RenderStack\example.Simple\example.Simple.csproj", "{96225F8F-C828-4FDF-9C0E-D948A29B5FB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fmod_cs", "technologies\fmod\fmod_cs\fmod_cs.csproj", "{5B8F07B3-3A58-4158-81D2-53F8AA41B201}"
 EndProject
@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nvidia.TextureTools", "tech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTK", "technologies\opentk\Source\OpenTK\OpenTK.csproj", "{A37A7E14-0000-0000-0000-000000000000}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderStack.Geometry", "technologies\renderstack.geometry\RenderStack.Geometry.csproj", "{AB310CA6-3839-4FF3-B838-4A8F3E519207}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderStack.Geometry", "technologies\RenderStack.Geometry\RenderStack.Geometry.csproj", "{AB310CA6-3839-4FF3-B838-4A8F3E519207}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderStack.Graphics", "technologies\RenderStack.Graphics\RenderStack.Graphics.csproj", "{34030B2F-D230-4CFC-8FC7-6045A7B17E29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderStack.Scene", "technologies\RenderStack.Scene\RenderStack.Scene.csproj", "{313B7D0F-B612-4363-B080-6B95AD71B1A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderStack.UI", "technologies\renderstack.ui\RenderStack.UI.csproj", "{04685B14-A959-47F4-A1F8-4B2A9A94AF4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderStack.UI", "technologies\RenderStack.UI\RenderStack.UI.csproj", "{04685B14-A959-47F4-A1F8-4B2A9A94AF4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TargaImage", "technologies\targaimage\TargaImage.csproj", "{56F4BD87-2404-4263-80D5-6FA2161EB0A4}"
 EndProject
