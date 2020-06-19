@@ -1,1 +1,0 @@
-C:\git\renderstack_net\examples\RenderStack\example.VoxelRenderer\obj\x86\Debug\example.VoxelRenderer.csprojResolveAssemblyReference.cache
