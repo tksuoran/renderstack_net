@@ -6,6 +6,8 @@ examples/RenderStack/example.Sandbox/bin
 examples/RenderStack/example.Sandbox/obj
 examples/RenderStack/example.Simple/bin
 examples/RenderStack/example.Simple/obj
+technologies/cadenza/bin
+technologies/cadenza/obj
 technologies/GPUPerfAPI.NET/bin
 technologies/GPUPerfAPI.NET/obj
 technologies/Jitter/bin
